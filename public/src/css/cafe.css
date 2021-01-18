@@ -1,0 +1,93 @@
+@charset "UTF-8";
+body {
+  font-family: vardana, "Ariel Black", メイリオ, sans-serif;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+body section > h2 {
+  letter-spacing: 0.1em;
+  font-size: 40px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+body ul {
+  list-style: none;
+}
+
+body a {
+  text-decoration: none;
+}
+
+header {
+  /* ナビバー */
+  /* ページトップ */
+}
+
+header .container {
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  max-width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: rgba(130, 176, 243, 0.904);
+}
+
+header .container #menu > ul > li > a {
+  color: #d8f148;
+}
+
+header .container #menu > ul > li > a:hover {
+  color: #4ce73e;
+}
+
+header .topcover {
+  background: center/cover url(../img/aich6.JPG);
+  margin-top: 55px;
+  height: 734px;
+}
+
+/* メイン */
+main {
+  /* アクセス */
+}
+
+main .location {
+  padding: 0 0 30px;
+  text-align: center;
+}
+
+main .location h2 {
+  cursor: pointer;
+  border-radius: 30%;
+}
+
+main .location h2:hover {
+  background-color: skyblue;
+  -webkit-transition-duration: 3s;
+          transition-duration: 3s;
+}
+
+main .location p {
+  padding: 12px 20px;
+  margin: 0;
+}
+
+main .textline {
+  border-radius: 10px;
+}
+
+/* 地図 */
+.location-map {
+  width: 100%;
+  text-align: center;
+}
+
+/* 大きさ */
+iframe {
+  width: 100%;
+  height: 250px;
+}
+/*# sourceMappingURL=cafe.css.map */

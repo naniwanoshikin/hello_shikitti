@@ -1,0 +1,20 @@
+{
+  "name": "PF1",
+  "version": "1.0.0",
+  "description": "``` お手軽に管理できるTodoリストを作りました。 リポジトリ: mypf20201108 ``` ![A43CE8CA-2C4B-4145-BBC1-BDC463E53278](https://user-images.githubusercontent.com/67915047/100023253-fa20fc00-2e27-11eb-9a4f-e74bfaa29d3a.jpeg) # description リストの追加・削除に加え、ストックや保存が出来ます。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naniwanoshikin/mypf20201108.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naniwanoshikin/mypf20201108/issues"
+  },
+  "homepage": "https://github.com/naniwanoshikin/mypf20201108#readme"
+}
