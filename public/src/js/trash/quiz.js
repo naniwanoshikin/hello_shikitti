@@ -1,7 +1,7 @@
 'use strict';
 {
   // 各idを定義し取得する
-  const vimg = document.getElementById('vimg');
+  const vimg = document.getElementById('vtest');
   const question = document.getElementById('question');
   const choices = document.getElementById('choices');
   const nextbtn = document.getElementById('nextbtn');
@@ -9,14 +9,20 @@
   // スコア表示（こちらの方が柔軟に表示可）
   const scoreLabel = document.querySelector('#result > p');
 
+
   // クイズデータ（シャッフル機能あり：関数の巻き上げ挙動）
+  // ランダムなwidth値
+  const rand = (Math.floor(Math.random() * 5) + 1) * 2; // * 5つ + 1倍 * 5の倍数
+  console.log(rand);
   const quizSet = shuffle([
-    { q: '<img src="img/↑.png">', c: ['水曜日', '木曜日', '土曜日', '土曜日'] },
-    { q: '<img src="img/→.png">', c: ['パスタ', 'ドリンク', 'モーニング', '土曜日'] },
-    { q: '<img src="img/↓.png">', c: ['白色', '青色', '茶色', '土曜日'] },
-    // 正解はA0番目とする
+    // 正解は0番目とする
+    { q: `<img src="../src/img/jspage/1.png" width="${rand}px">`, c: ['↑', '→', '↓', '←'] },
+    { q: `<img src="../src/img/jspage/2.png" width="${rand}px">`, c: ['→', '↓', '←', '↑'] },
+    { q: `<img src="../src/img/jspage/3.png" width="${rand}px">`, c: ['↓', '←', '↑', '→'] },
+    { q: `<img src="../src/img/jspage/4.png" width="${rand}px">`, c: ['←', '↑', '→', '↓'] },
     // {q: 'what is A?', c: ['A0', 'A1', 'A2']}, // 何このエラー？？
   ]);
+
 
   // 今何問目？
   let currentNum = 0;
@@ -56,11 +62,10 @@
   // 画面表示
   function setQuiz() {
     isAnswered = false; // 未回答だよ
-    // 画像表示
-    vimg.textContent = quizSet[currentNum].q;
-
     // （問題文）
-    question.textContent = quizSet[currentNum].q;
+    // question.textContent = quizSet[currentNum].q; // 文章
+    vimg.innerHTML = quizSet[currentNum].q; // 画像
+
 
     while (choices.firstChild) { // 選択肢：最初の子要素を消す
       choices.firstChild.remove(choices.firstChild);
@@ -80,6 +85,7 @@
       // （正誤判定）クリックしたliの判定
       li.addEventListener('click', () => {
         checkAnswer(li);
+        li.textContent = ""; // 文字消す
       });
 
       // liをulに追加（設定を全部済ませてから追加してやるのがいい）

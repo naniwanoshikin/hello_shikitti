@@ -117,8 +117,13 @@ header .overlay.show li:nth-child(3) {
 }
 
 header .overlay.show li:nth-child(4) {
-  -webkit-transition-delay: 0.8s;
-          transition-delay: 0.8s;
+  -webkit-transition-delay: 0.9s;
+          transition-delay: 0.9s;
+}
+
+header .overlay.show li:nth-child(5) {
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
 }
 
 header .show {
@@ -140,6 +145,7 @@ header .show {
 
 #medias {
   margin-top: 80px;
+  padding-bottom: 50px;
 }
 
 #medias .media {
@@ -164,26 +170,38 @@ header .show {
   background: #fff;
   padding: 16px;
   border-radius: 4px;
-  width: 400px;
+  max-width: 400px;
   position: relative;
 }
 
-.quiz #question {
+.quiz p {
+  margin-top: 0;
   margin-bottom: 16px;
-  font-weight: bold;
+}
+
+.quiz #vtest {
+  text-align: center;
 }
 
 .quiz #choices {
   margin-bottom: 16px;
   padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .quiz #choices li {
   background: #fff;
-  padding: 10px;
+  padding: 2px;
   border-radius: 4px;
+  width: 20%;
+  margin-bottom: 5px;
   border: 1px solid #ccc;
-  margin-bottom: 10px;
+  text-align: center;
   cursor: pointer;
   /* 正解 */
   /* 不正解 */
@@ -198,10 +216,11 @@ header .show {
   color: #155724;
   border-color: #c3e6cb;
   font-weight: bold;
+  font-size: 15px;
 }
 
 .quiz #choices li.correct::after {
-  content: "...correct!";
+  content: "正解!";
 }
 
 .quiz #choices li.wrong {
@@ -209,10 +228,11 @@ header .show {
   color: #721c24;
   border-color: #f5c6cb;
   font-weight: bold;
+  font-size: 15px;
 }
 
 .quiz #choices li.wrong::after {
-  content: "...wrong!";
+  content: "間違い";
 }
 
 .quiz #nextbtn,
@@ -236,10 +256,10 @@ header .show {
 
 .quiz #result {
   background: #fff;
-  padding: 30px;
+  padding: 20px;
   border-radius: 4px;
   position: absolute;
-  width: 300px;
+  max-width: 300px;
   -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -258,12 +278,12 @@ header .show {
 }
 
 .quiz #result > p {
-  font-size: 24px;
+  font-size: 20px;
+  margin: 10px auto;
 }
 
 .quiz #result > a {
   display: block;
-  text-decoration: none;
   margin-top: 20px;
 }
 
@@ -372,8 +392,8 @@ header .show {
     background: #9f842d;
   }
   100% {
-    -webkit-transform: translateX(300px) rotate(360deg);
-            transform: translateX(300px) rotate(360deg);
+    -webkit-transform: translateX(70px) rotate(360deg);
+            transform: translateX(70px) rotate(360deg);
   }
 }
 
@@ -390,8 +410,8 @@ header .show {
     background: #9f842d;
   }
   100% {
-    -webkit-transform: translateX(300px) rotate(360deg);
-            transform: translateX(300px) rotate(360deg);
+    -webkit-transform: translateX(70px) rotate(360deg);
+            transform: translateX(70px) rotate(360deg);
   }
 }
 
@@ -453,7 +473,7 @@ header .show {
 
 .tabs .content {
   display: none;
-  width: 500px;
+  max-width: 500px;
 }
 
 .tabs .content.active {

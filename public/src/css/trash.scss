@@ -59,8 +59,8 @@ header {
     line-height: 60px;
     cursor: pointer;
   }
+  // スマホ用ナビ
   .overlay {
-    // 切替画面
     @include brp($b: rgba(189, 168, 168, 0.7), $p: 60px, $r: 0);
     position: fixed;
     top: 0;
@@ -95,31 +95,35 @@ header {
       transition-delay: 0.3s;
     }
     &:nth-child(4) {
-      transition-delay: 0.8s;
+      transition-delay: 0.9s;
+    }
+    &:nth-child(5) {
+      transition-delay: 0.4s;
     }
   }
+  // menu画面表示
   .show {
-    // menu画面表示
     opacity: 1;
     pointer-events: auto; // 戻す
   }
 }
+// 後ろアイコン消す
 #open.hide {
-  // 後ろアイコン消す
   display: none;
 }
+// 閉じるアイコン
 #close {
-  // 閉じるアイコン
   position: absolute;
   top: 16px;
   right: 16px;
   font-size: 32px;
   cursor: pointer;
 }
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+// Medias ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 #medias {
-  // Medias
   margin-top: 80px;
+  padding-bottom: 50px;
   .media {
     height: 50px;
     line-height: 50px;
@@ -136,36 +140,47 @@ header {
   }
 }
 
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-// クイズ
+// クイズ ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 .quiz {
   @include brp($b: #fff, $p: 16px, $r: 4px);
-  width: 400px;
+  max-width: 400px;
   position: relative;
-  #question {
-    // 問題
+  // 問題
+  p {
+    margin-top: 0;
     margin-bottom: 16px;
-    font-weight: bold;
   }
+  #vtest {
+    // 視力検査
+    text-align: center;
+    // img {
+    //   width: 10%;
+    // };
+  }
+  // 選択肢
   #choices {
-    // 選択肢
     margin-bottom: 16px;
     padding: 0;
+    display: flex;
+    justify-content: space-between;
     li {
-      @include brp($b: #fff, $p: 10px, $r: 4px);
+      @include brp($b: #fff, $p: 2px, $r: 4px);
+      width: 20%;
+      margin-bottom: 5px;
       border: 1px solid #ccc;
-      margin-bottom: 10px;
+      text-align: center;
       cursor: pointer;
       &:hover {
         background: #f8f8f8;
       }
-      @mixin quiz($b: #d4edda, $c: #155724, $bc: #c3e6cb, $after: "...correct!") {
+      @mixin quiz($b: #d4edda, $c: #155724, $bc: #c3e6cb, $after: "正解!") {
         background: $b;
         color: $c;
         border-color: $bc;
         font-weight: bold;
+        font-size: 15px;
         &::after {
-          content: $after; // ...擬似要素をつける
+          content: $after; // 擬似要素をつける
         }
       }
       /* 正解 */
@@ -174,7 +189,7 @@ header {
       }
       /* 不正解 */
       &.wrong {
-        @include quiz($b: #f8d8da, $c: #721c24, $bc: #f5c6cb, $after: "...wrong!");
+        @include quiz($b: #f8d8da, $c: #721c24, $bc: #f5c6cb, $after: "間違い");
       }
     }
   }
@@ -192,10 +207,11 @@ header {
     box-shadow: 0 4px 0 #bbb;
     opacity: 0.7;
   }
+  // 結果
   #result {
-    @include brp($b: #fff, $r: 4px, $p: 30px);
+    @include brp($b: #fff, $r: 4px, $p: 20px);
     position: absolute;
-    width: 300px;
+    max-width: 300px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     top: -100px;
@@ -208,17 +224,17 @@ header {
       transform: translateY(-500px);
     }
     & > p {
-      font-size: 24px;
+      font-size: 20px;
+      margin: 10px auto;
     }
     & > a {
       display: block;
-      text-decoration: none;
       margin-top: 20px;
     }
   }
 }
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-// 数字タッチゲーム
+
+// 数字タッチゲーム ＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 #touch {
   // width: 120px; // JSのクラスで設定済
   @include brp($b: #eee, $p: 0px, $r: 0px);
@@ -292,7 +308,7 @@ header {
       background: hsl(46, 56%, 40%);
     }
     100% {
-      transform: translateX(300px) rotate(360deg);
+      transform: translateX(70px) rotate(360deg);
     }
   }
   &:hover {
@@ -341,7 +357,7 @@ header {
   }
   .content {
     display: none;
-    width: 500px;
+    max-width: 500px;
     &.active {
       @include brp($b: #333, $p: 12px, $r: 8px);
       min-height: 150px;
