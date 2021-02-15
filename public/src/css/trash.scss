@@ -135,40 +135,7 @@ header {
     }
   }
 }
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-// LISTs
-.dom1 {
-  display: inline-block;
-  @include brp();
-  li {
-    cursor: pointer;
-  }
-  .done {
-    // リスト斜線
-    text-decoration: line-through;
-    color: #bbb;
-  }
-}
-.dom2 {
-  @include brp($b: rgb(92, 216, 200));
-  display: inline-block;
-  fieldset {
-    // 選択
-    display: inline;
-  }
-}
-.logo {
-  @include brp($b: rgb(144, 248, 144), $p: 5px, $r: 10px);
-  display: inline;
-  position: relative;
-  top: 10px;
-  right: 60px;
-  transition: transform 1.5s;
-  &:hover {
-    transform: translate(360px, 0);
-    color: red;
-  }
-}
+
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 // クイズ
 .quiz {
@@ -383,119 +350,7 @@ header {
     }
   }
 }
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-// Todos
-.todos {
-  display: flex;
-}
-// Vue.js
-.vue {
-  @include brp($b: linear-gradient(rgba(32, 238, 200, 0.4), rgba(92, 12, 196, 0.5)), $r: 20px, $p: 30px);
-  max-width: calc(180px + 20%);
-  margin: 10px 20px;
-  h3 {
-    // My todos
-    font-size: 22px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    border-bottom: 1px solid #e1f00f;
-    margin-top: 0;
-    span {
-      // (3/9)とか
-      color: #ccc;
-      font-size: 16px;
-      font-weight: nomal;
-      margin-left: 5px;
-    }
-    button {
-      // パージボタン
-      float: right;
-    }
-  }
-  // form {
-  //   input {
-  //     // 追加ボタン
-  //     border-radius: 10px;
-  //     font-size: 16px;
-  //   }
-  // }
-  ul {
-    li {
-      line-height: 1.5;
-      .cmd {
-        // 削除ボタン
-        font-size: 14px;
-        color: rgb(28, 24, 233);
-        margin-left: 10px;
-        cursor: pointer;
-      }
-      .done {
-        // ✔︎したタイトル
-        color: #bbb;
-        text-decoration: line-through;
-      }
-    }
-  }
-  // 入力欄の横
-  input[type="text"] {
-    padding: 2px;
-    margin-right: 5px;
-  }
-  // ✔️の横
-  input[type="checkbox"] {
-    margin-right: 10px;
-  }
-}
-// Todoリスト React.js
-// .todo {
-//   @extend .vue;
-// }
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-.todo {
-  // React.js
-  @include brp($b: linear-gradient(rgba(32, 238, 200, 0.4), rgba(196, 12, 67, 0.4)), $r: 20px, $p: 30px);
-  width: calc(220px + 20%);
-  margin: 10px;
-  // My todos
-  h3 {
-    span {
-      // (3/9)とか
-      color: #ccc;
-      font-size: 16px;
-      font-weight: nomal;
-      margin-left: 5px;
-    }
-    button {
-      // パージボタン
-      float: right;
-    }
-  }
-  ul {
-    li {
-      line-height: 1.5;
-      .cmd {
-        // 削除ボタン
-        cursor: pointer;
-        font-size: 14px;
-        color: rgb(28, 24, 233);
-        margin-left: 10px;
-      }
-      .done {
-        // ✔︎したタイトル
-        text-decoration: line-through;
-        color: #bbb;
-      }
-    }
-  }
-  input[type="text"] {
-    // 入力欄の横
-    padding: 2px;
-    margin-right: 5px;
-  }
-  input[type="checkbox"] {
-    // ✔️の横
-    margin-right: 10px;
-  }
-}
+
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 .slots {
   @mixin btn($w: 90px, $h: 32px, $b: #e9a98b, $c: #eee, $f: 14px, $s: 0 4px 0 #e7510c, $r: 16px) {
@@ -662,9 +517,3 @@ header {
     }
   }
 }
-
-/* list-style-type: circle; */
-// list-style-type: lower-alpha;
-// list-style-position: inside;
-// list-style-image: url(img/icon.png);
-/* list-style: lower-alpha inside url(img/icon.png); */

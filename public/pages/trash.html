@@ -4,7 +4,7 @@
 <head>
   <meta charaset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ごみばこワールド</title>
+  <title>ロジックワールド</title>
   <meta name="description" content="SHIKITTI WORLD">
   <!-- ファビコン -->
   <link rel="icon" href="../src/img/nezcon.ico">
@@ -13,6 +13,7 @@
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <!-- Bootstrap CSS  体裁崩れあり-->
+  <!-- Bootstrap付けるとなぜか①アニメーションが効かなくなった。②CSSのfontsizeとかもデフォルト？になったりした。→Linkタグの位置をCSS読み込みより先に書けばいい？？？ -->
   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
   <!-- scroll Reveall -->
   <script src="https://unpkg.com/scrollreveal"></script>
@@ -41,15 +42,16 @@
 <body>
   <header>
     <div class="domtree">
-      <h1 id="target" data-translation="shikiti World">DOMツリー編</h1>
+      <h1 id="target" data-translation="shikiti World">DOM</h1>
     </div>
     <div class="pcmenu">
       <nav>
         <ul>
           <li><a href="#medias">MEDIA</a></li>
+          <li><a href="#touch">TOUCH</a></li>
           <li><a href="#todos">TODO</a></li>
-          <li><a href="#lists">LIST</a></li>
           <li><a href="#counts">COUNT</a></li>
+          <!-- <li><a href="trash1.html">console1</a></li> -->
         </ul>
       </nav>
     </div>
@@ -69,8 +71,10 @@
       </nav>
     </div>
   </header>
+
   <main>
-    <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+
+    <!-- メディア ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section id="medias">
       <h2>Medias</h2>
       <div class="media">
@@ -80,8 +84,8 @@
         <aside>ad</aside>
       </div>
     </section>
-    <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
-    <!-- クイズ -->
+
+    <!-- クイズ ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section class="quizs">
       <h2>Quizz</h2>
       <div class="quiz">
@@ -101,9 +105,10 @@
         </section>
       </div>
     </section>
-    <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+
+    <!-- BOX ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section id="boxes">
-      <h2>BOXes</h2>
+      <h2>Box</h2>
       <div class="boxanm box">
         <!-- CSSanimation -->
       </div>
@@ -112,9 +117,10 @@
       </div>
       <a href="../index.html" target="_blank">戻る</a>
     </section>
-    <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+
+    <!-- タッチゲーム＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section>
-      <h2>Touches</h2>
+      <h2>Touch</h2>
       <div id="touch">
         <div id="time">0.0</div>
         <ul id="board">
@@ -123,10 +129,10 @@
         <div id="touchbtn">start</div>
       </div>
     </section>
-    <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
-    <!-- タブメニュー -->
+
+    <!-- タブメニュー ＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <div class="tabs">
-      <h2>Tabs</h2>
+      <h2>Tab</h2>
       <ul class="menu">
         <li><a href="#" class="active" data-id="about">概要</a></li>
         <li><a href="#" data-id="service">内容</a></li>
@@ -144,112 +150,25 @@
       </section>
     </div>
 
-    <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
-    <!-- TODOリスト -->
-    <section>
-      <h2 id="todos">TODOs</h2>
-      <div class="todos">
-        <!-- vue.js ここがUI-->
-        <div id="root0" class="vue">
-          <!-- dataからきた（大文字に） -->
-          <h3>
-            <button @click="purge">Purge</button>
-            {{ name }}
-            <span>({{ remaining.length }}/{{ todos.length }})</span>
-          </h3>
-          <!-- UIからdataへ（nameと結びつく） -->
-          <!-- vから始まる属性をディレクティブという -->
-          <p><input type="text" v-model="name"></p>
-          <!-- フォーム v-on -->
-          <form @submit.prevent="addItem">
-            <!-- 入力欄 -->
-            <input type="text" v-model="newItem">
-            <!-- 追加ボタン -->
-            <input type="submit" value="追加">
-          </form>
-          <!-- リスト_ディレクティブ（属性）：v-for -->
-          <ul>
-            <li v-for="(todo, index) in todos">
-              <!-- チェック -->
-              <input type="checkbox" v-model="todo.isDone">
-              <!-- タスク  v-bind  -->
-              <span :class="{done: todo.isDone}">{{ todo.title }}</span>
-              <!-- 削除ボタン -->
-              <span @click="deleteItem(index)" class="cmd">[x]</span>
-            </li>
-            <li v-show="!todos.length">Nothing to do</li>
-          </ul>
-        </div>
-        <!-- React.js -->
-        <div id="root1"></div>
-        <!-- JavaScript -->
-        <!-- <p><a href="todolist/index.html">JavaS</a></p> -->
-      </div>
-    </section>
-    <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
-    <section id="lists">
-      <h2>LISTs</h2>
-      <div class="dom1">
-        <div class="btns1">
-          <button class="btn1">1.Run</button>
-          <!-- 付与ボタン -->
-          <button class="btn2">2.Add</button>
-          <!-- 複製ボタン -->
-          <button class="btn3">3.Clone</button>
-          <!-- 削除ボタン -->
-          <button class="btn4">4.Delete</button>
-        </div>
-        <div class="btns2">
-          <!-- 年齢 選択ボタン -->
-          <select name="" id="age"></select>
-          <button class="btn6">6.Select</button>
-          <!-- ソート -->
-          <button class="btn_sort">↓sort</button>
-          <select class="">
-            <option value="red">赤</option>
-            <option value="yellow">黄</option>
-            <option value="blue">青</option>
-          </select>
-        </div>
-        <div class="btns3">
-          <!-- ラジオボタン -->
-          <input type="radio" name="color" value="red">赤
-          <input type="radio" name="color" value="yellow">黄
-          <input type="radio" name="color" value="blue">青
-          <button class="btn7">7.radio</button>
-        </div>
-        <form action="">
-          <input type="text"> ↩︎
-          <p class="logo">icon</p>
-        </form>
-        <!-- リスト -->
-        <ol id="test">
-          <li>b</li>
-          <li>c</li>
-          <li>a</li>
-        </ol>
-      </div>
-      <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
-      <!-- チェックボックス -->
-      <div class="dom2">
-        <fieldset>
-          <legend>メニューをお選び下さい</legend>
-          <label><input type="checkbox" checked>パスタ</label>
-          <label><input type="checkbox">morning</label>
-          <label><input type="checkbox">blue</label>
-          <label><input type="checkbox">waffle</label>
-        </fieldset>
-      </div>
-    </section>
-    <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <!-- スロットマシーン ＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section class="slots">
-      <h2 id="slot">Slots: <span id="points">0点 0回 確率 11.1%</span></h2>
+      <h2 id="slot">Slot: <span id="points">0点 0回 確率 11.1%</span></h2>
       <div class="mainslot">
         <!-- Panelクラス -->
       </div>
       <div id="spin">SPINNNNN</div>
     </section>
-    <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+
+    <!-- TODOリスト ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <section>
+      <h2 id="todos">TODOs</h2>
+      <div class="todos">
+        <!-- React.js -->
+        <div id="root1"></div>
+      </div>
+    </section>
+
+    <!-- カウントアップ＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section id="counts">
       <h2>COUNTs</h2>
       <div class="timer">
@@ -263,75 +182,58 @@
       </div>
       <!-- React.js -->
       <div id="root2"></div>
-      <!-- react.js -->
-      <div id="reaction"></div>
     </section>
-    <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
-    <!-- サイコロ  React.js-->
-    <secition class="mt-5">
-      <h2>サイコロの目</h2>
+
+    <!-- サイコロ React.js ＝＝＝＝＝＝＝＝ -->
+    <section class="mt-5">
+      <h2>サイコロ</h2>
       <div id="display" class="text-center">
         <p>0</p>
       </div>
       <div class="text-center">
         <button class="btn btn-primary" onclick="refresh()">PUSH</button>
       </div>
-      </section>
-      <!-- JSXなし-->
-      <script>
-        let dom = document.getElementById('display'); //
-        let refresh = () => {
-          let num = Math.floor(Math.random() * 6) + 1;
-          let el = React.createElement( // Reactのプログラム（<p>, 属性, 値）
-            'p', {}, num
-          )
-          ReactDOM.render(el, dom); // レンダリング（表示）する。
-        }
-      </script>
+    </section>
+
   </main>
-  <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+
   <footer>
-    <h2 id="hatenas">Wait for...</h2>
-    <!-- vue.js ここがUI-->
-    <!-- カスタム属性を渡す message -->
-    <div id="root0" class="vuecafe">
-      <p>{{ total }}クリック</p>
-      <like-component id="like-1" message="Like" @increment="incrementTotal"></like-component>
-      <like-component id="like-2" message="Awesome" @increment="incrementTotal"></like-component>
-      <like-component id="like-3" message="Great" @increment="incrementTotal"></like-component>
-      <like-component id="like-4" @increment="incrementTotal"></like-component>
-    </div>
+    <p>END</p>
   </footer>
-  <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
-  <!-- Todolist -->
-  <script src="../src/js/jspage/listbtn.js"></script>
+
+  <!-- JSXなし-->
+  <script>
+    let dom = document.getElementById('display'); //
+    let refresh = () => {
+      let num = Math.floor(Math.random() * 6) + 1;
+      let el = React.createElement( // Reactのプログラム（<p>, 属性, 値）
+        'p', {}, num
+      )
+      ReactDOM.render(el, dom); // レンダリング（表示）する。
+    }
+  </script>
+
   <!-- クイズ -->
-  <script src="../src/js/jspage/quiz.js"></script>
+  <script src="../src/js/trash/quiz.js"></script>
   <!-- 数字タッチゲーム -->
-  <script src="../src/js/jspage/touch.js"></script>
+  <script src="../src/js/trash/touch.js"></script>
   <!-- ボックス -->
-  <script src="../src/js/jspage/boxtouch.js"></script>
+  <script src="../src/js/trash/boxtouch.js"></script>
   <!-- タブ -->
-  <script src="../src/js/jspage/tab.js"></script>
+  <script src="../src/js/trash/tab.js"></script>
   <!-- ストップウオッチ -->
-  <script src="../src/js/jspage/timer.js"></script>
+  <script src="../src/js/trash/timer.js"></script>
   <!-- スロット -->
-  <script src="../src/js/jspage/slot.js"></script>
+  <script src="../src/js/trash/slot.js"></script>
   <!-- メニュー -->
-  <script src="../src/js/jspage/menu.js"></script>
-  <!-- vue.js 本番バージョン、サイズと速度のために最適化 -->
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <!-- todoリスト -->
-  <script src="../src/js/jspage/todovue.js"></script>
-  <!-- カウント -->
-  <script src="../src/js/jspage/countvue.js"></script>
+  <script src="../src/js/trash/menu.js"></script>
 
   <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
   <!-- React babel 読み込み -->
   <script type="text/babel">
     (() => { // 即時関数
-      // Todoアプリ
 
+      // Todoアプリ
       // li要素の中身
       const todos = [
         { id: 0, title: 'Task 0', isDone: false },
@@ -390,7 +292,7 @@
             />
           );
         });
-        return ( // JSX
+        return (
           <ul>
             {props.todos.length ? todos : <li> Nothing to do</li>}
           </ul>
@@ -518,11 +420,10 @@
         //         updateItem={this.updateItem} // 入力値管理
         //         addTodo={this.addTodo} // 追加
         //       />
-        render() { // JSX
+        render() {
           return (
             // 各コンポーネントを作成
             <div className="todo">
-
               <TodoList
                 // リスト内の各属性
                 todos={this.state.todos} // id, title, idDone
@@ -538,41 +439,6 @@
         <Todo />, // コンポーネントクラス
         document.getElementById('root1')
       );
-      //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
-      //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
-      // react babel 読み込み
-      (() => { // 即時関数
-        // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-        // 選択機能
-        // JS部分
-        // Counterの情報を管理
-        class Bpp extends React.Component {
-          constructor(props) {
-            super(props);
-            // 初期の「値」
-            this.state = { name: "忍者わんこ", count: 0 };
-          }
-          // setState→stateの値を変更
-          handleClick(name, count) {
-            this.setState({ name: name }); // nameプロパティの値を変更
-            this.setState({ count: this.state.count + 1 });
-          }
-          render() {
-            console.log(this.state);
-            return ( // 渡せる要素は１つだけ。{}内がJSです。
-              <div>
-                <h1>{this.state.name}が{this.state.count}匹</h1>
-                <button onClick={() => { this.handleClick('ひつじ仙人') }}>ひつじ仙人</button>
-                <button onClick={() => { this.handleClick('忍者わんこ') }}>にんじゃわんこ</button>
-              </div>
-            );
-          }
-        }
-        ReactDOM.render( // JS内
-          <Bpp />, // コンポーネントクラス
-          document.getElementById('reaction') // 読み込み
-        );
-      })();
       //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
       //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
       // カウントアップ機能
@@ -601,22 +467,21 @@
         );
       }
 
-      // Counterの情報を管理
-      class App extends React.Component { // Counterの情報をstateで管理
+      // Counterの情報をstateで管理
+      class App extends React.Component {
         constructor() {
           super();
-          this.state = { // stateの初期値
+          this.state = {
             counters: [ // オブジェクト
               { id: '①', count: 0, color: 'tomato' },
               { id: '②', count: 0, color: 'skyblue' },
               { id: '③', count: 0, color: 'limegreen' },
               { id: '④', count: 0, color: 'yellow' },
             ],
-            total: 0
+            total: 0,
           };
           this.countUp = this.countUp.bind(this); // ★thisがundefinedとならない様に
         }
-        // this.stateに値をセットできるのはconstructor内だけ。
 
         // 押された時の動作機能
         countUp(counter) { // ②クラスのstateの中のcountを変更するためのcountUp関数はAppクラスでしか定義できないのでここでする。
@@ -632,7 +497,7 @@
             }).indexOf(counter.id); // 何番目か調べる。
 
             counters[pos].count++; // countersのpos番目のcountを1増やす
-            // ここで値をセット
+            // ここで値をセット（プロパティの値を変更）
             return {
               counters: counters, // countersのキーで今書き換えたcountersを渡す
               total: prevState.total + 1
@@ -640,11 +505,12 @@
           });
         }
         render() {
+          const name = "クリック"; // →JSXの{}にJSで渡せる
           return (
-            // リストの値は別で管理
             <div className="reactcount">
               <div>{this.state.total}{name.toUpperCase()}</div>
-              <CounterList
+              <CounterList // コンポーネント
+                // リストの値は別で管理
                 counters={this.state.counters}
                 countUp={this.countUp} // ★ stateの値（属性？）を変更できる
               />
@@ -652,9 +518,7 @@
           );
         }
       }
-      const name = "クリック";
       ReactDOM.render(
-        // JSX記述部分。渡せる要素は１つだけ。
         <App />,
         document.getElementById('root2')
       );

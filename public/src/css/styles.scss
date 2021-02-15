@@ -1,4 +1,5 @@
 @charset "utf-8";
+// small screen
 
 // 背景, p, circle
 @mixin brp($b: #eee, $p: 0px, $r: 0px) {
@@ -155,19 +156,44 @@ header {
 }
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 footer {
-  @include brp($b: #323135, $p: 50px 0 50px, $r: 0);
+  @include brp($b: #9b93b8, $p: 50px 0 50px, $r: 0);
   color: #98969c;
   text-align: center;
-  a {
-    display: block;
-    @include acolor;
-  }
   ul {
     padding-left: 22px;
     margin: 0 auto 10px;
     display: inline-flex;
     li {
       padding-right: 20px;
+      a {
+        .fa-github {
+          color: black;
+        }
+        .fa-twitter {
+          color: rgb(106, 202, 240);
+        }
+        .fa-instagram {
+          color: rgb(177, 48, 177);
+        }
+        .fa-youtube {
+          color: red;
+        }
+        &:hover {
+          transition: 2s;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+  p {
+    margin: 0;
+    a {
+      display: inline-block;
+      font-size: 18px;
+      color: rgb(150, 223, 162);
+      &:hover {
+        color: rgb(78, 190, 235);
+      }
     }
   }
 }
@@ -541,12 +567,11 @@ footer {
     // 写真と説明
     @include imgcss;
     .tex {
+      h2 {
+        color: #e0ce68;
+      }
       p {
         padding-bottom: 50px;
-      }
-      a {
-        @include acolor;
-        color: #e0ce68;
       }
     }
   }

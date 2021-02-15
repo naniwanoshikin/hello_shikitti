@@ -142,20 +142,11 @@ header nav ul li a:hover {
 }
 
 footer {
-  background: #323135;
+  background: #9b93b8;
   padding: 50px 0 50px;
   border-radius: 0;
   color: #98969c;
   text-align: center;
-}
-
-footer a {
-  display: block;
-  color: #fff;
-}
-
-footer a:hover {
-  color: #4ebeeb;
 }
 
 footer ul {
@@ -168,6 +159,42 @@ footer ul {
 
 footer ul li {
   padding-right: 20px;
+}
+
+footer ul li a .fa-github {
+  color: black;
+}
+
+footer ul li a .fa-twitter {
+  color: #6acaf0;
+}
+
+footer ul li a .fa-instagram {
+  color: #b130b1;
+}
+
+footer ul li a .fa-youtube {
+  color: red;
+}
+
+footer ul li a:hover {
+  -webkit-transition: 2s;
+  transition: 2s;
+  opacity: 0.5;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer p a {
+  display: inline-block;
+  font-size: 18px;
+  color: #96dfa2;
+}
+
+footer p a:hover {
+  color: #4ebeeb;
 }
 
 .hello {
@@ -683,17 +710,12 @@ footer ul li {
   text-align: justify;
 }
 
-.feature .featlist .tex p {
-  padding-bottom: 50px;
-}
-
-.feature .featlist .tex a {
-  color: #fff;
+.feature .featlist .tex h2 {
   color: #e0ce68;
 }
 
-.feature .featlist .tex a:hover {
-  color: #4ebeeb;
+.feature .featlist .tex p {
+  padding-bottom: 50px;
 }
 
 .city {

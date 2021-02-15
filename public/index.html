@@ -26,7 +26,7 @@
   <!-- chart.js CDN読み込み -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js">
   </script>
-  <!-- react本体 -->
+  <!-- react本体 公開する-->
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <!-- reactの結果をDOMに反映するライブラリ -->
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
@@ -36,12 +36,11 @@
 
 <body>
 
-  <!-- ヘッダー ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
   <header>
     <h1 id="shikitti" class="text-center bg-primary">しきっちワールド</h1>
     <nav>
+      <!-- jQuery -->
       <p class="">
-        <!-- jQuery -->
         <i class="far fa-caret-square-down"></i>
       </p>
       <ul class="navlist">
@@ -52,7 +51,7 @@
       </ul>
     </nav>
   </header>
-  <!-- メイン ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+
   <main>
     <!-- HelloWorld ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section class="hello">
@@ -126,8 +125,8 @@
         </div>
       </div>
     </section>
-    <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
-    <!-- 自己紹介 -->
+
+    <!-- 自己紹介＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section class="about">
       <h1 id="about" data-h1="-">自己紹介</h1>
       <p id="myself">自己紹介をします。</p>
@@ -158,7 +157,7 @@
                 <tr>
                   <td>2006</td>
                   <td>高校</td>
-                  <td>将棋してました</td>
+                  <td>将棋</td>
                 <tr>
                   <td>2012</td>
                   <td>解析</td>
@@ -189,7 +188,7 @@
               <div class="ripple"></div>
             </label>
           </h2>
-          <p>写真・動画編集</p>
+          <p>写真撮影</p>
         </div>
         <!-- スキル一覧 -->
         <div class="back">
@@ -204,53 +203,56 @@
         </div>
       </div>
     </section>
-    <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
-    <!-- 特徴 -->
+
+    <!-- 特徴＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section class="feature">
       <h1 id="feat" data-h1="-">特徴</h1>
-      <p id="see1">それぞれのリンク先です</p>
+      <p id="see1">写真をクリックするとリンク先に飛びます</p>
       <div class="featlist">
+        <!-- その１ -->
         <div class="refeat">
           <div class="pic">
-            <img id="image-preview" src="src/img/cafe1.JPG" alt="カフェ">
+            <a href="pages/cafe.html" target="_blank">
+              <img id="image-preview" src="src/img/cafe1.JPG" alt="カフェ">
+            </a>
             <label class="input-button">
               <input id="image" type="file" />
             </label>
           </div>
           <div class="tex">
-            <h2>
-              <a id="cafe" href="pages/cafe.html" target="_blank">カフェ</a>
-            </h2>
-            <p>カフェサイトです！！！カフェサイトです！！！カフェサイトです！！！カフェサイトです！！！カフェサイトです！！！カフェサイトです！！！カフェサイトです！！！</p>
+            <h2 id="cafe">カフェ</h2>
+            <p>カフェサイトです！<br>※現在閉鎖中です</p>
           </div>
         </div>
+        <!-- その２ -->
         <div class="refeat">
           <div class="pic">
-            <img src="src/img/aich6.JPG" alt="写真2">
+            <a href="pages/tetris.html" target="_blank">
+              <img src="src/img/aich6.JPG" alt="テトリス">
+            </a>
           </div>
           <div class="tex">
-            <h2>
-              <a id="chat" href="pages/tetris.html" target="_blank">テトリス</a>
-            </h2>
+            <h2 id="tet">テトリス</h2>
             <p>こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！</p>
           </div>
         </div>
+        <!-- その３ -->
         <div class="refeat">
           <div class="pic">
-            <img src="src/img/aich3.JPG" alt="写真3">
+            <a href="pages/trash.html" target="_blank">
+              <img src="src/img/aich3.JPG" alt="logic">
+            </a>
           </div>
           <div class="tex">
-            <h2>
-              <a id="trash" href="pages/trash.html" target="_blank">the JS</a>
-            </h2>
+            <h2 id="logic">ロジック</h2>
             <p>機能ページです！！機能ページです！！機能ページです！！機能ページです！！機能ページです！！機能ページです！！機能ページです！！機能ページです！！機能ページです！！機能ページです！！</p>
           </div>
         </div>
       </div>
       <div class="featlist" id="feata"></div>
     </section>
-    <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
-    <!-- 地元紹介 -->
+
+    <!-- 地元紹介＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section class="city">
       <h1 id="town" data-h1="-">地域紹介</h1>
       <p id="see2">ご覧ください。</p>
@@ -296,8 +298,8 @@
         </div>
       </div>
     </section>
-    <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
-    <!-- お問い合わせ -->
+
+    <!-- お問い合わせ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section class="contact">
       <h1 id="contact" data-h1="-">お問い合わせ</h1>
       <p class="free" id="free">
@@ -308,7 +310,7 @@
       <div id="root1"></div>
     </section>
   </main>
-  <!-- フッターー ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+
   <footer>
     <ul>
       <li>
@@ -320,9 +322,7 @@
         </a>
       </li>
       <li>
-        <a class="share"
-          href="https://twitter.com/intent/tweet?text=必見！フォローしましょう&url=https://myportfolio-80107.web.app  @power_of_shikin"
-          target="_blank" rel="nofollow">
+        <a class="share" href="https://twitter.com/power_of_shikin" target="_blank" rel="noreferrer noopener">
           <span class="faa-parent animated-hover">
             <i class="fab fa-twitter fa-2x faa-passing"></i>
           </span>
@@ -344,7 +344,7 @@
         </a>
       </li>
     </ul>
-    <a href="https://spapf-24842.web.app/">© shikitti-Portfolio.2020</a>
+    <p><a href="https://spapf-24842.web.app/">© shikitti-Portfolio.2020</a></p>
   </footer>
 
   <!-- firebase-app -->
@@ -376,13 +376,12 @@
   <script src="src/js/imgfile.js" type="text/javascript" defer></script>
   <!-- React babel 読み込み -->
   <script type="text/babel">
-    (() => { // 即時関数
+    (() => {
 
-      //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
       // スペース削除
       // (@param, @return) = (string, 前後スペースなしstring)
       function spa(string) {
-        return string.replace(/^[ |　]+|[ |　]+$/g, ''); // sだと半角スペースが適用されず,,
+        return string.replace(/^[ |　]+|[ |　]+$/g, '');
       }
       // a@g.com形式であればtrue
       // (@param, @return) = (string, bool)
@@ -404,7 +403,7 @@
             hasContentError: false,
             hasAgeError: false,
             hasRadioError: false,
-            isSubmitted: false,  // 画面状態
+            isSubmitted: false,  // 確認画面状態
           };
         }
         handleName(e) { // 名前を入力した時、
@@ -470,7 +469,7 @@
               + '方法: ' + radio + '\n'
               + '【問い合わせ内容】\n' + content
           };
-          // fetchメソッドでフォーム内容をSlackのIncoming Webhook URL に送信
+          // フォーム内容をSlackのIncoming Webhook URL に送信
           fetch(WEBHOOK_url, {
             method: 'POST',
             body: JSON.stringify(payload)
@@ -487,10 +486,11 @@
           console.log('sent for slack!');
         }
         render() {
-          let NameError; // 名前エラー
-          let AgeError; // 年齢の選択エラー
-          let RadioError; // 連絡方法の選択エラー
-          let ContentError; // お問い合せ内容エラー
+          // エラーメッセージ
+          let NameError; // 名前
+          let AgeError; // 年齢の選択
+          let RadioError; // 連絡方法の選択
+          let ContentError; // お問い合せ内容
           if (this.state.hasNameError) {
             NameError = (
               <p className="error-message">※お名前を入力してください</p>
@@ -532,7 +532,7 @@
           return (
             <div>
               {this.state.isSubmitted
-                ? // 送信後の画面
+                ? // 確認画面
                 <div>
                   <h4>下記内容でよろしいでしょうか？</h4>
                   <hr />
@@ -565,8 +565,8 @@
                         <label htmlFor="name">お名前（必須）</label>
                         <input type="text" id="name" placeholder="大阪太郎"
                           className="textline" autoComplete="off"
-                          value={this.state.name} // 入力値
-                          onChange={(e) => { this.handleName(e) }} // e: string
+                          value={this.state.name}
+                          onChange={(e) => { this.handleName(e) }}
                         />
                         {NameError}
                       </div>
@@ -621,13 +621,12 @@
           );
         }
       }
-      ReactDOM.render( // JS内
-        <ContactForm />, // コンポーネントクラス
+      ReactDOM.render(
+        <ContactForm />,
         document.getElementById('root1')
       );
     })();
   </script>
-  <!-- ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
 
 </body>
 

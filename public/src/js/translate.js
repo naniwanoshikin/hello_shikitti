@@ -51,10 +51,10 @@
     new Toenglish('hobby', 'HOBBY'), // 9 趣味
     new Toenglish('skill', 'SKILL'), // 10 スキル
     new Toenglish('feat', 'WORK'), // 11 特徴
-    new Toenglish('see1', 'Please see below.'), // 12 <p>
-    new Toenglish('cafe', 'cafe'), // 13 <a>
-    new Toenglish('chat', 'chat'), // 14 <a>
-    new Toenglish('trash', 'JScripts'), // 15 <a>
+    new Toenglish('see1', 'Press these images to jump to the link destination.'), // 12 <p>
+    new Toenglish('cafe', 'Cafe'), // 13 <a>
+    new Toenglish('tet', 'Tetris'), // 14 <a>
+    new Toenglish('logic', 'Logics'), // 15 <a>
     new Toenglish('town', 'THE TOWN'), // 16 地域紹介
     new Toenglish('see2', 'Please click below.'), // 17 <p>
     new Toenglish('contact', 'CONTACT'), // 18 お問い合わせ
