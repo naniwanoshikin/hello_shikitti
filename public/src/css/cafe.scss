@@ -94,6 +94,19 @@ main {
       margin: 0;
     }
   }
+  .dom2 {
+    @include brp($b: rgb(92, 216, 200));
+    fieldset {
+      legend {
+        font-size: 16px;
+      }
+      label {
+        font-size: 14px;
+      }
+      // 選択
+      display: inline;
+    }
+  }
   // お問い合わせ
   .textline {
     border-radius: 10px;
