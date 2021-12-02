@@ -365,8 +365,8 @@ footer a:hover {
 }
 
 .quiz #result.hidden {
-  -webkit-transform: translateX(-1000px);
-          transform: translateX(-1000px);
+  -webkit-transform: translateX(-1200px);
+          transform: translateX(-1200px);
 }
 
 .quiz #result > p {
