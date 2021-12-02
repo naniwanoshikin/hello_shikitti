@@ -8,7 +8,7 @@
 リストの追加・削除、ストックや保存が出来ます。
 
 # Hosting
-firebaseを用いて作成した[Webページ](https://myfirstlp.web.app)を公開しています。
+firebaseを用いて[Webページ](https://myfirstlp.web.app)を公開しています。
 
 # 実装機能
 ```

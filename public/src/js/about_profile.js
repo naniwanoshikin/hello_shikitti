@@ -4,12 +4,12 @@
   const face = document.getElementById('face');
   const img = document.createElement('img');
   face.appendChild(img);
-  newface();
   function newface() {
     let num = Math.floor(Math.random() * 3) + 1;
     img.src = `src/img/face${num}.jpeg`;
   }
-  face.addEventListener('click', () => {
+  newface();
+  img.addEventListener('click', () => {
     newface();
   });
 
