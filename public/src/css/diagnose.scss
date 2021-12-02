@@ -292,7 +292,7 @@ footer {
     margin: 0 auto;
     transition: 0.8s;
     &.hidden {
-      transform: translateY(-1100px); // 初期位置
+      transform: translateX(-500px); // 初期位置
     }
     & > p {
       font-size: 20px;
