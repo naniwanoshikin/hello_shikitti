@@ -217,10 +217,10 @@ footer {
 
 // クイズ ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 .quiz {
+  // border: 2px solid #fff;
+  // border-radius: 4px;
   max-width: 400px; // レスポンシブ用
   margin: 8px auto;
-  border: 2px solid #fff;
-  border-radius: 4px;
   padding: 16px;
   position: relative; // スコア画面に対して
   user-select: none;
@@ -313,12 +313,12 @@ footer {
   // width: jsで動的に設定
   margin: 16px auto;
   padding-bottom: 10px; // つけた
+  // ul
   #board {
-    // ul
+    // background: #fff;
+    // border-radius: 4px;
     margin: 0 0 8px;
     padding: 10px; // -> js
-    background: #fff;
-    border-radius: 4px;
     display: flex;
     flex-wrap: wrap;
     li {
@@ -378,7 +378,7 @@ footer {
   .mainslot {
     @include brp($b: #eee, $r: 12px, $p: 20px);
     width: 300px;
-    border: 4px solid #fff;
+    border: 2px solid #fff;
     margin: 16px auto;
     display: flex;
     justify-content: space-between;
