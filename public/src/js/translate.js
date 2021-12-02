@@ -102,7 +102,7 @@
     ['skill', 'SKILL', 'スキル'], // 16
     ['cafe', 'Cafe', 'カフェ'], // 17 <a>
     ['tet', 'Tetris', 'テトリス'], // 18 <a>
-    ['logic', 'Logics', '診断チェックです'], // 19 <a>
+    ['logic', 'Diagnose', '診断チェック'], // 19 <a>
   ];
 
   const englishWords = [];
