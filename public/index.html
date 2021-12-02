@@ -2,92 +2,86 @@
 <html lang="ja">
 
 <head>
-  <meta charaset="utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SHIKITTI WORLD</title>
   <meta name="description" content="SHIKITTI WORLDです">
-  <link rel="icon" href="src/img/nezcon.ico">
-  <!-- CSS -->
+  <link rel="icon" href="nezcon.ico">
   <link rel="stylesheet" href="src/css/styles.css">
-  <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <!-- todolistドラック&ドロップ -->
-  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-  <!-- scroll Reveall -->
-  <script src="https://unpkg.com/scrollreveal"></script>
   <!-- CSS版 font-awesome CDN -->
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <!-- font-awesome-animation -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css"
     type="text/css" media="all" />
-  <!-- Material icon ハートマーク -->
+  <!-- ハートマーク -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- chart.js CDN読み込み -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js">
-  </script>
-  <!-- react本体 公開する-->
+  <!-- jQuery: headerに関するスクロールを3つだけ -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!-- Todolist ドラック&ドロップ -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  <!-- scroll Reveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <!-- お問い合わせ部 react CDN -->
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <!-- reactの結果をDOMに反映するライブラリ -->
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-  <!-- JSXを使うためのBabelライブラリ -->
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 
 <body>
 
   <header>
-    <h1 id="shikitti" class="text-center bg-primary">しきっちワールド</h1>
+    <h1 id="shiki" class="text-center bg-primary">しきっちワールド</h1>
     <nav>
-      <!-- jQuery -->
-      <p class="">
+      <p>
         <i class="far fa-caret-square-down"></i>
       </p>
       <ul class="navlist">
-        <li><a href="#about" id="nav1">自己紹介</a></li>
-        <li><a href="#feat" id="nav2">特徴</a></li>
-        <li><a href="#town" id="nav3">地域紹介</a></li>
-        <li><a href="#contact" id="nav4">お問い合わせ</a></li>
+        <li><a id="nav1" href="#about">自己紹介</a></li>
+        <li><a id="nav2" href="#work">特徴</a></li>
+        <li><a id="nav3" href="#town">地域紹介</a></li>
+        <li><a id="nav4" href="#contact">お問い合わせ</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <!-- HelloWorld ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <!-- FirstView ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section class="hello">
       <div>
         <div id="japanese" class="hidden">日本語</div>
-        <div id="english" class="">English</div>
+        <div id="english">English</div>
       </div>
       <h1 id="world">Hello World</h1>
       <!-- ★ Todos ★ -->
-      <div class="atodos">
-        <ul class="menu">
-          <li class="first" data-id="tdcontent1">
+      <div class="mytodos">
+        <!-- JS -->
+        <ul class="tab">
+          <li class="first" data-id="content_td1">
             <h3>Todos</h3>
             <p>
               <!-- ( 2 / 3 ) -->
             </p>
           </li>
-          <li class="second" data-id="tdcontent2">
+          <li class="second" data-id="content_td2">
             <h3>Stocks</h3>
             <p>
               <!-- ( 2 / 3 ) -->
             </p>
           </li>
         </ul>
-        <!-- 内容 todos -->
-        <div id="tdcontent1" class="tdcontent">
-          <!-- ボタン -->
+        <!-- 内容 Todos -->
+        <div class="content_td" id="content_td1">
+          <!-- ボタン集 -->
           <div class="btns">
-            <i class="fas fa-filter fa-lg"></i>
-            <i class="far fa-save fa-lg"></i>
-            <i class="fas fa-trash-alt fa-lg"></i>
-            <i class="fas fa-pen-alt fa-lg"></i>
+            <i class="fas fa-lg fa-filter"></i>
+            <i class="far fa-lg fa-save"></i>
+            <i class="fas fa-lg fa-trash-alt"></i>
+            <i class="fas fa-lg fa-pen-alt"></i>
             <div id="login">login</div>
             <div id="logout">logout</div>
           </div>
-          <!-- フィルターform -->
+          <!-- フィルター -->
           <form id="searchform" autocomplete="off">
             <input type="text" class="textline" placeholder="Filter">
           </form>
@@ -97,17 +91,17 @@
             <!-- 曜日選択 -->
             <select id="pcost"></select>
           </form>
-          <!-- リスト -->
+          <!-- リスト1 -->
           <ul id="todos1"></ul>
         </div>
         <!-- 内容 stocks -->
-        <div id="tdcontent2" class="tdcontent">
-          <!-- ボタン -->
+        <div class="content_td" id="content_td2">
+          <!-- ボタン集 -->
           <div class="btns">
-            <i class="fas fa-user-plus fa-lg"></i>
-            <i class="fas fa-user-check fa-lg"></i>
-            <i class="fas fa-sort-alpha-down fa-lg"></i>
-            <i class="fas fa-undo-alt fa-lg"></i>
+            <i class="fas fa-lg fa-user-plus"></i>
+            <i class="fas fa-lg fa-user-check"></i>
+            <i class="fas fa-lg fa-sort-alpha-down"></i>
+            <i class="fas fa-lg fa-undo-alt"></i>
           </div>
           <!-- 選択ボックス -->
           <form id="checkform">
@@ -116,7 +110,7 @@
             <input type="checkbox" value="カメラ" id="3"><label for="3">写真</label>
             <input type="submit" value="↩︎">
           </form>
-          <!-- 入力フォーム -->
+          <!-- 入力 -->
           <form id="addform">
             <input type="text" class="textline" placeholder="Add...↩︎">
           </form>
@@ -129,17 +123,14 @@
     <!-- 自己紹介＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section class="about">
       <h1 id="about" data-h1="-">自己紹介</h1>
-      <p id="myself">自己紹介をします。</p>
+      <p id="dsc1">自己紹介します。</p>
       <div class="frontback">
         <div class="front">
-          <div id="face">
-            <!-- img -->
-          </div>
+          <!-- 写真 -->
+          <div id="face"></div>
           <h2 id="profile">プロフィール</h2>
-          <p>しきっち / 1991年生まれ / <span id="open" class="">詳細</span></p>
-          <!-- マスク -->
+          <p>しきっち / 1991年生まれ / <span id="open">経歴</span></p>
           <div id="mask" class="hidden"></div>
-          <!-- モーダルウィンドウ -->
           <div id="modal" class="hidden">
             <p>経歴</p>
             <table border="1" width="320" cellpadding="6" bordercolor="#333333">
@@ -160,8 +151,8 @@
                   <td>将棋</td>
                 <tr>
                   <td>2012</td>
-                  <td>解析</td>
-                  <td>橋脚</td>
+                  <td>研究</td>
+                  <td>橋脚の解析</td>
                 <tr>
                   <td>2016</td>
                   <td>設計</td>
@@ -188,13 +179,13 @@
               <div class="ripple"></div>
             </label>
           </h2>
-          <p>写真撮影</p>
+          <p>写真</p>
         </div>
         <!-- スキル一覧 -->
         <div class="back">
           <h2 class="skill" id="skill">スキル</h2>
           <!-- グラフ -->
-          <div class="chart" id="jschart" title="PHP, JavaScriptを学習中です">
+          <div class="chart" id="jschart" title="JavaScriptを学習中です">
             <!-- 幅は比率。→divで囲った。 -->
             <canvas id="my_chart" width="1" height="1">
               Canvas not supported...
@@ -204,110 +195,104 @@
       </div>
     </section>
 
-    <!-- 特徴＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <!-- 特徴: 交差監視 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section class="feature">
-      <h1 id="feat" data-h1="-">特徴</h1>
-      <p id="see1">写真をクリックするとリンク先に飛びます</p>
-      <div class="featlist">
-        <!-- その１ -->
-        <div class="refeat">
-          <div class="pic">
+      <h1 id="work" data-h1="-">特徴</h1>
+      <p id="dsc2">各コンテンツ先へ飛びます</p>
+      <div class="works">
+        <!-- 脳トレ -->
+        <div class="work">
+          <div class="desc">
+            <h2 id="logic"><a href="pages/diagnose.html" target="_blank">脳トレ診断</a></h2>
+            <p>脳トレゲーム用に診断チェックを作成しました。運を試したり、視力検査だったり、クイズやタイムアタックがあります。ぜひ遊んでください！</p>
+          </div>
+          <div class="pic from_left">
+            <a href="pages/diagnose.html" target="_blank">
+              <img src="src/img/checkup.jpg" alt="健康診断">
+            </a>
+          </div>
+        </div>
+        <!-- テトリス -->
+        <div class="work">
+          <div class="desc">
+            <h2 id="tet"><a href="pages/tetris.html" target="_blank">テトリス</a></h2>
+            <p>PC用テトリスです。上からブロックが落ちてくるので画面に埋もれないようにうまく捌いていきましょう。いろんな色が現れます。※矢印キーが効かないためPC専用の操作になります。</p>
+          </div>
+          <div class="pic from_right">
+            <a href="pages/tetris.html" target="_blank">
+              <img src="src/img/tetris.jpg" alt="テトリス">
+            </a>
+          </div>
+        </div>
+        <!-- カフェ -->
+        <div class="work">
+          <div class="desc">
+            <h2 id="cafe"><a href="pages/cafe.html" target="_blank">カフェ</a></h2>
+            <p>カフェサイトです。<br>※現在閉鎖中</p>
+          </div>
+          <div class="pic from_left">
             <a href="pages/cafe.html" target="_blank">
-              <img id="image-preview" src="src/img/cafe1.JPG" alt="カフェ">
+              <img id="image-preview" src="src/img/cafe.jpg" alt="カフェ">
             </a>
             <label class="input-button">
               <input id="image" type="file" />
             </label>
           </div>
-          <div class="tex">
-            <h2 id="cafe">カフェ</h2>
-            <p>カフェサイトです！<br>※現在閉鎖中です</p>
-          </div>
-        </div>
-        <!-- その２ -->
-        <div class="refeat">
-          <div class="pic">
-            <a href="pages/tetris.html" target="_blank">
-              <img src="src/img/aich6.JPG" alt="テトリス">
-            </a>
-          </div>
-          <div class="tex">
-            <h2 id="tet">テトリス</h2>
-            <p>こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！こんばんは！！</p>
-          </div>
-        </div>
-        <!-- その３ -->
-        <div class="refeat">
-          <div class="pic">
-            <a href="pages/trash.html" target="_blank">
-              <img src="src/img/aich3.JPG" alt="logic">
-            </a>
-          </div>
-          <div class="tex">
-            <h2 id="logic">ロジック</h2>
-            <p>機能ページです！！機能ページです！！機能ページです！！機能ページです！！機能ページです！！機能ページです！！機能ページです！！機能ページです！！機能ページです！！機能ページです！！</p>
-          </div>
         </div>
       </div>
-      <div class="featlist" id="feata"></div>
     </section>
 
     <!-- 地元紹介＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section class="city">
       <h1 id="town" data-h1="-">地域紹介</h1>
-      <p id="see2">ご覧ください。</p>
-      <ul>
-        <li class="slide active">
-          <img src="src/img/aich1.JPG">
-          <div class="tex">
-            <h2>一宮市</h2>
-            <p>こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！</p>
-          </div>
-        </li>
-        <li class="slide">
-          <img src="src/img/aich2.JPG">
-          <div class="tex">
-            <h2>岩倉市</h2>
-            <p>こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！</p>
-          </div>
-        <li class="slide">
-          <img src="src/img/aich3.JPG">
-          <div class="tex">
-            <h2>江南市</h2>
-            <p>こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！</p>
-          </div>
-          </div>
-        </li>
-        <li class="slide">
-          <img src="src/img/aich4.JPG">
-          <div class="tex">
-            <h2>小牧市</h2>
-            <p>こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！</p>
-          </div>
-        </li>
-      </ul>
-      <div class="change-wrapper">
-        <div class="change prev">◀️</div>
-        <div class="change next">▶️</div>
-        <!-- 番号 -->
-        <div class="hide-wrapper">
-          <div class="hide" id="">1</div>
-          <div class="hide" id="">2</div>
-          <div class="hide" id="">3</div>
-          <div class="hide" id="">4</div>
+      <p id="dsc3">ご覧ください。</p>
+      <div class="city_box">
+        <!-- 画像 -->
+        <div class="container">
+          <ul class="pic">
+            <li><img src="src/img/aich1.JPG"></li>
+            <li><img src="src/img/aich2.JPG"></li>
+            <li><img src="src/img/aich3.JPG"></li>
+            <li><img src="src/img/aich4.JPG"></li>
+          </ul>
+          <button id="prev">&laquo;</button>
+          <button id="next">&raquo;</button>
         </div>
+        <!-- 説明文 -->
+        <ul class="desc">
+          <li>
+            <h2>一宮市</h2>
+            <p>こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！</p>
+          </li>
+          <li>
+            <h2>岩倉市</h2>
+            <p>こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！</p>
+          </li>
+          <li>
+            <h2>江南市</h2>
+            <p>こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！</p>
+          </li>
+          <li>
+            <h2>小牧市</h2>
+            <p>こんにちわ</p>
+          </li>
+        </ul>
       </div>
+      <!-- 丸ボタン -->
+      <nav></nav>
     </section>
 
     <!-- お問い合わせ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section class="contact">
       <h1 id="contact" data-h1="-">お問い合わせ</h1>
-      <p class="free" id="free">
-        <span class="faa-parent animated-hover"><i class="fas fa-envelope fa-lg faa-ring"></i></span>
+      <p class="free" id="dsc4">
+        <span class="faa-parent animated-hover">
+          <i class="fas fa-envelope fa-lg faa-ring"></i>
+        </span>
         お気軽にご連絡ください。
       </p>
       <!-- React.js-->
-      <div id="root1"></div>
+      <div id="root0"></div>
     </section>
   </main>
 
@@ -347,33 +332,39 @@
     <p><a href="https://spapf-24842.web.app/">© shikitti-Portfolio.2020</a></p>
   </footer>
 
-  <!-- firebase-app -->
+  <!-- 機能別: app, cloud_firestore, 匿名ログイン認証 -->
   <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
-  <!-- cloud firestore リアルタイムに更新 -->
   <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
-  <!-- ログイン認証用 ※匿名 -->
   <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
   <script src="src/js/todos_fire0.js"></script>
+
   <!-- Todoリスト firebaseあり -->
-  <script src="src/js/todos_fire1.js" type=""></script>
-  <!-- Todoリスト firebaseなし-->
-  <script src="src/js/todos_stocks.js" type=""></script>
-  <!-- TodoリストSort -->
-  <script src="src/js/todosort.js" type=""></script>
-  <!-- ナビスクロール -->
-  <script src="src/js/anyscroll.js" type=""></script>
-  <!-- scrollReveal機能 -->
-  <script src="src/js/animatescroll.js" type=""></script>
-  <!-- 英訳日本語訳 -->
-  <script src="src/js/translate.js" type=""></script>
-  <!-- タブメニュー -->
-  <script src="src/js/menu.js" type=""></script>
-  <!-- 自己紹介機能 -->
-  <script src="src/js/about.js" type=""></script>
-  <!-- chart.js -->
-  <script src="src/js/skillchart.js" type=""></script>
-  <!-- 画像読み込み -->
-  <script src="src/js/imgfile.js" type="text/javascript" defer></script>
+  <script src="src/js/todos_fire1.js"></script>
+  <!-- Todoリスト stocks-->
+  <script src="src/js/todos_stocks.js"></script>
+  <!-- Todoリスト Sort -->
+  <script src="src/js/todos_sort.js"></script>
+  <!-- Todoリスト タブ -->
+  <script src="src/js/todos_tab.js"></script>
+
+  <!-- スクロール jQuery -->
+  <script src="src/js/scroll_nav.js"></script>
+  <!-- スクロール Reveal -->
+  <script src="src/js/scroll_reveal.js"></script>
+  <!-- 英訳⇄日本語訳 -->
+  <script src="src/js/translate.js"></script>
+
+  <!-- 自己紹介 プロフィール -->
+  <script src="src/js/about_profile.js"></script>
+  <!-- 自己紹介 スキル: chart.js(CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script src="src/js/about_skill.js"></script>
+  <!-- 特徴部 画像: 交差監視 -->
+  <script src="src/js/work_iob.js"></script>
+  <!-- 特徴部 画像: セット -->
+  <script src="src/js/work_file.js" defer></script>
+  <!-- 地域紹介 カルーセル -->
+  <script src="src/js/city_slide.js"></script>
   <!-- React babel 読み込み -->
   <script type="text/babel">
     (() => {
@@ -623,7 +614,7 @@
       }
       ReactDOM.render(
         <ContactForm />,
-        document.getElementById('root1')
+        document.getElementById('root0')
       );
     })();
   </script>

@@ -1,7 +1,6 @@
 @charset "utf-8";
-// small screen
 
-// 背景, p, circle
+// 背景, padding, 丸み
 @mixin brp($b: #eee, $p: 0px, $r: 0px) {
   background: $b;
   padding: $p;
@@ -15,47 +14,48 @@
   @content;
 }
 // リンクの色
-@mixin acolor {
-  color: #fff;
+@mixin link_color($c: #fff, $hc: rgb(78, 190, 235), $ac: pink) {
+  color: $c;
+  transition: 0.2s;
   &:hover {
-    color: rgb(78, 190, 235);
+    color: $hc;
+  }
+  &:active {
+    color: $ac;
   }
 }
-// 写真・説明
-@mixin imgcss {
-  img {
-    width: 90%;
-    border-radius: 10px;
-    vertical-align: bottom;
-  }
-  .tex {
-    padding: 0 30px;
-    p {
-      text-align: justify;
-    }
-  }
-}
-// ボタン
-@mixin btn($b: #eee, $p: 0, $r: 0, $c: #eee, $fs: 16px) {
-  @include brp($b: $b, $p: $p, $r: $r);
+// 押しボタン
+@mixin dent_btn($b: #eee, $p: 0, $r: 0, $c: #eee, $fs: 16px, $shadowc: #666666, $bordc: #eee) {
+  background: $b;
+  padding: $p;
+  border-radius: $r;
   color: $c;
   font-size: $fs;
+  border: 1px solid $bordc;
   cursor: pointer;
+  text-align: center;
+  transition: 0.2s;
+  box-shadow: 3px 3px 6px $shadowc;
   &:hover {
     opacity: 0.9;
+    box-shadow: none;
   }
 }
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-/* small screen */
 body {
   font-family: vardana, "Ariel Black", メイリオ, sans-serif;
   color: #333;
   margin: 0;
+  ul {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
   h1 {
     font-weight: normal;
     text-align: center;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    // font-style: italic;
     letter-spacing: 0.25em;
     transition: 1s;
     // translate.js ＝＝＝＝＝＝＝＝＝＝＝＝
@@ -72,12 +72,6 @@ body {
     margin: 20px 10% 20px;
     border-bottom: 2px solid rgb(178, 223, 15);
   }
-  ul {
-    list-style: none;
-  }
-  a {
-    text-decoration: none;
-  }
   main {
     opacity: 0.9;
     line-height: 2;
@@ -92,7 +86,6 @@ body {
         text-decoration: underline;
         &::before,
         &::after {
-          // h1前後に擬似要素
           content: attr(data-h1);
         }
       }
@@ -109,28 +102,25 @@ header {
   @include wh($w: 100%, $h: 60px) {
     line-height: 60px;
   }
-  box-sizing: border-box;
   display: flex;
-  justify-content: space-between; // 余白を等間隔で作る
+  justify-content: space-between;
+  box-sizing: border-box;
   position: fixed;
   top: 0;
   z-index: 10;
   user-select: none;
   h1 {
-    @include acolor;
     margin: 0;
-    font-size: 18px; // 20px以上だとスマホ画面で詰まる為
-    transition: all 300ms 0s ease; // ホバーの動き
+    font-size: 18px; // 20px以上だとスマホ画面で詰まる
     cursor: pointer;
+    transition: all 300ms 0s ease; // ホバーの動き
+    @include link_color;
     &:hover {
       font-size: 20px;
     }
-    &:active {
-      color: green;
-    }
   }
   nav {
-    // ナビバー▼
+    // スマホアイコン▼
     p {
       margin: 0;
       padding: 0;
@@ -139,6 +129,7 @@ header {
       text-align: right;
       cursor: pointer;
     }
+    // メニュー
     ul {
       @include brp($b: rgba(34, 49, 52, 1), $p: 0 20px, $r: 0 0 20px 20px);
       display: none;
@@ -148,8 +139,11 @@ header {
       li {
         margin-left: 15px;
         a {
-          @include acolor;
+          @include link_color;
         }
+        // &:hover {
+        //   background-color: turquoise;
+        // }
       }
     }
   }
@@ -190,36 +184,24 @@ footer {
     a {
       display: inline-block;
       font-size: 18px;
-      color: rgb(150, 223, 162);
-      &:hover {
-        color: rgb(78, 190, 235);
-      }
+      transition: 0.2s;
+      @include link_color($c: rgb(37, 37, 136), $hc: rgb(150, 223, 162));
     }
   }
 }
-// First View ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// FirstView ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 .hello {
   @include brp($b: center/cover url(../img/aich0.JPG), $p: 15px 10px 0, $r: 0);
   margin-top: 60px;
   color: white;
-  overflow: auto; // 可変スクロール
+  overflow: auto;
   user-select: none;
-  // 英訳
+  // 英訳ボタン js
   #english,
   #japanese {
-    @include btn($b: #d4b766, $p: 2px 10px, $r: 13px, $c: rgb(0, 0, 0), $fs: 14px);
     @include wh($w: 50px, $h: 26px);
-    margin-right: 18px;
-    margin-left: auto;
-    border: 1px solid #ebe841;
-    box-shadow: 3px 3px 6px #5e5050;
-    transition: 0.3s;
-    text-align: center;
-    &:hover {
-      color: blue;
-      font-size: 14px;
-      box-shadow: none;
-    }
+    @include dent_btn($b: #d4b766, $p: 2px 10px, $r: 10px, $c: rgb(0, 0, 0), $fs: 14px, $shadowc: #adcfa3, $bordc: #aaeb41);
+    margin: 0 18px 0 auto;
   }
   // hello world
   h1 {
@@ -228,20 +210,20 @@ footer {
     text-decoration: none;
     transition: 1s;
   }
-  // 非表示（ログインアウト、English⇄日本語）
+  // （ログインアウト、English⇄日本語）
   .hidden {
     display: none;
   }
 }
 // Todoリスト ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-.atodos {
+.mytodos {
   @include brp($b: linear-gradient(rgba(204, 238, 11, 0.4), rgba(92, 12, 196, 0.3)), $p: 25px, $r: 20px);
   // active表示
   $active-color: rgba(180, 166, 166, 0.3);
   margin: 10px auto;
   max-width: 360px;
   // タブメニュー
-  .menu {
+  .tab {
     padding: 0;
     display: flex;
     margin: 0 10px;
@@ -288,7 +270,7 @@ footer {
     }
   }
   // コンテンツ全体
-  .tdcontent {
+  .content_td {
     display: none;
     &.active {
       @include brp($b: $active-color, $p: 10px 0, $r: 10px);
@@ -325,8 +307,7 @@ footer {
     #login,
     #logout,
     #pcost {
-      @include btn($b: rgb(239, 240, 184), $p: 0, $r: 5px, $c: rgb(0, 0, 0), $fs: 14px);
-      border: thin solid #969191;
+      @include dent_btn($b: rgb(215, 230, 130), $p: 0, $r: 8px, $c: rgb(0, 0, 0), $fs: 14px, $bordc: #7eac82);
     }
     #login,
     #logout {
@@ -451,30 +432,26 @@ footer {
         margin: 0 auto;
         border-radius: 50%;
         cursor: pointer;
+        box-shadow: 0 7px #575639;
         &:hover {
           opacity: 0.9;
         }
-        box-shadow: 0 7px #575639;
         &:active {
-          box-shadow: none;
           box-shadow: 0 2px #575639;
-          position: relative;
-          top: 5px;
+          transform: translateY(5px);
         }
       }
     }
     // modalボタン
     #open {
-      @include btn($b: #eee, $p: 0px 6px, $r: 10px, $c: rgb(224, 71, 71), $fs: 14px);
+      @include dent_btn($b: #eee, $p: 0px 6px, $r: 10px, $c: rgb(224, 71, 71), $fs: 14px, $bordc: rgb(41, 52, 218));
       display: inline-block;
-      border: 1px solid rgb(41, 52, 218);
       box-shadow: 2px 4.5px 3px #110f0f;
       // へっこむ
       &:hover {
-        box-shadow: 2px 3.8px 3px #080808;
+        box-shadow: 1.0px 3.5px 2.4px #080808;
         position: relative;
-        top: 0.7px;
-        transition: 0.3s;
+        top: 1.0px;
       }
       &:active {
         box-shadow: none;
@@ -505,7 +482,6 @@ footer {
       margin: 0 auto;
       position: fixed;
       z-index: 2;
-      /* アニメーション表示 */
       transition: transform 0.4s;
       & > p {
         margin: 0 0 20px;
@@ -530,18 +506,38 @@ footer {
     }
   }
 }
+
 // 特徴 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 .feature {
   border-radius: 50px;
   margin: 20px auto;
-  .featlist {
+  .works {
     margin: 0 20px;
     text-align: center;
-    .refeat {
+    .work {
+      padding-bottom: 30px;
+      .desc {
+        padding: 0 30px;
+        a {
+          @include link_color($c: brown, $hc: rgb(189, 101, 29));
+        }
+        p {
+          text-align: justify;
+        }
+      }
       .pic {
+        display: inline-block; // 中央揃え効かす用
+        max-width: 550px; // レスポンシブ用
         position: relative;
-        // height: 180px;
-        // width: 320px;
+        img {
+          width: 90%; // 外すと巨大サイズになる
+          border-radius: 10px;
+          vertical-align: bottom;
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+        // (+)部
         input {
           display: none;
         }
@@ -562,70 +558,107 @@ footer {
           }
           text-align: center;
         }
-      }
-    }
-    // 写真と説明
-    @include imgcss;
-    .tex {
-      h2 {
-        color: #e0ce68;
-      }
-      p {
-        padding-bottom: 50px;
+        // 画像の交差監視 js
+        opacity: 0;
+        transition: opacity 0.3s, transform 0.3s;
+        &.from_left {
+          transform: translateX(-30px);
+        }
+        &.from_right {
+          transform: translateX(10px);
+        }
+        &.appear {
+          opacity: 1;
+          transform: none;
+        }
       }
     }
   }
 }
+
 // 地元紹介 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 .city {
-  @include brp($b: #f2f2f3, $p: 6px 12px, $r: 50px);
-  margin: 20px auto;
-  ul {
-    padding: 0;
-    .active {
-      display: block;
-      margin: 0;
-    }
-    li {
-      display: none;
-      text-align: center;
-      // 写真と説明
-      @include imgcss;
-    }
-  }
-  /* 切替ボタン */
-  .change-wrapper {
-    font-size: 18px;
-    margin: 0px 80px;
-    &:after {
-      content: "";
-      clear: both;
-      display: block;
-    }
-    .prev {
-      cursor: pointer;
-      float: left;
-      display: none;
-    }
-    .next {
-      cursor: pointer;
-      float: right;
-    }
-    /* 番号 */
-    .hide-wrapper {
-      font-size: 16px;
-      margin: 0px 0 20px 0;
-      text-align: center;
-      .hide {
-        @include brp($b: #e0f5ff, $p: 6px 12px, $r: 50%);
-        display: inline-block;
-        cursor: pointer;
-        color: #4e90af;
-        &:hover {
-          color: #fff;
-          background-color: #5cabd0;
+  @include brp($b: #f2f2f3, $p: 6px 20px, $r: 50px);
+  width: 90%;
+  margin: 16px auto;
+  .city_box {
+    .container {
+      margin: 0 10px; // つけた
+      border-radius: 10px;
+      // height: 240px;
+      // outline: 8px solid red; // 確認用
+      overflow: hidden;
+      position: relative; // ボタンに対して
+      ul.pic {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        display: flex;
+        transition: transform 0.3s;
+        li {
+          height: 100%;
+          min-width: 100%; // ulの幅
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
         }
       }
+      #prev,
+      #next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        font-size: 24px;
+        padding: 0 8px 4px;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      #prev {
+        left: 0;
+      }
+      #next {
+        right: 0;
+      }
+    }
+    .hidden {
+      display: none; // 表示以外のもの
+    }
+  }
+  ul.desc {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    li {
+      text-align: justify;
+      margin: 10px 15px;
+      h2 {
+        margin: 0;
+      }
+    }
+  }
+  nav {
+    margin-top: 16px;
+    text-align: center;
+    button {
+      border: none;
+      width: 16px;
+      height: 16px;
+      background: #ddd;
+      border-radius: 50%;
+      cursor: pointer;
+      & + button {
+        margin-left: 8px; // 余白をつける
+      }
+    }
+    .current {
+      background: #999;
     }
   }
 }
@@ -644,17 +677,12 @@ footer {
     color: #ff4d75;
     margin: 0 auto 10px;
   }
-  // 確認・送信ボタン
+  // [確認], [送信]ボタン
   .submitbtn {
-    @include btn($b: #6666ff, $p: 10px 26px, $r: 10px, $c: #ffffff, $fs: 14px);
+    display: inline-block;
     margin: 20px auto;
     line-height: 1em;
-    transition: 0.2s; /* なめらか */
-    box-shadow: 3px 3px 6px #666666;
-    display: inline-block;
-    &:hover {
-      box-shadow: none; /* 影消去 */
-    }
+    @include dent_btn($b: #6666ff, $p: 10px 26px, $r: 10px, $c: #ffffff, $fs: 14px, $shadowc: #666666, $bordc: none);
   }
   .age {
     margin-top: 14px;
@@ -673,12 +701,12 @@ footer {
       position: relative;
       padding-left: 28px;
       margin: 10px 0 10px 10px;
+      // 枠
       span {
-        // 枠
         @include brp($b: rgb(255, 255, 255), $r: 30%, $p: 0);
         @include wh($w: 14px, $h: 14px);
         position: absolute;
-        top: -2px; /* 上からの位置 */
+        top: -2px;
         left: 4px;
         border: solid 2px #727983;
         /* 選択時に重ねる円（透明にしておく） */
@@ -730,9 +758,9 @@ footer {
 .like {
   @include wh($w: 30px, $h: 30px);
   border-radius: 50%;
-  display: inline-flex; /* inline状態になる */
-  align-items: center; /* 高さ中央揃い */
-  justify-content: center; /* 横方向中央揃い */
+  display: inline-flex; /* inline状態 */
+  align-items: center;
+  justify-content: center;
   transition: background 3.5s;
   cursor: pointer;
   &:hover {
@@ -740,18 +768,17 @@ footer {
   }
   [type="checkbox"] {
     display: none;
+    /* チェックされた時 */
+    &:checked ~ .heart {
+      animation: heart 0.6s forwards; // ハートが赤くなる
+    }
   }
 }
-/* ハート */
 .heart {
   font-size: 40px;
   color: #e4e4e4;
-  position: relative; /* ハートを */
-  top: 1px; // 上から1px下げる
-}
-/* like配下のcheckbocがチェックされた時にハートが赤くなる */
-.like [type="checkbox"]:checked ~ .heart {
-  animation: heart 0.6s forwards; // 赤いまま
+  position: relative;
+  top: 1px;
 }
 @keyframes heart {
   0% {
@@ -767,10 +794,9 @@ footer {
 }
 /* 波紋 */
 .ripple {
-  /* absolute：要素の影響を受けなくなる  */
   @include brp($b: red, $p: 0, $r: 50%);
   @include wh($w: 85px, $h: 85px);
-  position: absolute;
+  position: absolute; // 要素の影響を受けなくなる
   transform: scale(0);
 }
 /* チェック時に大きな波紋が出る */
@@ -808,7 +834,6 @@ footer {
   // 地域紹介
   .city {
     max-width: 700px;
-    margin: 0 auto;
   }
   // お問い合わせ
   .contact {
@@ -826,23 +851,33 @@ footer {
 }
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 @media (min-width: 640px) {
-  header nav {
+  header > nav {
     p {
-      display: none;
+      display: none; // メニューアイコン
     }
     ul {
-      display: block;
       display: flex;
     }
   }
   .hello {
-    height: 715px;
+    height: 715px; // FirstView
+  }
+  .city {
+    .city_box {
+      display: flex;
+      .container {
+        width: 70%;
+        height: 280px;
+      }
+      ul.desc {
+        width: 40%;
+      }
+    }
   }
 }
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 /* large screen */
 @media (min-width: 820px) {
-  /* 自己紹介 */
   .about {
     .frontback {
       display: flex;
@@ -860,44 +895,24 @@ footer {
       justify-content: space-between;
     }
   }
-  /* 特徴 */
   .feature {
     max-width: 980px;
-    .refeat {
+    .work {
       margin: 20px 0;
       display: flex;
       justify-content: space-between;
-      &:nth-child(even) {
+      &:nth-child(odd) {
         flex-direction: row-reverse;
       }
     }
     .pic {
       width: 50%;
     }
-    .tex {
-      /* 幅を余白に渡す */
-      width: calc(50% - 32px);
+    .desc {
+      width: calc(50% - 32px); // 余白
     }
   }
-  /* 地域 */
-  .city {
-    max-width: 800px;
-    margin: 0 auto;
-    ul {
-      .active {
-        display: flex;
-        justify-content: space-between;
-      }
-      li img {
-        width: 60%;
-        margin-left: 30px;
-      }
-    }
-    .change-wrapper {
-      margin-top: 10px;
-    }
-  }
-  /* お問い合わせ flexbox */
+  /* お問い合わせ */
   .form {
     display: flex;
     padding: 0 50px;

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>脳トレ診断</title>
+  <link rel="icon" href="../nezcon.ico">
+  <link rel="stylesheet" href="../src/css/diagnose.css">
+  <!-- 目次アイコンボタン（スマホのみ） -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1><a href="#">脳トレ診断</a></h1>
+    <!-- メニュー -->
+    <div class="pc_menu">
+      <nav>
+        <ul>
+          <li><a href="#hit">運試し</a></li>
+          <li><a href="#quiz">視力</a></li>
+          <li><a href="#num">数字当て</a></li>
+          <li><a href="#slot">スロット</a></li>
+          <li><a href="../index.html">戻る</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- アイコンボタン（スマホのみ） -->
+    <div class="sp_menu">
+      <span class="material-icons" id="open">widgets</span>
+    </div>
+    <!-- 裏メニュー画面（スマホのみ） -->
+    <div class="overlay">
+      <span class="material-icons" id="close">wc</span>
+      <nav>
+        <ul>
+          <li><a href="#hit">運試し</a></li>
+          <li><a href="#quiz">視力</a></li>
+          <li><a href="#num">数字当て</a></li>
+          <li><a href="#slot">スロット</a></li>
+          <li><a href="../index.html">LPに戻る</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+    <h2>(高さ調節用)</h2>
+
+    <!-- タブ ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <section class="tab">
+      <h2>チェック</h2>
+      <p>全ての診断が終わったら結果を見ましょう。</p>
+      <div class="tab-menu">
+        <ul class="menu">
+          <li><a href="#" class="active" data-id="about">内容</a></li>
+          <li><a href="#" data-id="contact">結果</a></li>
+        </ul>
+        <section class="content active" id="about">
+          <p>運試し: 運の強さを測ります。</p>
+          <p>視力検査: 視力を測ります</p>
+          <p>数字タッチ: 完了までの時間を競います。</p>
+          <p>スロット: ビンゴ率を測ります。</p>
+        </section>
+        <section class="content" id="contact">
+          <p>運気: <span id=""></span></p>
+          <p>視力: <span id=""></span></p>
+          <p>タイム(秒): <span id=""></span></p>
+          <p>ビンゴ率(%): <span id=""></span></p>
+        </section>
+      </div>
+    </section>
+
+    <!-- 運試し ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <section id="hit">
+      <h2>運試し</h2>
+      <p>１つだけ当たりがあります</p>
+      <div id="round"></div>
+    </section>
+
+    <!-- クイズ ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <h1 id="quiz"></h1>
+    <section>
+      <h2>視力</h2>
+      <p>画面から1.5メートル離れて片目でしましょう</p>
+      <div class="quiz">
+        <!-- C画像 -->
+        <p id="randolt"></p>
+        <!-- 選択肢 -->
+        <ul id="choices"></ul>
+        <!-- 次へ -->
+        <div id="btn" class="disabled">Next</div>
+        <!-- スコア画面 -->
+        <section id="result" class="hidden">
+          <p></p>
+          <a href="">Reply?</a>
+        </section>
+      </div>
+    </section>
+
+    <!-- 数字タッチ ＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <section id="num">
+      <h2>数字タッチ</h2>
+      <p>最後の番号まで早くタッチして下さい</p>
+      <div id="touch">
+        <div id="time">0.00</div>
+        <ul id="board"></ul>
+        <div id="start_btn">START</div>
+      </div>
+    </section>
+
+    <!-- スロットマシーン ＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <section id="slot">
+      <h2>スロット</h2>
+      <p id="points">0点 0回 ビンゴ率 0%</p>
+      <div class="mainslot"></div>
+      <div id="spin">SPINNNNN</div>
+    </section>
+  </main>
+
+  <footer>
+    検査は以上です
+  </footer>
+
+  <!-- メニュー -->
+  <script src="../src/js/diagnose/menu.js"></script>
+  <!-- タブ -->
+  <script src="../src/js/diagnose/tab.js"></script>
+  <!-- 運試し -->
+  <script src="../src/js/diagnose/hit.js"></script>
+  <!-- クイズ -->
+  <script src="../src/js/diagnose/quiz.js"></script>
+  <!-- 数字タッチ -->
+  <script src="../src/js/diagnose/number.js"></script>
+  <!-- スロット -->
+  <script src="../src/js/diagnose/slot.js"></script>
+
+</body>
+
+</html>

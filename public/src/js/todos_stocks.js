@@ -1,13 +1,15 @@
 'use strict';
 // {
 // タブ
-const lies = document.querySelectorAll('.menu > li');
+const lies = document.querySelectorAll('.tab > li');
 // <h3>
 const title1 = lies[0].children[0]; // 1つ目 h3
 const title2 = lies[1].children[0]; // 2つ目 h3
 // <ul>
 const todos1 = document.getElementById('todos1');
 const todos2 = document.getElementById('todos2');
+// 内容 <div>
+const content1 = document.getElementById('content_td1');
 
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 // ########## ローカルストレージ ###########
@@ -80,7 +82,7 @@ const logout = document.getElementById('logout');
 });
 // アクティブ表示
 title1.parentElement.classList.add('active'); // h3 p
-document.getElementById('tdcontent1').classList.add('active'); // div.content
+content1.classList.add('active'); // div.content
 
 // <form>表示、<i>色
 add.addEventListener('click', () => {
@@ -136,10 +138,8 @@ class List {
 };
 // export default List;
 
-// 実行
-countNone();
 function countNone() {
-  if (document.getElementById('tdcontent1').classList.contains('active')) {
+  if (content1.classList.contains('active')) {
     new List(1); // Todos | (2/3) + color + nothing
     new List(2); // Stocks
   } else {
@@ -163,6 +163,9 @@ function countNone() {
     index.classList.add('i4');
   }
 }
+
+countNone();
+
 
 // 取り消し線 <label>
 strikeDone(1);

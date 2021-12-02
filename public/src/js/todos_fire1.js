@@ -1,5 +1,5 @@
-(() => {  // リスト保存用
-  'use strict';
+(() => {
+  'use strict'; // リスト保存用
   // import purge from "./todos_stocks"; // npmない為うまく行かない
 
   // collection作成
@@ -79,13 +79,13 @@
       el.classList.add('hidden');
     });
     // (2/3)削除
-    document.querySelectorAll('.menu > li')[0].children[1].textContent = '';
+    document.querySelectorAll('.tab > li')[0].children[1].textContent = '';
   });
 
   // new List(1);
   const days = ["日", "月", "火", "水", "木", "金", "土"];
 
-  // #6 追加機能
+  // #6 追加
   messageform.addEventListener('submit', e => {
     e.preventDefault();
     // 入力値
@@ -114,7 +114,7 @@
     console.log('add'); // 1回
   });
 
-  // ★削除機能
+  // ★削除
   const purge = document.querySelector('.fa-trash-alt');
   purge.addEventListener('click', () => {
     document.querySelectorAll(`#todos1 > li > .done`).forEach(list => {
@@ -140,7 +140,7 @@
     countNone();
   });
 
-  // ★更新機能
+  // ★更新
   const update = document.querySelector('.fa-pen-alt');
   update.addEventListener('click', () => {
     document.querySelectorAll(`#todos1 > li > .done`).forEach(list => {
@@ -168,6 +168,5 @@
       })
     });
   });
-
 
 })();

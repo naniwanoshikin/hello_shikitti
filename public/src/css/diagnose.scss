@@ -1,0 +1,447 @@
+@charset "utf-8";
+
+@mixin brp($b: rgb(127, 219, 127), $p: 20px, $r: 20px) {
+  background: $b;
+  padding: $p;
+  border-radius: $r;
+  @content;
+}
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+body {
+  font-family: vardana, "Ariel Black", メイリオ, sans-serif;
+  color: #333;
+  background: #eee;
+  margin: 0;
+  main {
+    padding: 0 16px;
+  }
+  ul {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+  h2 {
+    font-size: 22px;
+    border-bottom: 1px solid #e7510c;
+  }
+}
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+header {
+  @include brp($b: rgb(243, 219, 219), $p: 0 16px, $r: 0);
+  display: flex;
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  // リンク集
+  h1,
+  nav {
+    a {
+      font-style: italic;
+      font-weight: bold;
+      color: seagreen;
+      transition: all 0.8s;
+      &:hover {
+        color: royalblue;
+        opacity: 0.8;
+      }
+    }
+  }
+  h1 {
+    font-size: 22px;
+    line-height: 60px;
+    margin: 0;
+    padding: 0 10px;
+  }
+  // menuボタン(PC用: レスポンシブ用)
+  .pc_menu {
+    display: none;
+  }
+  // menuボタン(スマホ用)
+  .sp_menu {
+    margin-left: auto;
+    font-size: 32px;
+    line-height: 60px;
+    cursor: pointer;
+    #open.hide {
+      display: none;
+    }
+  }
+  // メニュー（スマホ用）
+  .overlay {
+    @include brp($b: rgba(189, 168, 168, 0.7), $p: 60px, $r: 0);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none; // イベント無効化
+    transition: opacity 0.6s;
+    #close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 32px;
+      cursor: pointer;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        margin-top: 24px;
+        opacity: 0.4;
+        transform: translateY(160px);
+        transition: opacity 0.3s, transform 0.3s;
+      }
+    }
+    // 一覧画面
+    &.show {
+      opacity: 1;
+      pointer-events: auto;
+      li {
+        opacity: 1;
+        transform: none;
+        &:nth-child(1) {
+          transition-delay: 0.1s;
+        }
+        &:nth-child(2) {
+          transition-delay: 0.2s;
+        }
+        &:nth-child(3) {
+          transition-delay: 0.3s;
+        }
+        &:nth-child(4) {
+          transition-delay: 0.9s;
+        }
+        &:nth-child(5) {
+          transition-delay: 0.4s;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background: rgb(127, 219, 127);
+  text-align: center;
+  margin-top: 30px;
+  padding: 30px 0;
+}
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+.tab {
+  .tab-menu {
+    margin: 30px auto;
+    max-width: 360px; // レスポンシブ用
+  }
+  .menu {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    margin-left: 12px;
+    li a {
+      display: inline-block;
+      width: 100px;
+      color: #333;
+      padding: 8px 0;
+      border-radius: 8px 8px 0 0;
+      text-align: center;
+      // Nonアクティブタブ
+      &:not(.active):hover {
+        opacity: 0.5;
+        transition: opacity 0.7s;
+      }
+      &.active {
+        background: #333;
+        color: #fff;
+      }
+    }
+  }
+  .content {
+    display: none;
+    max-width: 500px;
+    &.active {
+      @include brp($b: #333, $p: 12px, $r: 8px);
+      min-height: 150px;
+      color: #fff;
+      display: block;
+    }
+  }
+}
+
+// 運試し ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+#hit {
+  #round {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 5px;
+    justify-content: center;
+    // 箱の初期状態
+    .box {
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      background: skyblue;
+      border-radius: 30%;
+      transition: 0.8s;
+      margin: 8px;
+      text-align: center;
+      cursor: pointer;
+    }
+    // 当たった時
+    .win {
+      background: pink;
+      border-radius: 50%;
+      transform: rotate(360deg) translateY(60px) scale(1.2);
+      z-index: 1; // 重なり防止用につけた。LOSE箱の後にWIN箱を押すと何故か重なってしまう。。
+    }
+    // 外れた時
+    .lose {
+      transform: scale(0.7);
+    }
+  }
+}
+
+// クイズ ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+.quiz {
+  max-width: 400px; // レスポンシブ用
+  margin: 8px auto;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  padding: 16px;
+  position: relative; // スコア画面に対して
+  user-select: none;
+  // C画像
+  #randolt {
+    text-align: center;
+  }
+  #choices {
+    padding: 0;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    & > li {
+      @include brp($b: #fff, $p: 2px, $r: 4px);
+      width: 15%;
+      margin-bottom: 5px;
+      border: 1px solid #ccc;
+      text-align: center;
+      cursor: pointer;
+      &:hover {
+        background: #f8f8f8;
+      }
+      @mixin quiz($b: #d4edda, $c: #155724, $bc: #c3e6cb, $after: "◯") {
+        background: $b;
+        color: $c;
+        border-color: $bc;
+        font-weight: bold;
+        font-size: 15px;
+        &::after {
+          content: $after;
+        }
+      }
+      &.correct {
+        @include quiz();
+      }
+      &.wrong {
+        @include quiz($b: #f8d8da, $c: #721c24, $bc: #f5c6cb, $after: "✖️");
+      }
+    }
+  }
+  // ボタン
+  #btn,
+  #result > a {
+    @include brp($b: #3498bd, $r: 4px, $p: 8px);
+    box-shadow: 0 4px 0 #2880b9;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    &.disabled {
+      cursor: auto;
+      background: #ccc;
+      box-shadow: 0 4px 0 #bbb;
+      opacity: 0.7;
+    }
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  // 結果
+  #result {
+    @include brp($b: #fff, $r: 4px, $p: 20px);
+    position: absolute;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    top: 20px; // 回答結果の位置
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transition: 0.8s;
+    &.hidden {
+      transform: translateY(-970px); // 初期位置
+    }
+    & > p {
+      font-size: 20px;
+      margin: 10px auto;
+    }
+    & > a {
+      display: block;
+      margin-top: 20px;
+    }
+  }
+}
+
+// 数字タッチ ＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+#touch {
+  // div
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  // width: jsで動的に設定
+  margin: 16px auto;
+  padding-bottom: 10px; // つけた
+  #board {
+    // ul
+    margin: 0 0 8px;
+    padding: 10px; // -> js
+    background: #fff;
+    border-radius: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      background: #00aaff;
+      width: 40px; // -> js
+      height: 40px;
+      margin: 5px; // -> js
+      cursor: pointer;
+      border-radius: 4px;
+      line-height: 40px;
+      text-align: center;
+      box-shadow: 0 4px 0 #0088cc;
+      &.pressed {
+        margin-top: 9px;
+        margin-bottom: 1px;
+        background: #ccc;
+        box-shadow: none;
+      }
+    }
+  }
+  #time {
+    margin-bottom: 8px;
+    font-size: 20px;
+    text-align: right;
+  }
+  #start_btn {
+    cursor: pointer;
+    user-select: none;
+    background: #f44336;
+    padding: 8px;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 4px 0 #e41e10;
+    &:active {
+      margin-top: 12px;
+      box-shadow: none;
+    }
+  }
+}
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+#slot {
+  @mixin btn($w: 90px, $h: 32px, $b: #e9a98b, $c: #eee, $f: 14px, $s: 0 4px 0 #e7510c, $r: 16px) {
+    width: $w;
+    height: $h;
+    line-height: $h;
+    background: $b;
+    color: $c;
+    font-size: $f;
+    box-shadow: $s;
+    border-radius: $r;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    @content;
+  }
+  .mainslot {
+    @include brp($b: #eee, $r: 12px, $p: 20px);
+    width: 300px;
+    border: 4px solid #fff;
+    margin: 16px auto;
+    display: flex;
+    justify-content: space-between;
+    img {
+      width: 90px;
+      height: 100px;
+      margin-bottom: 4px;
+    }
+    // img
+    .unmatched {
+      opacity: 0.5;
+    }
+    .stop {
+      @include btn();
+    }
+  }
+  #spin {
+    @include btn($w: 280px, $h: 36px, $b: #8be9a3, $s: 0 4px 0 #0ce70c, $r: 18px, $f: 16px, $c: #eee) {
+      margin: 0 auto;
+    }
+  }
+  .inactive {
+    opacity: 0.5;
+  }
+}
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+@media (min-width: 600px) {
+  header {
+    .pc_menu {
+      display: block;
+      margin-left: auto;
+      ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        a {
+          display: block;
+          line-height: 60px;
+          width: 80px;
+          text-align: center;
+          border-radius: 10px;
+          &:hover {
+            background: #bed8db;
+          }
+        }
+      }
+    }
+    .sp_menu {
+      display: none;
+    }
+  }
+  .media {
+    display: flex;
+    .image {
+      width: 200px;
+    }
+    .text {
+      flex: 1;
+    }
+  }
+}
+@media (min-width: 800px) {
+  .media {
+    width: 800px;
+    margin: 0 auto;
+    aside {
+      display: block;
+      background: plum;
+      width: 160px;
+    }
+  }
+}

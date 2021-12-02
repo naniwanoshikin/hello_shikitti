@@ -44,7 +44,7 @@ header .container #menu > ul > li > a:hover {
 }
 
 header .topcover {
-  background: center/cover url(../img/aich6.JPG);
+  background: center/cover url(../img/cafe/konan.JPG);
   margin-top: 55px;
   height: 734px;
 }
@@ -61,13 +61,15 @@ main .location {
 
 main .location h2 {
   cursor: pointer;
-  border-radius: 30%;
 }
 
 main .location h2:hover {
-  background-color: skyblue;
-  -webkit-transition-duration: 3s;
-          transition-duration: 3s;
+  width: 60%;
+  margin: 0 auto;
+  background: skyblue;
+  border-radius: 90%;
+  -webkit-transition-duration: 5s;
+          transition-duration: 5s;
 }
 
 main .location p {
