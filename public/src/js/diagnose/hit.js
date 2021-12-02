@@ -1,7 +1,7 @@
 'use strict'; // 運試し
 
 {
-  const num = 7; // 箱数
+  const num = 6; // 箱数
   const winner = Math.floor(Math.random() * num); // 0 ~ num
 
   for (let i = 0; i < num; i++) {

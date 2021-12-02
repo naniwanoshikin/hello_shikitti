@@ -15,6 +15,7 @@ body {
   margin: 0;
   main {
     padding: 0 16px;
+    margin-top: 70px; // headerに隠れないようにする為
   }
   ul {
     list-style: none;
@@ -29,7 +30,7 @@ body {
 }
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 header {
-  @include brp($b: rgb(243, 219, 219), $p: 0 16px, $r: 0);
+  @include brp($b: rgb(231, 187, 187), $p: 0 16px, $r: 0);
   display: flex;
   width: 100%;
   height: 60px;
@@ -41,9 +42,7 @@ header {
   h1,
   nav {
     a {
-      font-style: italic;
-      font-weight: bold;
-      color: seagreen;
+      color: blueviolet;
       transition: all 0.8s;
       &:hover {
         color: royalblue;
@@ -52,16 +51,17 @@ header {
     }
   }
   h1 {
+    font-weight: bold;
     font-size: 22px;
     line-height: 60px;
     margin: 0;
     padding: 0 10px;
   }
-  // menuボタン(PC用: レスポンシブ用)
+  // PC用メニュー
   .pc_menu {
     display: none;
   }
-  // menuボタン(スマホ用)
+  // スマホ用アイコンボタン
   .sp_menu {
     margin-left: auto;
     font-size: 32px;
@@ -71,7 +71,7 @@ header {
       display: none;
     }
   }
-  // メニュー（スマホ用）
+  // スマホ用メニュー画面
   .overlay {
     @include brp($b: rgba(189, 168, 168, 0.7), $p: 60px, $r: 0);
     position: fixed;
@@ -132,6 +132,13 @@ footer {
   text-align: center;
   margin-top: 30px;
   padding: 30px 0;
+  a {
+    color: blueviolet;
+    transition: 0.2s;
+    &:hover {
+      color: burlywood;
+    }
+  }
 }
 
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
@@ -152,7 +159,7 @@ footer {
       padding: 8px 0;
       border-radius: 8px 8px 0 0;
       text-align: center;
-      // Nonアクティブタブ
+      // Nonアクティブ
       &:not(.active):hover {
         opacity: 0.5;
         transition: opacity 0.7s;
@@ -201,7 +208,7 @@ footer {
       transform: rotate(360deg) translateY(60px) scale(1.2);
       z-index: 1; // 重なり防止用につけた。LOSE箱の後にWIN箱を押すと何故か重なってしまう。。
     }
-    // 外れた時
+    // はずれ時
     .lose {
       transform: scale(0.7);
     }
@@ -285,7 +292,7 @@ footer {
     margin: 0 auto;
     transition: 0.8s;
     &.hidden {
-      transform: translateY(-970px); // 初期位置
+      transform: translateY(-1100px); // 初期位置
     }
     & > p {
       font-size: 20px;

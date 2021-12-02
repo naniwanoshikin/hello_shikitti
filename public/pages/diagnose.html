@@ -7,14 +7,14 @@
   <title>脳トレ診断</title>
   <link rel="icon" href="../nezcon.ico">
   <link rel="stylesheet" href="../src/css/diagnose.css">
-  <!-- 目次アイコンボタン（スマホのみ） -->
+  <!-- 目次アイコンボタン（スマホ用） -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
   <header>
     <h1><a href="#">脳トレ診断</a></h1>
-    <!-- メニュー -->
+    <!-- PCメニュー -->
     <div class="pc_menu">
       <nav>
         <ul>
@@ -22,15 +22,14 @@
           <li><a href="#quiz">視力</a></li>
           <li><a href="#num">数字当て</a></li>
           <li><a href="#slot">スロット</a></li>
-          <li><a href="../index.html">戻る</a></li>
         </ul>
       </nav>
     </div>
-    <!-- アイコンボタン（スマホのみ） -->
+    <!-- スマホ用アイコンボタン -->
     <div class="sp_menu">
       <span class="material-icons" id="open">widgets</span>
     </div>
-    <!-- 裏メニュー画面（スマホのみ） -->
+    <!-- スマホ用メニュー画面 -->
     <div class="overlay">
       <span class="material-icons" id="close">wc</span>
       <nav>
@@ -47,8 +46,6 @@
 
 
   <main>
-    <h2>(高さ調節用)</h2>
-
     <!-- タブ ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section class="tab">
       <h2>チェック</h2>
@@ -76,7 +73,7 @@
     <!-- 運試し ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section id="hit">
       <h2>運試し</h2>
-      <p>１つだけ当たりがあります</p>
+      <p>当たりは１つです</p>
       <div id="round"></div>
     </section>
 
@@ -84,7 +81,7 @@
     <h1 id="quiz"></h1>
     <section>
       <h2>視力</h2>
-      <p>画面から1.5メートル離れて片目でしましょう</p>
+      <p>1.5メートル離れて片目で見ましょう</p>
       <div class="quiz">
         <!-- C画像 -->
         <p id="randolt"></p>
@@ -103,7 +100,7 @@
     <!-- 数字タッチ ＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section id="num">
       <h2>数字タッチ</h2>
-      <p>最後の番号まで早くタッチして下さい</p>
+      <p>最後の番号までタッチして下さい</p>
       <div id="touch">
         <div id="time">0.00</div>
         <ul id="board"></ul>
@@ -121,7 +118,8 @@
   </main>
 
   <footer>
-    検査は以上です
+    検査は以上です。
+    <a href="../index.html">LPに戻る</a>
   </footer>
 
   <!-- メニュー -->

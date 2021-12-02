@@ -8,6 +8,7 @@ body {
 
 body main {
   padding: 0 16px;
+  margin-top: 70px;
 }
 
 body ul {
@@ -24,7 +25,7 @@ body h2 {
 }
 
 header {
-  background: #f3dbdb;
+  background: #e7bbbb;
   padding: 0 16px;
   border-radius: 0;
   display: -webkit-box;
@@ -41,9 +42,7 @@ header {
 
 header h1 a,
 header nav a {
-  font-style: italic;
-  font-weight: bold;
-  color: seagreen;
+  color: blueviolet;
   -webkit-transition: all 0.8s;
   transition: all 0.8s;
 }
@@ -55,6 +54,7 @@ header nav a:hover {
 }
 
 header h1 {
+  font-weight: bold;
   font-size: 22px;
   line-height: 60px;
   margin: 0;
@@ -157,6 +157,16 @@ footer {
   text-align: center;
   margin-top: 30px;
   padding: 30px 0;
+}
+
+footer a {
+  color: blueviolet;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+footer a:hover {
+  color: burlywood;
 }
 
 .tab .tab-menu {
@@ -355,8 +365,8 @@ footer {
 }
 
 .quiz #result.hidden {
-  -webkit-transform: translateY(-970px);
-          transform: translateY(-970px);
+  -webkit-transform: translateY(-1100px);
+          transform: translateY(-1100px);
 }
 
 .quiz #result > p {
