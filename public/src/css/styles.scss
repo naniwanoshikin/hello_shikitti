@@ -578,7 +578,7 @@ footer {
 
 // 地元紹介 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 .city {
-  @include brp($b: #f2f2f3, $p: 6px 20px, $r: 50px);
+  @include brp($b: #f2f2f3, $p: 6px 18px, $r: 50px); // padding 20pxだとアウト
   width: 90%;
   margin: 16px auto;
   .city_box {

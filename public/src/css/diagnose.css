@@ -41,14 +41,14 @@ header {
 }
 
 header h1 a,
-header nav a {
+header .pc_menu > nav a {
   color: blueviolet;
   -webkit-transition: all 0.8s;
   transition: all 0.8s;
 }
 
 header h1 a:hover,
-header nav a:hover {
+header .pc_menu > nav a:hover {
   color: royalblue;
   opacity: 0.8;
 }
@@ -114,6 +114,15 @@ header .overlay ul li {
   transition: opacity 0.3s, -webkit-transform 0.3s;
   transition: opacity 0.3s, transform 0.3s;
   transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
+}
+
+header .overlay ul li a {
+  font-size: 18px;
+  background: yellow;
+  border-radius: 10px;
+  display: block;
+  width: 150px;
+  margin: 0 auto;
 }
 
 header .overlay.show {

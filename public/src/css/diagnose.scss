@@ -40,7 +40,7 @@ header {
   z-index: 10;
   // リンク集
   h1,
-  nav {
+  .pc_menu > nav {
     a {
       color: blueviolet;
       transition: all 0.8s;
@@ -98,6 +98,14 @@ header {
         opacity: 0.4;
         transform: translateY(160px);
         transition: opacity 0.3s, transform 0.3s;
+        a {
+          font-size: 18px;
+          background: yellow;
+          border-radius: 10px;
+          display: block;
+          width: 150px;
+          margin: 0 auto;
+        }
       }
     }
     // 一覧画面
