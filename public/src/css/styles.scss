@@ -191,10 +191,11 @@ footer {
 }
 // FirstView ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 .hello {
-  @include brp($b: center/cover url(../img/aich0.JPG), $p: 15px 10px 0, $r: 0);
+  background: center/cover url(../img/aich0.JPG);
+  padding: 15px 10px 0;
   margin-top: 60px;
   color: white;
-  overflow: auto;
+  min-height: 70vh; // Todo開いた時に高さが変わるため設定
   user-select: none;
   // 英訳ボタン js
   #english,

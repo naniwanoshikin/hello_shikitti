@@ -214,10 +214,9 @@ footer p a:active {
 .hello {
   background: center/cover url(../img/aich0.JPG);
   padding: 15px 10px 0;
-  border-radius: 0;
   margin-top: 60px;
   color: white;
-  overflow: auto;
+  min-height: 70vh;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
