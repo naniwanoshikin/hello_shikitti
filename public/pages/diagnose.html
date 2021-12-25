@@ -13,14 +13,14 @@
 
 <body>
   <header>
-    <h1><a href="#">脳トレ診断</a></h1>
+    <h1>脳トレ診断</h1>
     <!-- PCメニュー -->
     <div class="pc_menu">
       <nav>
         <ul>
           <li><a href="#hit">運試し</a></li>
           <li><a href="#quiz">視力</a></li>
-          <li><a href="#num">数字当て</a></li>
+          <li><a href="#num">タッチ</a></li>
           <li><a href="#slot">スロット</a></li>
         </ul>
       </nav>
@@ -36,7 +36,7 @@
         <ul>
           <li><a href="#hit">運試し</a></li>
           <li><a href="#quiz">視力</a></li>
-          <li><a href="#num">数字当て</a></li>
+          <li><a href="#num">数字タッチ</a></li>
           <li><a href="#slot">スロット</a></li>
           <li><a href="../index.html">LPに戻る</a></li>
         </ul>
@@ -116,11 +116,31 @@
       <div class="mainslot"></div>
       <div id="spin">SPINNNNN</div>
     </section>
+
+    <!-- 神経衰弱 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <section id="weakness">
+      <h2>神経衰弱</h2>
+      <p>めくったらスタート</p>
+      <div class="weak-container">
+        <div id="score">0.00</div>
+        <div id="stage">
+          <!-- JSで作成 -->
+          <!-- <div class="card-container">
+            <div class="card">
+              <div class="card-front">1</div>
+              <div class="card-back">?</div>
+            </div>
+          </div> -->
+        </div>
+        <a href="" id="restart" class="inactive">RESTART</a>
+      </div>
+    </section>
+
   </main>
 
   <footer>
     検査は以上です。
-    <a href="../index.html">LPに戻る</a>
+    <a href="../index.html">LP</a>へ。
   </footer>
 
   <!-- メニュー -->
@@ -135,6 +155,8 @@
   <script src="../src/js/diagnose/number.js"></script>
   <!-- スロット -->
   <script src="../src/js/diagnose/slot.js"></script>
+  <!-- 神経衰弱 -->
+  <script src="../src/js/diagnose/weakness.js"></script>
 
 </body>
 

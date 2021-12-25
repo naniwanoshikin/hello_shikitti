@@ -1,6 +1,5 @@
 @charset "utf-8";
 
-// 背景, padding, 丸み
 @mixin brp($b: #eee, $p: 0px, $r: 0px) {
   background: $b;
   padding: $p;
@@ -13,8 +12,8 @@
   height: $h;
   @content;
 }
-// リンクの色
-@mixin link_color($c: #fff, $hc: rgb(78, 190, 235), $ac: pink) {
+// リンク色
+@mixin link_color($c: #fff, $hc: rgb(119, 230, 174), $ac: pink) {
   color: $c;
   transition: 0.2s;
   &:hover {
@@ -42,6 +41,7 @@
   }
 }
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// 共通
 body {
   font-family: vardana, "Ariel Black", メイリオ, sans-serif;
   color: #333;
@@ -97,18 +97,27 @@ body {
   }
 }
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+$unscrollcolor: rgb(82, 79, 52); // 初期時
+$onscrollcolor: rgba(34, 49, 52, 0.85); // スクロール時
 header {
-  @include brp($b: rgba(34, 49, 52, 1), $p: 0 4%, $r: 0);
+  background: $unscrollcolor;
   @include wh($w: 100%, $h: 60px) {
     line-height: 60px;
   }
+  position: fixed;
+  top: 0; // 一番上に配置
+  z-index: 1;
+  transition: background 0.3s, box-shadow 0.3s;
+  padding: 0 4%;
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
-  position: fixed;
-  top: 0;
-  z-index: 10;
   user-select: none;
+  // スクロール監視
+  &.scrolled {
+    background: $onscrollcolor;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  }
   h1 {
     margin: 0;
     font-size: 18px; // 20px以上だとスマホ画面で詰まる
@@ -120,7 +129,7 @@ header {
     }
   }
   nav {
-    // スマホアイコン▼
+    // ▼アイコン（スマホのみ）
     p {
       margin: 0;
       padding: 0;
@@ -131,19 +140,24 @@ header {
     }
     // メニュー
     ul {
-      @include brp($b: rgba(34, 49, 52, 1), $p: 0 20px, $r: 0 0 20px 20px);
+      background: $unscrollcolor;
+      transition: background 0.3s, box-shadow 0.3s;
+      // 交差監視
+      &.scrolled {
+        background: $onscrollcolor;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+      }
+      border-radius: 0 0 15px 15px;
       display: none;
       margin: 0;
-      padding-left: 0;
+      padding: 0;
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
       li {
-        margin-left: 15px;
+        margin: 0 15px;
         a {
+          display: inline-block;
           @include link_color;
         }
-        // &:hover {
-        //   background-color: turquoise;
-        // }
       }
     }
   }
@@ -192,8 +206,7 @@ footer {
 // FirstView ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 .hello {
   background: center/cover url(../img/aich0.JPG);
-  padding: 15px 10px 0;
-  margin-top: 60px;
+  padding: 75px 10px 0;
   color: white;
   min-height: 70vh; // Todo開いた時に高さが変わるため設定
   user-select: none;
@@ -201,7 +214,15 @@ footer {
   #english,
   #japanese {
     @include wh($w: 50px, $h: 26px);
-    @include dent_btn($b: #d4b766, $p: 2px 10px, $r: 10px, $c: rgb(0, 0, 0), $fs: 14px, $shadowc: #adcfa3, $bordc: #aaeb41);
+    @include dent_btn(
+      $b: #d4b766,
+      $p: 2px 10px,
+      $r: 10px,
+      $c: rgb(0, 0, 0),
+      $fs: 14px,
+      $shadowc: #adcfa3,
+      $bordc: #aaeb41
+    );
     margin: 0 18px 0 auto;
   }
   // hello world
@@ -450,9 +471,9 @@ footer {
       box-shadow: 2px 4.5px 3px #110f0f;
       // へっこむ
       &:hover {
-        box-shadow: 1.0px 3.5px 2.4px #080808;
+        box-shadow: 1px 3.5px 2.4px #080808;
         position: relative;
-        top: 1.0px;
+        top: 1px;
       }
       &:active {
         box-shadow: none;
@@ -512,6 +533,7 @@ footer {
 .feature {
   border-radius: 50px;
   margin: 20px auto;
+  overflow: hidden; // はみ出し分の余白を除去するため
   .works {
     margin: 0 20px;
     text-align: center;
@@ -527,7 +549,7 @@ footer {
         }
       }
       .pic {
-        display: inline-block; // 中央揃え効かす用
+        display: inline-block; // 中央揃え効かす
         max-width: 550px; // レスポンシブ用
         position: relative;
         img {
@@ -559,14 +581,14 @@ footer {
           }
           text-align: center;
         }
-        // 画像の交差監視 js
+        // 画像の監視 js
         opacity: 0;
         transition: opacity 0.3s, transform 0.3s;
         &.from_left {
           transform: translateX(-30px);
         }
         &.from_right {
-          transform: translateX(10px);
+          transform: translateX(30px);
         }
         &.appear {
           opacity: 1;
@@ -616,6 +638,7 @@ footer {
         color: #fff;
         font-size: 24px;
         padding: 0 8px 4px;
+        border-radius: 6px;
         cursor: pointer;
         &:hover {
           opacity: 0.8;
@@ -852,12 +875,31 @@ footer {
 }
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 @media (min-width: 640px) {
-  header > nav {
-    p {
-      display: none; // メニューアイコン
-    }
-    ul {
-      display: flex;
+  header {
+    background: none;
+    nav {
+      p {
+        display: none; // ▼アイコン
+      }
+      ul {
+        display: flex;
+        background: none;
+        &.scrolled {
+          background: none; // header色の重なりを削除するため
+          box-shadow: none; // 同じく
+        }
+        li {
+          margin: 0;
+          a {
+            border-radius: 8px;
+            padding: 0 10px;
+            transition: background 0.5s, color 0.5s;
+            &:hover {
+              background: #97a878c9;
+            }
+          }
+        }
+      }
     }
   }
   .hello {

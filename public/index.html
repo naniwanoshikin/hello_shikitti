@@ -16,13 +16,13 @@
     type="text/css" media="all" />
   <!-- ハートマーク -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- jQuery: headerに関するスクロールを3つ -->
+  <!-- navスクロール: jQuery 2つ -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <!-- Todolist ドラック&ドロップ -->
   <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
   <!-- scroll Reveal -->
   <script src="https://unpkg.com/scrollreveal"></script>
-  <!-- お問い合わせ部 react CDN -->
+  <!-- お問い合わせ: react CDN -->
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
@@ -31,11 +31,9 @@
 <body>
 
   <header>
-    <h1 id="shiki" class="text-center bg-primary">しきっちワールド</h1>
+    <h1 id="shiki">しきっちワールド</h1>
     <nav>
-      <p>
-        <i class="far fa-caret-square-down"></i>
-      </p>
+      <p><i class="far fa-caret-square-down"></i></p>
       <ul class="navlist">
         <li><a id="nav1" href="#about">自己紹介</a></li>
         <li><a id="nav2" href="#work">特徴</a></li>
@@ -46,6 +44,8 @@
   </header>
 
   <main>
+    <!-- ヘッダースクロール監視 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <div id="target"></div>
     <!-- FirstView ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section class="hello">
       <div>
@@ -195,7 +195,7 @@
       </div>
     </section>
 
-    <!-- 特徴: 交差監視 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <!-- 特徴: 画像を監視 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section class="feature">
       <h1 id="work" data-h1="-">特徴</h1>
       <p id="dsc2">各コンテンツ先へ飛びます</p>
@@ -204,11 +204,11 @@
         <div class="work">
           <div class="desc">
             <h2><a id="logic" href="pages/diagnose.html" target="_blank">脳トレ診断</a></h2>
-            <p>脳トレゲーム用に診断チェックを作成しました。運を試したり、視力検査だったり、タイムアタックがあります。ぜひ遊んでください！</p>
+            <p>脳トレ用診断ゲームを作成しました。運を試したり、視力検査だったり、数字タッチや神経衰弱などのタイムアタックがあります。ぜひ遊んでください！</p>
           </div>
           <div class="pic from_left">
             <a href="pages/diagnose.html" target="_blank">
-              <img src="src/img/checkup.jpg" alt="健康診断">
+              <img src="src/img/feat1.jpg" alt="健康診断">
             </a>
           </div>
         </div>
@@ -220,7 +220,7 @@
           </div>
           <div class="pic from_right">
             <a href="pages/tetris.html" target="_blank">
-              <img src="src/img/tetris.jpg" alt="テトリス">
+              <img src="src/img/feat2.jpg" alt="テトリス">
             </a>
           </div>
         </div>
@@ -232,7 +232,7 @@
           </div>
           <div class="pic from_left">
             <a href="pages/cafe.html" target="_blank">
-              <img id="image-preview" src="src/img/cafe.jpg" alt="カフェ">
+              <img id="image-preview" src="src/img/feat3.jpg" alt="カフェ">
             </a>
             <label class="input-button">
               <input id="image" type="file" />
@@ -347,8 +347,10 @@
   <!-- Todoリスト タブ -->
   <script src="src/js/todos_tab.js"></script>
 
-  <!-- スクロール jQuery -->
-  <script src="src/js/scroll_nav.js"></script>
+  <!-- 監視API: ヘッダー, 特徴部_画像 -->
+  <script src="src/js/iob.js"></script>
+  <!-- ナビ jQuery -->
+  <script src="src/js/nav_query.js"></script>
   <!-- スクロール Reveal -->
   <script src="src/js/scroll_reveal.js"></script>
   <!-- 英訳⇄日本語訳 -->
@@ -359,9 +361,7 @@
   <!-- 自己紹介 スキル: chart.js(CDN) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
   <script src="src/js/about_skill.js"></script>
-  <!-- 特徴部 画像: 交差監視 -->
-  <script src="src/js/work_iob.js"></script>
-  <!-- 特徴部 画像: セット -->
+  <!-- 特徴部 画像をセット -->
   <script src="src/js/work_file.js" defer></script>
   <!-- 地域紹介 カルーセル -->
   <script src="src/js/city_slide.js"></script>

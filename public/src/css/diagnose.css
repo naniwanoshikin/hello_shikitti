@@ -164,7 +164,7 @@ header .overlay.show li:nth-child(5) {
 footer {
   background: #7fdb7f;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 90px;
   padding: 30px 0;
 }
 
@@ -514,6 +514,101 @@ footer a:hover {
 
 #slot .inactive {
   opacity: 0.5;
+}
+
+#weakness .weak-container {
+  width: 240px;
+  margin: 20px auto;
+}
+
+#weakness .weak-container #score {
+  font-size: 20px;
+  color: black;
+  text-align: right;
+  margin: 0 5px 10px 0;
+}
+
+#weakness .weak-container #stage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#weakness .weak-container #stage .card-container {
+  -webkit-perspective: 100px;
+          perspective: 100px;
+  width: 50px;
+  height: 70px;
+  margin: 5px;
+}
+
+#weakness .weak-container #stage .card-container .card {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+#weakness .weak-container #stage .card-container .card .card-front,
+#weakness .weak-container #stage .card-container .card .card-back {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 70px;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#weakness .weak-container #stage .card-container .card .card-back {
+  background: #f1c40f;
+  color: #fff;
+}
+
+#weakness .weak-container #stage .card-container .card .card-front {
+  background: #fff;
+  color: #f1c40f;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+#weakness .weak-container #stage .card-container .card.open {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+#weakness .weak-container #restart {
+  text-decoration: none;
+  display: block;
+  background: #2ecc71;
+  color: #fff;
+  height: 40px;
+  border-radius: 20px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 15px;
+  -webkit-box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#weakness .weak-container #restart.inactive {
+  cursor: default;
+  opacity: 0.4;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin-top: 20px;
 }
 
 @media (min-width: 600px) {

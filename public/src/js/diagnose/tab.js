@@ -1,4 +1,4 @@
-'use strict'; // タブメニュー
+'use strict'; // タブ + ヘッダー
 
 {
   const menuItems = document.querySelectorAll('.menu li a');
@@ -21,4 +21,14 @@
       document.getElementById(clickedItem.dataset.id).classList.add('active');
     });
   });
+
+
+  // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+  // ヘッダーに戻る
+  document.querySelector('header > h1').addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  })
 }

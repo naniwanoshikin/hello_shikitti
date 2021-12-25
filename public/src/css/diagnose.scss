@@ -61,7 +61,7 @@ header {
   .pc_menu {
     display: none;
   }
-  // スマホ用アイコンボタン
+  // アイコンボタン（スマホのみ）
   .sp_menu {
     margin-left: auto;
     font-size: 32px;
@@ -71,7 +71,7 @@ header {
       display: none;
     }
   }
-  // スマホ用メニュー画面
+  // メニュー画面（スマホのみ）
   .overlay {
     @include brp($b: rgba(189, 168, 168, 0.7), $p: 60px, $r: 0);
     position: fixed;
@@ -138,7 +138,7 @@ header {
 footer {
   background: rgb(127, 219, 127);
   text-align: center;
-  margin-top: 30px;
+  margin-top: 90px;
   padding: 30px 0;
   a {
     color: blueviolet;
@@ -410,6 +410,90 @@ footer {
   }
   .inactive {
     opacity: 0.5;
+  }
+}
+
+// 神経衰弱 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+#weakness {
+  .weak-container {
+    width: 240px;
+    margin: 20px auto;
+    // タイマー
+    #score {
+      font-size: 20px;
+      color: rgb(0, 0, 0);
+      text-align: right;
+      margin: 0 5px 10px 0;
+    }
+    // カード部分
+    $shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+    #stage {
+      display: flex;
+      flex-wrap: wrap;
+      // 1枚のカード
+      .card-container {
+        perspective: 100px; // 奥行きを出す
+        width: 50px;
+        height: 70px;
+        margin: 5px;
+        .card {
+          cursor: pointer;
+          width: 100%;
+          height: 100%;
+          transition: 0.8s; // カードが開く時間
+          position: relative;
+          transform-style: preserve-3d; // 子要素を同じ3D空間に配置
+          .card-front,
+          .card-back {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 70px;
+            border-radius: 8px;
+            position: absolute; // カードを重ねる
+            top: 0;
+            left: 0;
+            backface-visibility: hidden; // 回転最中に裏面を見せない
+            box-shadow: $shadow;
+          }
+          // 数字側
+          .card-back {
+            background: #f1c40f;
+            color: #fff;
+          }
+          // 裏面 ?
+          .card-front {
+            background: #fff;
+            color: #f1c40f;
+            transform: rotateY(180deg);
+          }
+          // クリック時
+          &.open {
+            transform: rotateY(180deg);
+          }
+        }
+      }
+    }
+    #restart {
+      text-decoration: none;
+      display: block;
+      background: #2ecc71;
+      color: #fff;
+      height: 40px;
+      border-radius: 20px;
+      line-height: 40px;
+      text-align: center;
+      font-size: 18px;
+      margin-top: 15px;
+      box-shadow: $shadow;
+      &.inactive {
+        cursor: default;
+        opacity: 0.4;
+        box-shadow: none; // 初期状態は押せない
+        margin-top: 20px;
+        // margin-bottom: 20px;
+      }
+    }
   }
 }
 
