@@ -101,11 +101,11 @@ header h1 {
   margin: 0;
   font-size: 18px;
   cursor: pointer;
-  -webkit-transition: all 300ms 0s ease;
-  transition: all 300ms 0s ease;
   color: #fff;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+  -webkit-transition: all 300ms 0s ease;
+  transition: all 300ms 0s ease;
 }
 
 header h1:hover {

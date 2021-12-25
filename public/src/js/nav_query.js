@@ -17,7 +17,7 @@ $(function () { // (jQuery)
       $answer.slideUp();
       // $('nav').find('nav > p').text('[+]');
     } else {
-      $answer.addClass('open'); // openして
+      $answer.addClass('open'); // open
       $answer.slideDown(); // 表示
       // $('nav').find('nav > p').text('[-]');
     }
