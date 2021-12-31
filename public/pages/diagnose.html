@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>脳トレ診断</title>
+  <title>脳トレ</title>
   <link rel="icon" href="../nezcon.ico">
   <link rel="stylesheet" href="../src/css/diagnose.css">
   <!-- 目次アイコンボタン（スマホ用） -->
@@ -20,7 +20,8 @@
         <ul>
           <li><a href="#hit">運試し</a></li>
           <li><a href="#quiz">視力</a></li>
-          <li><a href="#num">タッチ</a></li>
+          <li><a href="#num">数字</a></li>
+          <li><a href="#weakness">神経衰弱</a></li>
           <li><a href="#slot">スロット</a></li>
         </ul>
       </nav>
@@ -37,8 +38,8 @@
           <li><a href="#hit">運試し</a></li>
           <li><a href="#quiz">視力</a></li>
           <li><a href="#num">数字タッチ</a></li>
+          <li><a href="#weakness">神経衰弱</a></li>
           <li><a href="#slot">スロット</a></li>
-          <li><a href="../index.html">LPに戻る</a></li>
         </ul>
       </nav>
     </div>
@@ -52,20 +53,22 @@
       <p>全ての診断が終わったら結果を見ましょう。</p>
       <div class="tab-menu">
         <ul class="menu">
-          <li><a href="#" class="active" data-id="about">内容</a></li>
+          <li><a href="#" class="active" data-id="about">測定内容</a></li>
           <li><a href="#" data-id="contact">結果</a></li>
         </ul>
         <section class="content active" id="about">
-          <p>運試し: 運を測ります</p>
-          <p>視力検査: 視力を測ります</p>
-          <p>数字タッチ: 時間を計ります</p>
-          <p>スロット: ビンゴ率を測ります</p>
+          <p>運試し: 運気</p>
+          <p>視力検査: 視力</p>
+          <p>数字タッチ: 時間</p>
+          <p>神経衰弱: 時間</p>
+          <p>スロット: ビンゴ率</p>
         </section>
         <section class="content" id="contact">
-          <p>運気: <span id="luck"></span></p>
-          <p>視力: <span id="sight"></span></p>
-          <p>タイム(秒): <span id="s_time"></span></p>
-          <p>ビンゴ率(%): <span id="bingo"></span></p>
+          <p>運気: <span id="luck">0</span></p>
+          <p>視力検査: <span id="sight">0</span></p>
+          <p>タイム(秒): <span id="s_time">0</span></p>
+          <p>タイム(秒): <span id="w_time">0</span></p>
+          <p>ビンゴ率(%): <span id="bingo">0</span></p>
         </section>
       </div>
     </section>
@@ -73,7 +76,7 @@
     <!-- 運試し ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section id="hit">
       <h2>運試し</h2>
-      <p>当たりは１つです</p>
+      <p>当たりは１つ</p>
       <div id="round"></div>
     </section>
 
@@ -81,7 +84,7 @@
     <h1 id="quiz"></h1>
     <section>
       <h2>視力</h2>
-      <p>1.5メートル離れて片目で見ましょう</p>
+      <p>1.0メートル離れて片目で見ましょう</p>
       <div class="quiz">
         <!-- C画像 -->
         <p id="randolt"></p>
@@ -100,21 +103,12 @@
     <!-- 数字タッチ ＝＝＝＝＝＝＝＝＝＝＝＝ -->
     <section id="num">
       <h2>数字タッチ</h2>
-      <p>最後の番号までタッチして下さい</p>
-      <p>(筆者: 2.40s)</p>
+      <p>最後までタッチしましょう （筆者: 2.40）</p>
       <div id="touch">
         <div id="time">0.00</div>
         <ul id="board"></ul>
         <div id="start_btn">START</div>
       </div>
-    </section>
-
-    <!-- スロットマシーン ＝＝＝＝＝＝＝＝＝＝＝＝ -->
-    <section id="slot">
-      <h2>スロット</h2>
-      <p id="points">0点 0回 ビンゴ率 0%</p>
-      <div class="mainslot"></div>
-      <div id="spin">SPINNNNN</div>
     </section>
 
     <!-- 神経衰弱 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
@@ -126,21 +120,28 @@
         <div id="stage">
           <!-- JSで作成 -->
           <!-- <div class="card-container">
-            <div class="card">
-              <div class="card-front">1</div>
-              <div class="card-back">?</div>
-            </div>
-          </div> -->
+                <div class="card">
+                  <div class="card-front">1</div>
+                  <div class="card-back">?</div>
+                </div>
+              </div> -->
         </div>
         <a href="" id="restart" class="inactive">RESTART</a>
       </div>
     </section>
 
+    <!-- スロットマシーン ＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <section id="slot">
+      <h2>スロット</h2>
+      <p id="points">0点 0回 ビンゴ率 0%</p>
+      <div class="mainslot"></div>
+      <div id="spin">SPINNNNN</div>
+    </section>
+
   </main>
 
   <footer>
-    検査は以上です。
-    <a href="../index.html">LP</a>へ。
+    <a href="../index.html">コンテンツを抜ける</a>。
   </footer>
 
   <!-- メニュー -->

@@ -1,8 +1,8 @@
-'use strict'; // 神経衰弱 (dotinstall_古いJSの書き方?)
+'use strict'; // 神経衰弱 (dotinstall_古い書き方?)
 
 {
 
-  let pairs = 2; // ペア数 * 2 = カード枚数
+  let pairs = 4; // ペア数 * 2 = カード枚数
   let cards = []; // カードのペア格納
 
   // めくったカード
@@ -27,12 +27,20 @@
       card = cards.splice(Math.floor(Math.random() * cards.length), 1)[0];
       document.getElementById('stage').appendChild(card);
     }
-    // document.getElementById('restart').addEventListener('click', e => {
-    //   e.preventDefault(); // 追加（なぜ効かない？）
-    // });
   }
   init();
 
+  // やり直しボタン追加
+  document.getElementById('restart').addEventListener('click', e => {
+    e.preventDefault();
+    clearTimeout(timeoutId); // タイマーを止める
+    document.getElementById('score').textContent = '0.00';
+    // んーわからん...
+    // 判定後
+    // secondCard.removeEventListener('transitionend', check); // 解除
+    firstCard = null;
+    secondCard = null;
+  });
 
   // カード生成
   function createCard(num) { // 番号
@@ -68,7 +76,7 @@
     if (card.className.indexOf('open') !== -1) { // openがあれば
       return;
     }
-    card.className = 'card open';
+    card.className = 'card open'; // めくる
     flipCount++;
     if (flipCount % 2 === 1) {
       firstCard = card;
