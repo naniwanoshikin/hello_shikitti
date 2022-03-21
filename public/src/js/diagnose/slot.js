@@ -37,9 +37,9 @@
 
     getImg() { // 画像をランダムに3つ
       const images = [
-        '../src/img/diagnose/seven.png',
-        '../src/img/diagnose/bell.png',
-        '../src/img/diagnose/cherry.png',
+        '../img/diagnose/seven.png',
+        '../img/diagnose/bell.png',
+        '../img/diagnose/cherry.png',
       ];
       return images[Math.floor(Math.random() * images.length)];
     }

@@ -51,17 +51,18 @@ header {
     }
   }
   h1 {
+    cursor: pointer;
     font-weight: bold;
     font-size: 22px;
     line-height: 60px;
     margin: 0;
     padding: 0 10px;
   }
-  // PC用メニュー
+  // div
   .pc_menu {
     display: none;
   }
-  // アイコンボタン（スマホのみ）
+  // アイコンボタン スマホのみ
   .sp_menu {
     margin-left: auto;
     font-size: 32px;
@@ -71,7 +72,7 @@ header {
       display: none;
     }
   }
-  // メニュー画面（スマホのみ）
+  // メニュー画面 スマホのみ
   .overlay {
     @include brp($b: rgba(189, 168, 168, 0.7), $p: 60px, $r: 0);
     position: fixed;

@@ -35,9 +35,9 @@
     e.preventDefault();
     clearTimeout(timeoutId); // タイマーを止める
     document.getElementById('score').textContent = '0.00';
-    // んーわからん...
+    // わからん...
     // 判定後
-    // secondCard.removeEventListener('transitionend', check); // 解除
+    secondCard.removeEventListener('transitionend', check); // 解除
     firstCard = null;
     secondCard = null;
   });

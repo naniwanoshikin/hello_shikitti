@@ -54,6 +54,7 @@ header .pc_menu > nav a:hover {
 }
 
 header h1 {
+  cursor: pointer;
   font-weight: bold;
   font-size: 22px;
   line-height: 60px;
