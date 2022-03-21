@@ -1,326 +1,392 @@
 <!DOCTYPE html>
 <html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SHIKITTI WORLD</title>
+    <meta name="description" content="SHIKITTI WORLDです" />
+    <link rel="icon" href="nezcon.ico" />
+    <link rel="stylesheet" href="src/css/styles.css" />
+    <!-- CSS版 font-awesome CDN -->
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      rel="stylesheet"
+    />
+    <!-- font-awesome-animation -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css"
+      type="text/css"
+      media="all"
+    />
+    <!-- ハートマーク -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- navスクロール: jQuery 2つ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Todolist ドラック&ドロップ -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <!-- scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- お問い合わせ: react CDN -->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SHIKITTI WORLD</title>
-  <meta name="description" content="SHIKITTI WORLDです">
-  <link rel="icon" href="nezcon.ico">
-  <link rel="stylesheet" href="src/css/styles.css">
-  <!-- CSS版 font-awesome CDN -->
-  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-  <!-- font-awesome-animation -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css"
-    type="text/css" media="all" />
-  <!-- ハートマーク -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- navスクロール: jQuery 2つ -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <!-- Todolist ドラック&ドロップ -->
-  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-  <!-- scroll Reveal -->
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <!-- お問い合わせ: react CDN -->
-  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-</head>
-
-<body>
-
-  <header>
-    <h1 id="shiki" class="to_top">しきっちワールド</h1>
-    <nav>
-      <p><i class="far fa-caret-square-down"></i></p>
-      <ul class="navlist">
-        <li><a id="nav1" href="#about">自己紹介</a></li>
-        <li><a id="nav2" href="#work">特徴</a></li>
-        <li><a id="nav3" href="#town">地域紹介</a></li>
-        <li><a id="nav4" href="#contact">お問い合わせ</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <!-- header_scroll 監視 ------------------------ -->
-    <div id="target"></div>
-    <!-- FirstView --------------------------- -->
-    <section class="hello">
-      <div class="translate_btn">
-        <div id="japanese" class="hidden">日本語</div>
-        <div id="english">英語</div>
-      </div>
-      <h1 id="world">Hello World</h1>
-      <!-- ★ Todos ★ -->
-      <div class="mytodos">
-        <!-- JS -->
-        <ul class="tab">
-          <li class="first" data-id="content_td1">
-            <h3>Todos</h3>
-            <p>
-              <!-- ( 2 / 3 ) -->
-            </p>
-          </li>
-          <li class="second" data-id="content_td2">
-            <h3>Stocks</h3>
-            <p>
-              <!-- ( 2 / 3 ) -->
-            </p>
-          </li>
+  <body>
+    <header>
+      <h1 id="shiki" class="to_top">しきっちワールド</h1>
+      <nav>
+        <p><i class="far fa-caret-square-down"></i></p>
+        <ul class="navlist">
+          <li><a id="nav1" href="#about">自己紹介</a></li>
+          <li><a id="nav2" href="#work">特徴</a></li>
+          <li><a id="nav3" href="#town">地域紹介</a></li>
+          <li><a id="nav4" href="#contact">お問い合わせ</a></li>
         </ul>
-        <!-- 内容 Todos -->
-        <div class="content_td" id="content_td1">
-          <!-- ボタン集 -->
-          <div class="btns">
-            <i class="fas fa-lg fa-filter"></i>
-            <i class="far fa-lg fa-save"></i>
-            <i class="fas fa-lg fa-trash-alt"></i>
-            <i class="fas fa-lg fa-pen-alt"></i>
-            <div id="login">login</div>
-            <div id="logout">logout</div>
-          </div>
-          <!-- フィルター -->
-          <form id="searchform" autocomplete="off">
-            <input type="text" class="textline" placeholder="Filter">
-          </form>
-          <!-- cloud firestore -->
-          <form id="messageform" autocomplete="off">
-            <input type="text" class="textline" placeholder="Add...↩︎">
-            <!-- 曜日選択 -->
-            <select id="pcost"></select>
-          </form>
-          <!-- リスト1 -->
-          <ul id="todos1"></ul>
-        </div>
-        <!-- 内容 stocks -->
-        <div class="content_td" id="content_td2">
-          <!-- ボタン集 -->
-          <div class="btns">
-            <i class="fas fa-lg fa-user-plus"></i>
-            <i class="fas fa-lg fa-user-check"></i>
-            <i class="fas fa-lg fa-sort-alpha-down"></i>
-            <i class="fas fa-lg fa-undo-alt"></i>
-          </div>
-          <!-- 選択ボックス -->
-          <form id="checkform">
-            <input type="checkbox" value="公園へ" id="1"><label for="1">運動</label>
-            <input type="checkbox" value="本読み" id="2"><label for="2">読書</label>
-            <input type="checkbox" value="カメラ" id="3"><label for="3">写真</label>
-            <input type="submit" value="↩︎">
-          </form>
-          <!-- 入力 -->
-          <form id="addform">
-            <input type="text" class="textline" placeholder="Add...↩︎">
-          </form>
-          <!-- リスト2 -->
-          <ul id="todos2"></ul>
-        </div>
-      </div>
-    </section>
+      </nav>
+    </header>
 
-    <!-- 自己紹介 --------------------------- -->
-    <section class="about">
-      <h1 id="about" data-h1="-">自己紹介</h1>
-      <p id="dsc1">自己紹介します。</p>
-      <div class="frontback">
-        <div class="front">
-          <!-- 写真 -->
-          <div id="face"></div>
-          <h2 id="profile">プロフィール</h2>
-          <p>しきっち / 1991年生まれ / <span id="open">経歴</span></p>
-          <div id="mask" class="hidden"></div>
-          <div id="modal" class="hidden">
-            <p>経歴</p>
-            <table border="1" width="320" cellpadding="6" bordercolor="#333333">
-              <thead>
-                <tr bgcolor="ffe0b6">
-                  <th>年</th>
-                  <th colspan="2">できごと</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1991</td>
-                  <td>誕生</td>
-                  <td>Osaka</td>
-                <tr>
-                  <td>2006</td>
-                  <td>高校</td>
-                  <td>将棋</td>
-                <tr>
-                  <td>2012</td>
-                  <td>研究</td>
-                  <td>橋脚の解析</td>
-                <tr>
-                  <td>2016</td>
-                  <td>設計</td>
-                  <td>自動車部品</td>
-                <tr>
-                  <td>2017</td>
-                  <td>哲学</td>
-                  <td>パルクール</td>
-                <tr>
-                  <td>2020</td>
-                  <td>勉強</td>
-                  <td>
-                    <font color="#ed1c24">プログラミング</font>始めました
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <h2 id="hobby">趣味
-            <!-- いいねボタン -->
-            <label class="like">
-              <input type="checkbox">
-              <i class="material-icons heart">favorite</i>
-              <div class="ripple"></div>
-            </label>
-          </h2>
-          <p>写真 自転車</p>
+    <main>
+      <!-- header_scroll 監視 ------------------------ -->
+      <div id="target"></div>
+      <!-- FirstView --------------------------- -->
+      <section class="hello">
+        <div class="translate_btn">
+          <div id="japanese" class="hidden">日本語</div>
+          <div id="english">英語</div>
         </div>
-        <!-- スキル一覧 -->
-        <div class="back">
-          <h2 class="skill" id="skill">スキル</h2>
-          <!-- グラフ -->
-          <div class="chart" id="jschart" title="JavaScriptを学習中です">
-            <!-- 幅は比率。→divで囲った。 -->
-            <canvas id="my_chart" width="1" height="1">
-              Canvas not supported...
-            </canvas>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 特徴: 画像を監視 --------------------------- -->
-    <section class="feature">
-      <h1 id="work" data-h1="-">特徴</h1>
-      <p id="dsc2">各コンテンツ先へ飛びます</p>
-      <div class="works">
-        <!-- 1枚目 -->
-        <div class="work">
-          <div class="desc">
-            <h2><a id="logic" href="pages/diagnose.html" target="_blank">脳トレ診断</a></h2>
-            <p>脳トレゲームページを作成しました。<br>運試しや視力検査、数字タッチ、神経衰弱などのタイムアタックがあります。<br>ぜひ遊んでください！</p>
-          </div>
-          <div class="pic from_left">
-            <a href="pages/diagnose.html" target="_blank">
-              <img src="src/img/feat1.jpg" alt="健康診断">
-            </a>
-          </div>
-        </div>
-        <!-- 2枚目 -->
-        <div class="work">
-          <div class="desc">
-            <h2><a  id="tet" href="pages/tetris.html" target="_blank">テトリス PC専用</a></h2>
-            <p>テトリスです。上からブロックが落ちてくるので埋もれないようにうまく捌いていきましょう。※矢印キーが効かないためPC専用になります。</p>
-          </div>
-          <div class="pic from_right">
-            <a href="pages/tetris.html" target="_blank">
-              <img src="src/img/feat2.jpg" alt="テトリス">
-            </a>
-          </div>
-        </div>
-        <!-- 3枚目 -->
-        <div class="work">
-          <div class="desc">
-            <h2><a id="cafe" href="https://spapf-24842.web.app/" target="_blank">私の総括ワールド</a></h2>
-            <p>別サイトに飛びます。<br>React.jsで作成。</p>
-          </div>
-          <div class="pic from_left">
-            <a href="https://spapf-24842.web.app/" target="_blank">
-              <img id="image-preview" src="src/img/feat3.jpg" alt="カフェ">
-            </a>
-            <label class="input-button">
-              <input id="image" type="file" />
-            </label>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 地域 --------------------------- -->
-    <section class="city">
-      <h1 id="town" data-h1="-">地域</h1>
-      <p id="dsc3">私の記憶の中の世界</p>
-      <div class="city_box">
-        <!-- 画像 + << >> -->
-        <div class="container">
-          <ul class="pic">
-            <li><img src="src/img/aich1.JPG"></li>
-            <li><img src="src/img/aich2.JPG"></li>
-            <li><img src="src/img/aich3.JPG"></li>
-            <li><img src="src/img/aich4.JPG"></li>
+        <h3 id="world">Hello World</h3>
+        <!-- ★ Todos ★ -->
+        <div class="mytodos">
+          <!-- JS -->
+          <ul class="tab">
+            <li class="first" data-id="content_td1">
+              <h3>Todos</h3>
+              <p>
+                <!-- ( 2 / 3 ) -->
+              </p>
+            </li>
+            <li class="second" data-id="content_td2">
+              <h3>Stocks</h3>
+              <p>
+                <!-- ( 2 / 3 ) -->
+              </p>
+            </li>
           </ul>
-          <button id="prev">&laquo;</button>
-          <button id="next">&raquo;</button>
+          <!-- 内容 Todos -->
+          <div class="content_td" id="content_td1">
+            <!-- ボタン集 -->
+            <div class="btns">
+              <i class="fas fa-lg fa-filter"></i>
+              <i class="far fa-lg fa-save"></i>
+              <i class="fas fa-lg fa-trash-alt"></i>
+              <i class="fas fa-lg fa-pen-alt"></i>
+              <div id="login">login</div>
+              <div id="logout">logout</div>
+            </div>
+            <!-- フィルター -->
+            <form id="searchform" autocomplete="off">
+              <input type="text" class="textline" placeholder="Filter" />
+            </form>
+            <!-- cloud firestore -->
+            <form id="messageform" autocomplete="off">
+              <input type="text" class="textline" placeholder="Add...↩︎" />
+              <!-- 曜日選択 -->
+              <select id="pcost"></select>
+            </form>
+            <!-- リスト1 -->
+            <ul id="todos1"></ul>
+          </div>
+          <!-- 内容 stocks -->
+          <div class="content_td" id="content_td2">
+            <!-- ボタン集 -->
+            <div class="btns">
+              <i class="fas fa-lg fa-user-plus"></i>
+              <i class="fas fa-lg fa-user-check"></i>
+              <i class="fas fa-lg fa-sort-alpha-down"></i>
+              <i class="fas fa-lg fa-undo-alt"></i>
+            </div>
+            <!-- 選択ボックス -->
+            <form id="checkform">
+              <input type="checkbox" value="公園へ" id="1" />
+              <label for="1">運動</label>
+              <input type="checkbox" value="本読み" id="2" />
+              <label for="2">読書</label>
+              <input type="checkbox" value="カメラ" id="3" />
+              <label for="3">写真</label>
+              <input type="submit" value="↩︎" />
+            </form>
+            <!-- 入力 -->
+            <form id="addform">
+              <input type="text" class="textline" placeholder="Add...↩︎" />
+            </form>
+            <!-- リスト2 -->
+            <ul id="todos2"></ul>
+          </div>
         </div>
-        <!-- 説明文 -->
-        <ul class="desc">
-          <li>
-            <h2>一宮市</h2>
-            <p>一宮市丹陽町です。<br>近くにある田んぼ一帯が愛おしいです。一宮市は、一宮市・尾西市・木曽川町が合併し、平成17年4月1日に誕生しました。</p>
-          </li>
-          <li>
-            <h2>岩倉市</h2>
-            <p>岩倉市五条川です。<br>春になると桜が綺麗です。春の桜名所にも選ばれています。</p>
-          </li>
-          <li>
-            <h2>江南市</h2>
-            <p>江南市です。<br>田んぼの道が愛おしいです。夏の夕方6:00ごろになると空がとても綺麗です。</p>
-          </li>
-          <li>
-            <h2>小牧市</h2>
-            <p>小牧市中央です。<br>小牧駅近くから撮りました。奥に見えるのは小牧山城です。少し進んだ先にあるたこ焼き屋さんが美味しいです。</p>
-          </li>
-        </ul>
-      </div>
-      <!-- 丸ボタン -->
-      <nav></nav>
-    </section>
+      </section>
 
-    <!-- お問い合わせ --------------------------- -->
-    <section class="contact">
-      <h1 id="contact" data-h1="-">お問い合わせ</h1>
-      <p class="free" id="dsc4">
-        <span class="faa-parent animated-hover">
-          <i class="fas fa-envelope fa-lg faa-ring"></i>
-        </span>
-        お気軽にご連絡ください。
-      </p>
-      <!-- React.js-->
-      <div id="root0"></div>
-    </section>
-  </main>
+      <!-- 自己紹介 --------------------------- -->
+      <section class="about">
+        <h1 id="about" data-h1="-">自己紹介</h1>
+        <p id="dsc1">自己紹介します。</p>
+        <div class="frontback">
+          <div class="front">
+            <div id="face">
+              <!-- 写真 -->
+            </div>
+            <h2 id="profile">プロフィール</h2>
+            <p>SHIKITTI / 1991年 / <span id="open">経歴</span></p>
+            <div id="mask" class="hidden"></div>
+            <div id="modal" class="top_hidden">
+              <p>経歴</p>
+              <table
+                border="1"
+                width="320"
+                cellpadding="6"
+                bordercolor="#333333"
+              >
+                <thead>
+                  <tr bgcolor="ffe0b6">
+                    <th>年</th>
+                    <th colspan="2">できごと</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1991</td>
+                    <td colspan="2">Osaka</td>
+                  </tr>
 
-  <footer>
-    <ul>
-      <li>
-        <a href="https://github.com/naniwanoshikin/hello_shikitti" target="_blank"
-          rel="noreferrer noopener">
+                  <tr>
+                    <td>2006</td>
+                    <td>高校</td>
+                    <td>将棋</td>
+                  </tr>
+
+                  <tr>
+                    <td>2012</td>
+                    <td>研究</td>
+                    <td>橋脚</td>
+                  </tr>
+
+                  <tr>
+                    <td>2016</td>
+                    <td>設計</td>
+                    <td>自動車部品</td>
+                  </tr>
+
+                  <tr>
+                    <td>2017</td>
+                    <td>哲学</td>
+                    <td>パルクール</td>
+                  </tr>
+
+                  <tr>
+                    <td>2020</td>
+                    <td>勉強</td>
+                    <td><font color="#ed1c24">プログラミング</font>開始</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2 id="hobby">
+              趣味
+              <!-- いいねボタン -->
+              <label class="like">
+                <input type="checkbox" />
+                <i class="material-icons heart">favorite</i>
+                <div class="ripple"></div>
+              </label>
+            </h2>
+            <p>自転車 写真</p>
+          </div>
+          <!-- スキル一覧 -->
+          <div class="back">
+            <h2 class="skill" id="skill">スキル</h2>
+            <!-- グラフ -->
+            <div class="chart" id="jschart" title="JavaScriptを学習中です">
+              <!-- 幅は比率。→divで囲った。 -->
+              <canvas id="my_chart" width="1" height="1">
+                Canvas not supported...
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 特徴: 画像を監視 --------------------------- -->
+      <section class="feature">
+        <h1 id="work" data-h1="-">特徴</h1>
+        <p id="dsc2">各コンテンツ先へ飛びます</p>
+        <div class="works">
+          <!-- 1枚目 -->
+          <div class="work">
+            <div class="desc">
+              <h2>
+                <a id="logic" href="pages/diagnose.html" target="_blank"
+                  >脳トレ診断</a
+                >
+              </h2>
+              <p>
+                脳トレゲームページを作成しました。<br />運試しや視力検査、数字タッチ、神経衰弱などのタイムアタックがあります。<br />ぜひ遊んでください！
+              </p>
+            </div>
+            <div class="pic from_left">
+              <a href="pages/diagnose.html" target="_blank">
+                <img src="src/img/feat1.jpg" alt="健康診断" />
+              </a>
+            </div>
+          </div>
+          <!-- 2枚目 -->
+          <div class="work">
+            <div class="desc">
+              <h2>
+                <a id="tet" href="pages/tetris.html" target="_blank"
+                  >テトリス PC専用</a
+                >
+              </h2>
+              <p>
+                テトリスです。上からブロックが落ちてくるので埋もれないようにうまく捌いていきましょう。※矢印キーが効かないためPC専用になります。
+              </p>
+            </div>
+            <div class="pic from_right">
+              <a href="pages/tetris.html" target="_blank">
+                <img src="src/img/feat2.jpg" alt="テトリス" />
+              </a>
+            </div>
+          </div>
+          <!-- 3枚目 -->
+          <div class="work">
+            <div class="desc">
+              <h2>
+                <a id="cafe" href="https://spapf-24842.web.app/" target="_blank"
+                  >私の総括ワールド</a
+                >
+              </h2>
+              <p>別サイトに飛びます。<br />React.jsで作成。</p>
+            </div>
+            <div class="pic from_left">
+              <a href="https://spapf-24842.web.app/" target="_blank">
+                <img id="image-preview" src="src/img/feat3.jpg" alt="カフェ" />
+              </a>
+              <label class="input-button">
+                <input id="image" type="file" />
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 地域 --------------------------- -->
+      <section class="city">
+        <h1 id="town" data-h1="-">地域</h1>
+        <p id="dsc3">私の記憶の中の世界</p>
+        <div class="city_box">
+          <!-- 画像 + << >> -->
+          <div class="container">
+            <ul class="pic">
+              <li><img src="src/img/aich1.JPG" /></li>
+              <li><img src="src/img/aich2.JPG" /></li>
+              <li><img src="src/img/aich3.JPG" /></li>
+              <li><img src="src/img/aich4.JPG" /></li>
+            </ul>
+            <button id="prev">&laquo;</button>
+            <button id="next">&raquo;</button>
+          </div>
+          <!-- 説明文 -->
+          <ul class="desc">
+            <li>
+              <h2>一宮市</h2>
+              <p>
+                一宮市丹陽町です。<br />この先を進むと、愛おしき田んぼがあります。一宮市は平成17年4月1日に誕生しました。
+              </p>
+            </li>
+            <li>
+              <h2>岩倉市</h2>
+              <p>
+                岩倉市五条川です。<br />春になると桜が綺麗です。春の桜名所にも選ばれています。犬山市まで川は遡ります。
+              </p>
+            </li>
+            <li>
+              <h2>江南市</h2>
+              <p>
+                江南市です。<br />愛おしき田んぼの道を撮りました。夏の夕方6:00ごろになると空がとても綺麗です。
+              </p>
+            </li>
+            <li>
+              <h2>小牧市</h2>
+              <p>
+                小牧市中央です。<br />駅近くから撮りました。奥に見えるのは小牧山城です。少し進んだ先にあるたこ焼き屋さんがおすすめです。
+              </p>
+            </li>
+          </ul>
+        </div>
+        <!-- 丸ボタン -->
+        <nav></nav>
+      </section>
+
+      <!-- お問い合わせ --------------------------- -->
+      <section class="contact">
+        <h1 id="contact" data-h1="-">お問い合わせ</h1>
+        <p class="free" id="dsc4">
           <span class="faa-parent animated-hover">
-            <i class="fab fa-github fa-2x faa-tada"></i>
+            <i class="fas fa-envelope fa-lg faa-ring"></i>
           </span>
-        </a>
-      </li>
-      <li>
-        <a class="share" href="https://twitter.com/power_of_shikin" target="_blank" rel="noreferrer noopener">
-          <span class="faa-parent animated-hover">
-            <i class="fab fa-twitter fa-2x faa-passing"></i>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a href="http://instagram.com/shikitti_write" target="_blank" rel="noreferrer noopener">
-          <span class="faa-parent animated-hover">
-            <i class="fab fa-instagram fa-2x fa-flip-horizontal faa-spin"></i>
-          </span>
-        </a>
-      </li>
-      <!-- <li>
+          お気軽にご連絡ください。
+        </p>
+        <!-- React.js-->
+        <div id="root0"></div>
+      </section>
+    </main>
+
+    <footer>
+      <ul>
+        <li>
+          <a
+            href="https://github.com/naniwanoshikin/hello_shikitti"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <span class="faa-parent animated-hover">
+              <i class="fab fa-github fa-2x faa-tada"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="share"
+            href="https://twitter.com/power_of_shikin"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <span class="faa-parent animated-hover">
+              <i class="fab fa-twitter fa-2x faa-passing"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="http://instagram.com/shikitti_write"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <span class="faa-parent animated-hover">
+              <i class="fab fa-instagram fa-2x fa-flip-horizontal faa-spin"></i>
+            </span>
+          </a>
+        </li>
+        <!-- <li>
         <a href="https://www.youtube.com/channel/UCyydUwy-0x2Tc-FcCWBQncw?view_as=subscriber" target="_blank"
           rel="noreferrer noopener">
           <span class="faa-parent animated-hover">
@@ -328,304 +394,375 @@
           </span>
         </a>
       </li> -->
-    </ul>
-    <div>
-      <p class="to_top">© shikitti_world 2021</p>
-    </div>
-  </footer>
+      </ul>
+      <div>
+        <p class="to_top">© shikitti_world 2021</p>
+      </div>
+    </footer>
 
-  <!-- 機能別: app, cloud_firestore, 匿名ログイン認証 -->
-  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
-  <script src="src/js/todos_fire0.js"></script>
+    <!-- 機能別: app, cloud_firestore, 匿名ログイン認証 -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <script src="src/js/todos_fire0.js"></script>
 
-  <!-- Todoリスト firebaseあり -->
-  <script src="src/js/todos_fire1.js"></script>
-  <!-- Todoリスト stocks-->
-  <script src="src/js/todos_stocks.js"></script>
-  <!-- Todoリスト Sort -->
-  <script src="src/js/todos_sort.js"></script>
-  <!-- Todoリスト タブ -->
-  <script src="src/js/todos_tab.js"></script>
+    <!-- Todoリスト firebaseあり -->
+    <script src="src/js/todos_fire1.js"></script>
+    <!-- Todoリスト stocks-->
+    <script src="src/js/todos_stocks.js"></script>
+    <!-- Todoリスト Sort -->
+    <script src="src/js/todos_sort.js"></script>
+    <!-- Todoリスト タブ -->
+    <script src="src/js/todos_tab.js"></script>
 
-  <!-- ヘッダーに戻る -->
-  <script src="src/js/nav_up.js"></script>
-  <!-- ナビ jQuery -->
-  <script src="src/js/nav_down_fly.js"></script>
-  <!-- 交差監視: ヘッダーナビ, 特徴_画像 -->
-  <script src="src/js/nav_img_change.js"></script>
+    <!-- ヘッダーに戻る -->
+    <script src="src/js/nav_up.js"></script>
+    <!-- ナビ jQuery -->
+    <script src="src/js/nav_down_fly.js"></script>
+    <!-- 交差監視: ヘッダーナビ, 特徴_画像 -->
+    <script src="src/js/nav_img_change.js"></script>
 
-  <!-- スクロール Reveal -->
-  <script src="src/js/scroll_reveal.js"></script>
-  <!-- 英訳, 日本語訳 -->
-  <script src="src/js/translate.js"></script>
+    <!-- スクロール Reveal -->
+    <script src="src/js/scroll_reveal.js"></script>
+    <!-- 英訳, 日本語訳 -->
+    <script src="src/js/trans_btn.js"></script>
 
-  <!-- 自己紹介 プロフィール -->
-  <script src="src/js/about_profile.js"></script>
-  <!-- 自己紹介 スキル: chart.js(CDN) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-  <script src="src/js/about_skill_chart.js"></script>
+    <!-- 自己紹介 プロフィール -->
+    <script src="src/js/about_profile.js"></script>
+    <!-- 自己紹介 スキル: chart.js(CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="src/js/about_skill_chart.js"></script>
 
-  <!-- 特徴部 画像をセット -->
-  <script src="src/js/work_file.js" defer></script>
-  <!-- 地域 カルーセル -->
-  <script src="src/js/remain_city_slide.js"></script>
+    <!-- 特徴部 画像をセット -->
+    <script src="src/js/work_file.js" defer></script>
+    <!-- 地域 カルーセル -->
+    <script src="src/js/remain_city_slide.js"></script>
 
-  <!-- React お問い合わせ -->
-  <script type="text/babel">
-    (() => {
-
-      // スペース削除
-      // (@param, @return) = (string, 前後スペースなしstring)
-      function spa(string) {
-        return string.replace(/^[ |　]+|[ |　]+$/g, '');
-      }
-      // a@g.com形式であればtrue
-      // (@param, @return) = (string, bool)
-      function ad(string) {
-        const reg = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
-        return reg.test(string);
-      }
-
-      // お問い合わせフォーム
-      class ContactForm extends React.Component {
-        constructor(props) { // なぜpropsが入るのか？
-          super(props); // superとは、React.Componentのこと。初期化処理をここで行う。
-          this.state = {
-            name: "", // 入力値（まだ入力不可）
-            age: '', // checkbox
-            radio: '', // ラジオボタンの値
-            content: "", // 内容
-            hasNameError: false,
-            hasContentError: false,
-            hasAgeError: false,
-            hasRadioError: false,
-            isSubmitted: false,  // 確認画面状態
-          };
+    <!-- React お問い合わせ -->
+    <script type="text/babel">
+      (() => {
+        // スペース削除
+        // (@param, @return) = (string, 前後スペースなしstring)
+        function spa(string) {
+          return string.replace(/^[ |　]+|[ |　]+$/g, "");
         }
-        handleName(e) { // 名前を入力した時、
-          const inputValue = e.target.value;
-          this.setState({
-            name: inputValue, // string
-            hasNameError: inputValue === "", // bool（未入力だとtrue）
-          });
+        // a@g.com形式であればtrue
+        // (@param, @return) = (string, bool)
+        function ad(string) {
+          const reg =
+            /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
+          return reg.test(string);
         }
-        handleContent(e) { // 内容を入力した時、
-          this.setState({
-            content: e.target.value,
-            hasContentError: e.target.value === "",
-          });
-        }
-        handleAge(e) { // 年齢を選択した時、
-          this.setState({
-            age: e.target.value,
-            hasAgeError: e.target.value === "",
-          });
-        }
-        handleRadio(e) { // ラジオボタンを選択した時、
-          this.setState({
-            radio: e.input,
-            hasRadioError: e.input === "",
-          });
-        }
-        handleConfirm(e) { // 確認ボタン押した時、
-          e.preventDefault();
-          if (!this.state.name) { // 未入力ならエラーメッセージを表示
-            this.setState({ hasNameError: true });
+
+        // お問い合わせフォーム
+        class ContactForm extends React.Component {
+          constructor(props) {
+            // なぜpropsが入るのか？
+            super(props); // superとは、React.Componentのこと。初期化処理をここで行う。
+            this.state = {
+              name: "", // 入力値（まだ入力不可）
+              age: "", // checkbox
+              radio: "", // ラジオボタンの値
+              content: "", // 内容
+              hasNameError: false,
+              hasContentError: false,
+              hasAgeError: false,
+              hasRadioError: false,
+              isSubmitted: false, // 確認画面状態
+            };
           }
-          if (!this.state.content) {
-            this.setState({ hasContentError: true });
-          }
-          if (!this.state.age) {
-            this.setState({ hasAgeError: true, age: "未回答" });
-          }
-          if (!this.state.radio) {
-            console.log('not radio value');
-            this.setState({ hasRadioError: true, radio: "未回答" });
-          }
-          if (!this.state.name || !this.state.content) {
-            return;
-          }
-          this.setState({ isSubmitted: true });
-        }
-        handleFix(e) { // 修正ボタン押した時、
-          e.preventDefault();
-          this.setState({ isSubmitted: false });
-        }
-        handleSubmit(e) { // 送信ボタン押した時、
-          e.preventDefault();
-          const name = spa(this.state.name);
-          const content = spa(this.state.content);
-          const age = this.state.age;
-          const radio = this.state.radio;
-          const WEBHOOK_url = "https://hooks.slack.com/services/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";
-          const payload = {
-            text: '★New Message★\n'
-              + 'お名前: ' + name + '\n'
-              + '年齢: ' + age + '\n'
-              + '方法: ' + radio + '\n'
-              + '【問い合わせ内容】\n' + content
-          };
-          // フォーム内容をSlackのIncoming Webhook URL に送信
-          fetch(WEBHOOK_url, {
-            method: 'POST',
-            body: JSON.stringify(payload)
-          }).then(() => {
-            alert('送信が完了しました。追ってご連絡いたします🙌');
+          handleName(e) {
+            // 名前を入力した時、
+            const inputValue = e.target.value;
             this.setState({
-              name: "",
-              age: "",
-              radio: "",
-              content: "",
-              isSubmitted: false,
-            })
-          })
-          console.log('sent for slack!');
-        }
-        render() {
-          // エラーメッセージ
-          let NameError; // 名前
-          let AgeError; // 年齢の選択
-          let RadioError; // 連絡方法の選択
-          let ContentError; // お問い合せ内容
-          if (this.state.hasNameError) {
-            NameError = (
-              <p className="error-message">※お名前を入力してください</p>
-            );
+              name: inputValue, // string
+              hasNameError: inputValue === "", // bool（未入力だとtrue）
+            });
           }
-          if (this.state.hasAgeError) {
-            AgeError = (
-              <p className="error-message">※年齢を選択してください</p>
-            );
+          handleContent(e) {
+            // 内容を入力した時、
+            this.setState({
+              content: e.target.value,
+              hasContentError: e.target.value === "",
+            });
           }
-          if (this.state.hasRadioError) {
-            RadioError = (
-              <p className="error-message">※直近の状況を選択してください</p>
-            );
+          handleAge(e) {
+            // 年齢を選択した時、
+            this.setState({
+              age: e.target.value,
+              hasAgeError: e.target.value === "",
+            });
           }
-          if (this.state.hasContentError) {
-            ContentError = (
-              <p className="error-message">※希望事項を入力してください</p>
-            );
+          handleRadio(e) {
+            // ラジオボタンを選択した時、
+            this.setState({
+              radio: e.input,
+              hasRadioError: e.input === "",
+            });
           }
-          const confirmform = [ // 確認画面リスト（順番どおり）
-            { input: "お名前", output: [spa(this.state.name)] },
-            { input: "年齢", output: [this.state.age] },
-            { input: "職業", output: [this.state.radio] },
-            { input: "内容", output: [spa(this.state.content)] },
-          ];
-          const ageitems = [ // checkbox
-            { input: "-", output: "回答しない" },
-            { input: "16-25歳", output: "16~25歳" },
-            { input: "26-35歳", output: "26~35歳" },
-            { input: "36-45歳", output: "36~45歳" },
-            { input: "46-歳", output: "46~歳" },
-          ];
-          const radioitems = [ // radioボタン
-            { id: 0, check: false, input: "社員", output: "社員" },
-            { id: 1, check: false, input: "アルバイト", output: "アルバイト" },
-            { id: 2, check: false, input: "無職", output: "無職" },
-          ];
-          return (
-            <div>
-              {this.state.isSubmitted
-                ? // 確認画面
-                <div>
-                  <h4>下記内容でよろしいでしょうか？</h4>
-                  <hr />
-                  <ul className="">
-                    {confirmform.map((e, i) => {
-                      return (
-                        <li key={i}><span className="answer-item">{e.input}：</span><span className="answer">{e.output}</span></li>
-                      )
-                    })}
-                  </ul>
-                  <div className="submits">
-                    <form className="" style={{ marginRight: "10px", }}>
-                      <input type="submit" value="修正する" className="submitbtn"
-                        onClick={(e) => { this.handleFix(e) }}
-                      />
-                    </form>
-                    <form>
-                      <input type="submit" value="送信" className="submitbtn"
-                        onClick={(e) => { this.handleSubmit(e) }}
-                      />
-                    </form>
-                  </div>
-                </div>
-                : // 元の画面
-                <form onSubmit={(e) => { this.handleConfirm(e) }}>
-                  <div className="form">
-                    <div className="frontform">
-                      {/* お名前 */}
-                      <div className="">
-                        <label htmlFor="name">お名前（必須）</label>
-                        <input type="text" id="name" placeholder="大阪太郎"
-                          className="textline" autoComplete="off"
-                          value={this.state.name}
-                          onChange={(e) => { this.handleName(e) }}
+          handleConfirm(e) {
+            // 確認ボタン押した時、
+            e.preventDefault();
+            if (!this.state.name) {
+              // 未入力ならエラーメッセージを表示
+              this.setState({ hasNameError: true });
+            }
+            if (!this.state.content) {
+              this.setState({ hasContentError: true });
+            }
+            if (!this.state.age) {
+              this.setState({ hasAgeError: true, age: "未回答" });
+            }
+            if (!this.state.radio) {
+              console.log("not radio value");
+              this.setState({ hasRadioError: true, radio: "未回答" });
+            }
+            if (!this.state.name || !this.state.content) {
+              return;
+            }
+            this.setState({ isSubmitted: true });
+          }
+          handleFix(e) {
+            // 修正ボタン押した時、
+            e.preventDefault();
+            this.setState({ isSubmitted: false });
+          }
+          handleSubmit(e) {
+            // 送信ボタン押した時、
+            e.preventDefault();
+            const name = spa(this.state.name);
+            const content = spa(this.state.content);
+            const age = this.state.age;
+            const radio = this.state.radio;
+            const WEBHOOK_url =
+              "https://hooks.slack.com/services/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";
+            const payload = {
+              text:
+                "★New Message★\n" +
+                "お名前: " +
+                name +
+                "\n" +
+                "年齢: " +
+                age +
+                "\n" +
+                "方法: " +
+                radio +
+                "\n" +
+                "【問い合わせ内容】\n" +
+                content,
+            };
+            // フォーム内容をSlackのIncoming Webhook URL に送信
+            fetch(WEBHOOK_url, {
+              method: "POST",
+              body: JSON.stringify(payload),
+            }).then(() => {
+              alert("送信が完了しました。追ってご連絡いたします🙌");
+              this.setState({
+                name: "",
+                age: "",
+                radio: "",
+                content: "",
+                isSubmitted: false,
+              });
+            });
+            console.log("sent for slack!");
+          }
+          render() {
+            // エラーメッセージ
+            let NameError; // 名前
+            let AgeError; // 年齢の選択
+            let RadioError; // 連絡方法の選択
+            let ContentError; // お問い合せ内容
+            if (this.state.hasNameError) {
+              NameError = (
+                <p className="error-message">※お名前を入力してください</p>
+              );
+            }
+            if (this.state.hasAgeError) {
+              AgeError = (
+                <p className="error-message">※年齢を選択してください</p>
+              );
+            }
+            if (this.state.hasRadioError) {
+              RadioError = (
+                <p className="error-message">※直近の状況を選択してください</p>
+              );
+            }
+            if (this.state.hasContentError) {
+              ContentError = (
+                <p className="error-message">※希望事項を入力してください</p>
+              );
+            }
+            const confirmform = [
+              // 確認画面リスト（順番どおり）
+              { input: "お名前", output: [spa(this.state.name)] },
+              { input: "年齢", output: [this.state.age] },
+              { input: "職業", output: [this.state.radio] },
+              { input: "内容", output: [spa(this.state.content)] },
+            ];
+            const ageitems = [
+              // checkbox
+              { input: "-", output: "回答しない" },
+              { input: "16-25歳", output: "16~25歳" },
+              { input: "26-35歳", output: "26~35歳" },
+              { input: "36-45歳", output: "36~45歳" },
+              { input: "46-歳", output: "46~歳" },
+            ];
+            const radioitems = [
+              // radioボタン
+              { id: 0, check: false, input: "社員", output: "社員" },
+              {
+                id: 1,
+                check: false,
+                input: "アルバイト",
+                output: "アルバイト",
+              },
+              { id: 2, check: false, input: "無職", output: "無職" },
+            ];
+            return (
+              <div>
+                {this.state.isSubmitted ? (
+                  // 確認画面
+                  <div>
+                    <h4>下記内容でよろしいでしょうか？</h4>
+                    <hr />
+                    <ul className="">
+                      {confirmform.map((e, i) => {
+                        return (
+                          <li key={i}>
+                            <span className="answer-item">{e.input}：</span>
+                            <span className="answer">{e.output}</span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                    <div className="submits">
+                      <form className="" style={{ marginRight: "10px" }}>
+                        <input
+                          type="submit"
+                          value="修正する"
+                          className="submitbtn"
+                          onClick={(e) => {
+                            this.handleFix(e);
+                          }}
                         />
-                        {NameError}
-                      </div>
-                      {/* 年齢 */}
-                      <div className="age">
-                        <label htmlFor="age">年齢（任意）</label>
-                        <select name="age" id="age" className="textline"
-                          value={this.state.age}
-                          onChange={(e) => { this.handleAge(e) }}>
-                          {ageitems.map((ee, i) => {
+                      </form>
+                      <form>
+                        <input
+                          type="submit"
+                          value="送信"
+                          className="submitbtn"
+                          onClick={(e) => {
+                            this.handleSubmit(e);
+                          }}
+                        />
+                      </form>
+                    </div>
+                  </div>
+                ) : (
+                  // 元の画面
+                  <form
+                    onSubmit={(e) => {
+                      this.handleConfirm(e);
+                    }}
+                  >
+                    <div className="form">
+                      <div className="frontform">
+                        {/* お名前 */}
+                        <div className="">
+                          <label htmlFor="name">お名前（必須）</label>
+                          <input
+                            type="text"
+                            id="name"
+                            placeholder="大阪太郎"
+                            className="textline"
+                            autoComplete="off"
+                            value={this.state.name}
+                            onChange={(e) => {
+                              this.handleName(e);
+                            }}
+                          />
+                          {NameError}
+                        </div>
+                        {/* 年齢 */}
+                        <div className="age">
+                          <label htmlFor="age">年齢（任意）</label>
+                          <select
+                            name="age"
+                            id="age"
+                            className="textline"
+                            value={this.state.age}
+                            onChange={(e) => {
+                              this.handleAge(e);
+                            }}
+                          >
+                            {ageitems.map((ee, i) => {
+                              return (
+                                <option key={i} value={ee.output}>
+                                  {ee.input}
+                                </option>
+                              );
+                            })}
+                          </select>
+                          {AgeError}
+                        </div>
+                        {/* ラジオボタン */}
+                        <fieldset className="radio">
+                          <legend className="my-radio">職業（任意）</legend>
+                          {radioitems.map((item, i) => {
                             return (
-                              <option key={i} value={ee.output}>{ee.input}</option>
-                            )
+                              <label key={i} className="">
+                                <input
+                                  type="radio"
+                                  name="abcde"
+                                  value={item.output}
+                                  onChange={() => {
+                                    this.handleRadio(item);
+                                  }}
+                                />
+                                {item.input}
+                                <span>{/* 重なる円 */}</span>
+                              </label>
+                            );
                           })}
-                        </select>
-                        {AgeError}
+                        </fieldset>
+                        {RadioError}
                       </div>
-                      {/* ラジオボタン */}
-                      <fieldset className="radio">
-                        <legend className="my-radio">職業（任意）</legend>
-                        {radioitems.map((item, i) => {
-                          return (
-                            <label key={i} className="">
-                              <input type="radio" name="abcde"
-                                value={item.output}
-                                onChange={() => { this.handleRadio(item) }}
-                              />
-                              {item.input}
-                              <span>{/* 重なる円 */}</span>
-                            </label>
-                          )
-                        })}
-                      </fieldset>
-                      {RadioError}
+                      {/* お問い合わせ内容 */}
+                      <div className="backform">
+                        <label htmlFor="content" className="content">
+                          お問い合わせ内容（必須）
+                        </label>
+                        <textarea
+                          className="textline"
+                          id="content"
+                          cols="36"
+                          rows="10"
+                          maxLength="500"
+                          placeholder="（希望事項）"
+                          value={this.state.content}
+                          onChange={(e) => {
+                            this.handleContent(e);
+                          }}
+                        />
+                        {ContentError}
+                      </div>
                     </div>
-                    {/* お問い合わせ内容 */}
-                    <div className="backform">
-                      <label htmlFor="content" className="content">お問い合わせ内容（必須）</label>
-                      <textarea className="textline" id="content" cols="36" rows="10" maxLength="500" placeholder="（希望事項）"
-                        value={this.state.content}
-                        onChange={(e) => { this.handleContent(e) }}
+                    <div id="sub">
+                      <input
+                        type="submit"
+                        value="確認画面へ"
+                        className="submitbtn"
                       />
-                      {ContentError}
                     </div>
-                  </div>
-                  <div id="sub">
-                    <input type="submit" value="確認画面へ" className="submitbtn" />
-                  </div>
-                </form>
-              }
-            </div>
-          );
+                  </form>
+                )}
+              </div>
+            );
+          }
         }
-      }
-      ReactDOM.render(
-        <ContactForm />,
-        document.getElementById('root0')
-      );
-    })();
-  </script>
-
-</body>
-
+        ReactDOM.render(<ContactForm />, document.getElementById("root0"));
+      })();
+    </script>
+  </body>
 </html>

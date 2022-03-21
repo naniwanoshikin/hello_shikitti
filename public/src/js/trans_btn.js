@@ -88,7 +88,7 @@
     ['nav2', 'WORK', '特徴'], // 2
     ['nav3', 'TOWN', '第二の故郷'], // 3
     ['nav4', 'CONTACT', 'お問い合わせ'], // 4
-    ['world', 'Welcome to my Portfolio!', 'Hello World'], // 見出し
+    ['world', 'This is my world!', 'Hello World'], // 見出し
     ['about', 'ABOUT', '自己紹介'], // 6
     ['work', 'WORK', '特徴'], // 7
     ['town', 'THE TOWN', '第二の故郷'], // 8

@@ -199,6 +199,7 @@ footer ul li a .fa-instagram {
   background: -webkit-linear-gradient(#204bff 0%, #b039db 4%, #f1224d 25%, #ffa915 85%, #ffe987 90%, #ffffd4 97%, #00fffc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 footer ul li a:hover {
@@ -221,9 +222,13 @@ footer p:hover {
   transition: 0.5s;
 }
 
+.hidden {
+  display: none;
+}
+
 .translate_btn {
   position: fixed;
-  bottom: 200px;
+  top: 75px;
   right: 2px;
   z-index: 10;
 }
@@ -237,7 +242,7 @@ footer p:hover {
   border-radius: 10px;
   color: black;
   font-size: 14px;
-  border: 1px solid #aaeb41;
+  border: 1px solid #eee;
   cursor: pointer;
   text-align: center;
   -webkit-transition: 0.2s;
@@ -265,16 +270,15 @@ footer p:hover {
           user-select: none;
 }
 
-.hello h1 {
+.hello #world {
+  font-weight: normal;
+  text-align: center;
+  font-size: 1.3em;
   margin: 25px auto;
+  margin-top: 30px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-decoration: none;
   -webkit-transition: 1s;
   transition: 1s;
-}
-
-.hello .hidden {
-  display: none;
 }
 
 .mytodos {
@@ -479,7 +483,7 @@ footer p:hover {
 
 .mytodos #todos1 li,
 .mytodos #todos2 li {
-  /* フィルター機能 見かけ上削除 */
+  /* フィルター機能 */
 }
 
 .mytodos #todos1 li:hover,
@@ -560,10 +564,6 @@ footer p:hover {
           user-select: none;
 }
 
-.about .front {
-  /* モーダルウィンドウ */
-}
-
 .about .front p {
   text-align: center;
   margin: 0;
@@ -592,6 +592,7 @@ footer p:hover {
           box-shadow: 0 2px #575639;
   -webkit-transform: translateY(5px);
           transform: translateY(5px);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .about .front #open {
@@ -642,10 +643,6 @@ footer p:hover {
   z-index: 1;
 }
 
-.about .front #mask.hidden {
-  display: none;
-}
-
 .about .front #modal {
   background: #fff;
   padding: 20px;
@@ -669,12 +666,12 @@ footer p:hover {
   margin: 0 0 20px;
 }
 
-.about .front #modal.hidden {
+.about .front #modal.top_hidden {
   -webkit-transform: translate(0, -1000px);
           transform: translate(0, -1000px);
 }
 
-.about .front #modal.hidden table {
+.about .front #modal.top_hidden table {
   margin: 0 auto;
   border-collapse: collapse;
 }
@@ -711,7 +708,7 @@ footer p:hover {
 }
 
 .feature .works .work .desc a {
-  color: brown;
+  color: #a5612a;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
@@ -853,10 +850,6 @@ footer p:hover {
 
 .city .city_box .container #next {
   right: 0;
-}
-
-.city .city_box .hidden {
-  display: none;
 }
 
 .city .city_box ul.desc {
@@ -1037,7 +1030,6 @@ footer p:hover {
 .like {
   width: 30px;
   height: 30px;
-  border-radius: 50%;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -1053,10 +1045,6 @@ footer p:hover {
   cursor: pointer;
 }
 
-.like:hover {
-  background: #f5f5f5;
-}
-
 .like [type="checkbox"] {
   display: none;
   /* チェックされた時 */
@@ -1065,13 +1053,6 @@ footer p:hover {
 .like [type="checkbox"]:checked ~ .heart {
   -webkit-animation: heart 0.6s forwards;
           animation: heart 0.6s forwards;
-}
-
-.heart {
-  font-size: 40px;
-  color: #e4e4e4;
-  position: relative;
-  top: 1px;
 }
 
 @-webkit-keyframes heart {
@@ -1106,13 +1087,20 @@ footer p:hover {
   }
 }
 
+.heart {
+  font-size: 40px;
+  color: #e4e4e4;
+  position: relative;
+  top: 1px;
+}
+
 /* 波紋 */
 .ripple {
   background: red;
   padding: 0;
   border-radius: 50%;
-  width: 85px;
-  height: 85px;
+  width: 65px;
+  height: 65px;
   position: absolute;
   -webkit-transform: scale(0);
           transform: scale(0);
@@ -1130,8 +1118,8 @@ footer p:hover {
             transform: scale(0);
   }
   30% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
   }
   100% {
     -webkit-transform: scale(1);
@@ -1146,8 +1134,8 @@ footer p:hover {
             transform: scale(0);
   }
   30% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
   }
   100% {
     -webkit-transform: scale(1);

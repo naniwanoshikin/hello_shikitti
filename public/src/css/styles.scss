@@ -58,7 +58,7 @@ body {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     letter-spacing: 0.25em;
     transition: 1s;
-    // translate.js _________________________
+    // 翻訳ボタン JS _________________________
     &.tgcolor {
       color: rgb(214, 19, 240);
       letter-spacing: 0.3em;
@@ -195,6 +195,8 @@ footer {
           ); // グラデーション
           -webkit-background-clip: text; // テキストでくり抜く
           -webkit-text-fill-color: transparent; // くり抜いた部分は背景を表示
+          // ないとエラー: https://developpaper.com/question/vscade-prompts-also-define-the-standard-property-for-compatibility/
+          background-clip: text;
         }
         // .fa-youtube {
         //   color: red;
@@ -220,26 +222,25 @@ footer {
   }
 }
 
+// ログインボタン
+// 翻訳ボタン
+// about_modal
+// 地域_写真
+.hidden {
+  display: none;
+}
 
 // 翻訳ボタン
 .translate_btn {
   position: fixed;
-  bottom: 200px;
+  top: 75px;
   right: 2px;
   z-index: 10;
   // js
   #english,
   #japanese {
     @include wh($w: 50px, $h: 26px);
-    @include dent_btn(
-      $b: #d4b766,
-      $p: 2px 10px,
-      $r: 10px,
-      $c: rgb(0, 0, 0),
-      $fs: 14px,
-      $shadowc: #adcfa3,
-      $bordc: #aaeb41
-    );
+    @include dent_btn($b: #d4b766, $p: 2px 10px, $r: 10px, $c: rgb(0, 0, 0), $fs: 14px, $shadowc: #adcfa3);
     margin: 0 18px 0 auto;
   }
 }
@@ -252,15 +253,14 @@ footer {
   min-height: 70vh; // Todo開いた時に高さが変わるため設定
   user-select: none;
   // hello world
-  h1 {
+  #world {
+    font-weight: normal;
+    text-align: center;
+    font-size: 1.3em;
     margin: 25px auto;
+    margin-top: 30px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-decoration: none;
     transition: 1s;
-  }
-  // （ログインアウト、English⇄日本語）
-  .hidden {
-    display: none;
   }
 }
 // Todoリスト _________________________________
@@ -418,7 +418,7 @@ footer {
       &.light-green {
         @include brp($b: lightgreen, $p: 0px, $r: 5px);
       }
-      /* フィルター機能 見かけ上削除 */
+      /* フィルター機能 */
       &.filtered {
         display: none;
       }
@@ -484,9 +484,12 @@ footer {
         &:hover {
           opacity: 0.9;
         }
+        // クリック時
         &:active {
           box-shadow: 0 2px #575639;
           transform: translateY(5px);
+          // スマホ画面のみ 青い四角を消す
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         }
       }
     }
@@ -507,7 +510,7 @@ footer {
         top: 1.5px;
       }
     }
-    /* モーダルウィンドウ */
+    // モーダルウィンドウ
     #mask {
       background: rgba(0, 0, 0, 0.4);
       position: fixed;
@@ -516,9 +519,6 @@ footer {
       left: 0;
       right: 0;
       z-index: 1;
-      &.hidden {
-        display: none;
-      }
     }
     #modal {
       @include brp($b: #fff, $p: 20px, $r: 4px);
@@ -535,7 +535,7 @@ footer {
         margin: 0 0 20px;
       }
       /* 上に隠れる */
-      &.hidden {
+      &.top_hidden {
         transform: translate(0, -1000px);
         table {
           margin: 0 auto;
@@ -568,7 +568,7 @@ footer {
       .desc {
         padding: 0 30px;
         a {
-          @include link_color($c: brown, $hc: rgb(189, 101, 29));
+          @include link_color($c: rgb(165, 97, 42), $hc: rgb(189, 101, 29));
         }
         p {
           text-align: justify;
@@ -679,9 +679,6 @@ footer {
       #next {
         right: 0;
       }
-    }
-    .hidden {
-      display: none; // 表示以外のもの
     }
     // 説明文
     ul.desc {
@@ -815,20 +812,28 @@ footer {
 // いいねボタン _________________________________
 .like {
   @include wh($w: 30px, $h: 30px);
-  border-radius: 50%;
   display: inline-flex; /* inline状態 */
   align-items: center;
   justify-content: center;
   transition: background 3.5s;
   cursor: pointer;
-  &:hover {
-    background: #f5f5f5;
-  }
   [type="checkbox"] {
     display: none;
     /* チェックされた時 */
     &:checked ~ .heart {
       animation: heart 0.6s forwards; // ハートが赤くなる
+      @keyframes heart {
+        0% {
+          transform: scale(0);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+          color: red;
+        }
+      }
     }
   }
 }
@@ -838,22 +843,10 @@ footer {
   position: relative;
   top: 1px;
 }
-@keyframes heart {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-    color: red;
-  }
-}
 /* 波紋 */
 .ripple {
   @include brp($b: red, $p: 0, $r: 50%);
-  @include wh($w: 85px, $h: 85px);
+  @include wh($w: 65px, $h: 65px);
   position: absolute; // 要素の影響を受けなくなる
   transform: scale(0);
 }
@@ -866,7 +859,7 @@ footer {
     transform: scale(0);
   }
   30% {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
   100% {
     transform: scale(1);
