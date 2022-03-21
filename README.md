@@ -1,8 +1,7 @@
-# しきっちワールド
+## しきっちワールド
     自分の世界を表現しました。
 
-# 公開ページ
-[こちら](https://myfirstlp.web.app)から入れます。
+公開ページは[こちら](https://myfirstlp.web.app)です。
 
 ![A43CE8CA-2C4B-4145-BBC1-BDC463E53278](https://user-images.githubusercontent.com/67915047/100023253-fa20fc00-2e27-11eb-9a4f-e74bfaa29d3a.jpeg)
 
@@ -35,18 +34,18 @@
 
 
 # 使用言語
-- HTML/CSS/Sass
-- JavaScript
-- jQuery
-- Chart.js
-- fontawesome 5.6.1
-- React.js CDN
++ HTML/CSS/Sass
++ JavaScript
++ jQuery
++ Chart.js
++ React.js CDN
   <!-- お問い合わせ -->
   <!-- Slack通知 -->
 ## その他
 - Visual Studio Code
 - Git, Github
 - Firebase 10.0.1
+- fontawesome 5.6.1
   <!-- Hosting -->
 
 # 今後の課題
