@@ -23,6 +23,13 @@
     });
   }
 
+  // ヘッダーナビに対して
+  const header = document.querySelector('header');
+  const nav_ul = document.querySelector('header > nav > ul');
+  const target = document.getElementById('target'); // 空要素
+  const onScrollObs = new IntersectionObserver(onScrollCallback);
+  onScrollObs.observe(target);
+
   // 特徴部_画像に対して
   const inViewObs = new IntersectionObserver(inViewCallback, {
     threshold: [0.2,],
@@ -32,18 +39,4 @@
     inViewObs.observe(el);
   });
 
-  // ヘッダーに対して
-  const header = document.querySelector('header');
-  const nav_ul = document.querySelector('header > nav > ul');
-  const target = document.getElementById('target'); // 空要素
-  const onScrollObs = new IntersectionObserver(onScrollCallback);
-  onScrollObs.observe(target);
-
-  // ヘッダーに戻る ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-  document.getElementById('shiki').addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    })
-  })
 }

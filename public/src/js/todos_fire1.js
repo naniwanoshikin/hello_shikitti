@@ -73,7 +73,7 @@
     }
     // ログアウト状態
     me = null;
-    console.log('Logged out');
+    // console.log('Logged out');
     login.classList.remove('hidden');
     hiddens.forEach(el => {
       el.classList.add('hidden');

@@ -65,7 +65,7 @@ body main section > p {
 }
 
 header {
-  background: #524f34;
+  background: #5a573b;
   width: 100%;
   height: 60px;
   line-height: 60px;
@@ -92,7 +92,7 @@ header {
 }
 
 header.scrolled {
-  background: rgba(34, 49, 52, 0.85);
+  background: rgba(111, 124, 72, 0.95);
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
           box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
@@ -130,7 +130,7 @@ header nav p {
 }
 
 header nav ul {
-  background: #524f34;
+  background: #5a573b;
   -webkit-transition: background 0.3s, -webkit-box-shadow 0.3s;
   transition: background 0.3s, -webkit-box-shadow 0.3s;
   transition: background 0.3s, box-shadow 0.3s;
@@ -143,7 +143,7 @@ header nav ul {
 }
 
 header nav ul.scrolled {
-  background: rgba(34, 49, 52, 0.85);
+  background: rgba(111, 124, 72, 0.95);
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
           box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
@@ -168,10 +168,9 @@ header nav ul li a:active {
 }
 
 footer {
-  background: #9b93b8;
+  background: #626262;
   padding: 50px 0 50px;
   border-radius: 0;
-  color: #98969c;
   text-align: center;
 }
 
@@ -192,15 +191,14 @@ footer ul li a .fa-github {
 }
 
 footer ul li a .fa-twitter {
-  color: #6acaf0;
+  color: #1da1f2;
 }
 
 footer ul li a .fa-instagram {
-  color: #b130b1;
-}
-
-footer ul li a .fa-youtube {
-  color: red;
+  color: #acb6e5;
+  background: -webkit-linear-gradient(#204bff 0%, #b039db 4%, #f1224d 25%, #ffa915 85%, #ffe987 90%, #ffffd4 97%, #00fffc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 footer ul li a:hover {
@@ -211,38 +209,27 @@ footer ul li a:hover {
 
 footer p {
   margin: 0;
-}
-
-footer p a {
-  display: inline-block;
   font-size: 18px;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-  color: #252588;
-  transition: 0.2s;
+  color: rgba(219, 211, 211, 0.9);
+  display: inline-block;
+  cursor: pointer;
 }
 
-footer p a:hover {
-  color: #96dfa2;
+footer p:hover {
+  color: rgba(170, 158, 158, 0.8);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-footer p a:active {
-  color: pink;
+.translate_btn {
+  position: fixed;
+  bottom: 200px;
+  right: 2px;
+  z-index: 10;
 }
 
-.hello {
-  background: center/cover url(../img/aich0.JPG);
-  padding: 75px 10px 0;
-  color: white;
-  min-height: 70vh;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.hello #english,
-.hello #japanese {
+.translate_btn #english,
+.translate_btn #japanese {
   width: 50px;
   height: 26px;
   background: #d4b766;
@@ -260,11 +247,22 @@ footer p a:active {
   margin: 0 18px 0 auto;
 }
 
-.hello #english:hover,
-.hello #japanese:hover {
+.translate_btn #english:hover,
+.translate_btn #japanese:hover {
   opacity: 0.9;
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.hello {
+  background: center/cover url(../img/aich0.JPG);
+  padding: 75px 10px 0;
+  color: white;
+  min-height: 70vh;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .hello h1 {
@@ -792,14 +790,13 @@ footer p a:active {
 .city {
   background: #f2f2f3;
   padding: 6px 18px;
-  border-radius: 50px;
+  border-radius: 20px;
   width: 90%;
   margin: 16px auto;
 }
 
 .city .city_box .container {
   margin: 0 10px;
-  border-radius: 10px;
   overflow: hidden;
   position: relative;
 }
@@ -827,6 +824,7 @@ footer p a:active {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 8px;
 }
 
 .city .city_box .container #prev,
@@ -861,19 +859,23 @@ footer p a:active {
   display: none;
 }
 
-.city ul.desc {
+.city .city_box ul.desc {
   margin: 0 auto;
   padding: 0;
   width: 100%;
 }
 
-.city ul.desc li {
+.city .city_box ul.desc li {
   text-align: justify;
   margin: 10px 15px;
 }
 
-.city ul.desc li h2 {
+.city .city_box ul.desc li h2 {
   margin: 0;
+}
+
+.city .city_box ul.desc li p {
+  height: 160px;
 }
 
 .city nav {
@@ -891,7 +893,7 @@ footer p a:active {
 }
 
 .city nav button + button {
-  margin-left: 8px;
+  margin-left: 15px;
 }
 
 .city nav .current {

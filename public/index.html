@@ -31,7 +31,7 @@
 <body>
 
   <header>
-    <h1 id="shiki">しきっちワールド</h1>
+    <h1 id="shiki" class="to_top">しきっちワールド</h1>
     <nav>
       <p><i class="far fa-caret-square-down"></i></p>
       <ul class="navlist">
@@ -44,13 +44,13 @@
   </header>
 
   <main>
-    <!-- ヘッダースクロール監視 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <!-- header_scroll 監視 ------------------------ -->
     <div id="target"></div>
-    <!-- FirstView ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <!-- FirstView --------------------------- -->
     <section class="hello">
-      <div>
+      <div class="translate_btn">
         <div id="japanese" class="hidden">日本語</div>
-        <div id="english">English</div>
+        <div id="english">英語</div>
       </div>
       <h1 id="world">Hello World</h1>
       <!-- ★ Todos ★ -->
@@ -120,7 +120,7 @@
       </div>
     </section>
 
-    <!-- 自己紹介＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <!-- 自己紹介 --------------------------- -->
     <section class="about">
       <h1 id="about" data-h1="-">自己紹介</h1>
       <p id="dsc1">自己紹介します。</p>
@@ -160,10 +160,10 @@
                 <tr>
                   <td>2017</td>
                   <td>哲学</td>
-                  <td>パルクール始めました</td>
+                  <td>パルクール</td>
                 <tr>
                   <td>2020</td>
-                  <td>独学</td>
+                  <td>勉強</td>
                   <td>
                     <font color="#ed1c24">プログラミング</font>始めました
                   </td>
@@ -179,7 +179,7 @@
               <div class="ripple"></div>
             </label>
           </h2>
-          <p>写真</p>
+          <p>写真 自転車</p>
         </div>
         <!-- スキル一覧 -->
         <div class="back">
@@ -195,16 +195,16 @@
       </div>
     </section>
 
-    <!-- 特徴: 画像を監視 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <!-- 特徴: 画像を監視 --------------------------- -->
     <section class="feature">
       <h1 id="work" data-h1="-">特徴</h1>
       <p id="dsc2">各コンテンツ先へ飛びます</p>
       <div class="works">
-        <!-- 脳トレ -->
+        <!-- 1枚目 -->
         <div class="work">
           <div class="desc">
             <h2><a id="logic" href="pages/diagnose.html" target="_blank">脳トレ診断</a></h2>
-            <p>脳トレ用ゲームを作成しました。運試しや視力検査、数字タッチ、神経衰弱などのタイムアタックがあります。ぜひ遊んでください！</p>
+            <p>脳トレゲームページを作成しました。<br>運試しや視力検査、数字タッチ、神経衰弱などのタイムアタックがあります。<br>ぜひ遊んでください！</p>
           </div>
           <div class="pic from_left">
             <a href="pages/diagnose.html" target="_blank">
@@ -212,10 +212,10 @@
             </a>
           </div>
         </div>
-        <!-- テトリス -->
+        <!-- 2枚目 -->
         <div class="work">
           <div class="desc">
-            <h2><a  id="tet" href="pages/tetris.html" target="_blank">テトリス(PC用)</a></h2>
+            <h2><a  id="tet" href="pages/tetris.html" target="_blank">テトリス PC専用</a></h2>
             <p>テトリスです。上からブロックが落ちてくるので埋もれないようにうまく捌いていきましょう。※矢印キーが効かないためPC専用になります。</p>
           </div>
           <div class="pic from_right">
@@ -224,14 +224,14 @@
             </a>
           </div>
         </div>
-        <!-- カフェ -->
+        <!-- 3枚目 -->
         <div class="work">
           <div class="desc">
-            <h2><a id="cafe" href="pages/cafe.html" target="_blank">カフェ</a></h2>
-            <p>カフェサイトです。<br>※現在閉鎖中</p>
+            <h2><a id="cafe" href="https://spapf-24842.web.app/" target="_blank">私の総括ワールド</a></h2>
+            <p>別サイトに飛びます。<br>React.jsで作成。</p>
           </div>
           <div class="pic from_left">
-            <a href="pages/cafe.html" target="_blank">
+            <a href="https://spapf-24842.web.app/" target="_blank">
               <img id="image-preview" src="src/img/feat3.jpg" alt="カフェ">
             </a>
             <label class="input-button">
@@ -242,12 +242,12 @@
       </div>
     </section>
 
-    <!-- 地元紹介＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <!-- 地域 --------------------------- -->
     <section class="city">
-      <h1 id="town" data-h1="-">地域紹介</h1>
-      <p id="dsc3">ご覧ください。</p>
+      <h1 id="town" data-h1="-">地域</h1>
+      <p id="dsc3">私の記憶の中の世界</p>
       <div class="city_box">
-        <!-- << 画像 >> -->
+        <!-- 画像 + << >> -->
         <div class="container">
           <ul class="pic">
             <li><img src="src/img/aich1.JPG"></li>
@@ -262,19 +262,19 @@
         <ul class="desc">
           <li>
             <h2>一宮市</h2>
-            <p>こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！</p>
+            <p>一宮市丹陽町です。<br>近くにある田んぼ一帯が愛おしいです。一宮市は、一宮市・尾西市・木曽川町が合併し、平成17年4月1日に誕生しました。</p>
           </li>
           <li>
             <h2>岩倉市</h2>
-            <p>こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！</p>
+            <p>岩倉市五条川です。<br>春になると桜が綺麗です。春の桜名所にも選ばれています。</p>
           </li>
           <li>
             <h2>江南市</h2>
-            <p>こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！こんにちは！！！</p>
+            <p>江南市です。<br>田んぼの道が愛おしいです。夏の夕方6:00ごろになると空がとても綺麗です。</p>
           </li>
           <li>
             <h2>小牧市</h2>
-            <p>こんにちわ</p>
+            <p>小牧市中央です。<br>小牧駅近くから撮りました。奥に見えるのは小牧山城です。少し進んだ先にあるたこ焼き屋さんが美味しいです。</p>
           </li>
         </ul>
       </div>
@@ -282,7 +282,7 @@
       <nav></nav>
     </section>
 
-    <!-- お問い合わせ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ -->
+    <!-- お問い合わせ --------------------------- -->
     <section class="contact">
       <h1 id="contact" data-h1="-">お問い合わせ</h1>
       <p class="free" id="dsc4">
@@ -299,7 +299,7 @@
   <footer>
     <ul>
       <li>
-        <a href="https://github.com/naniwanoshikin/shikichanpower.github.io/blob/master/index.html" target="_blank"
+        <a href="https://github.com/naniwanoshikin/hello_shikitti" target="_blank"
           rel="noreferrer noopener">
           <span class="faa-parent animated-hover">
             <i class="fab fa-github fa-2x faa-tada"></i>
@@ -314,22 +314,24 @@
         </a>
       </li>
       <li>
-        <a href="http://instagram.com/shikitch_pk" target="_blank" rel="noreferrer noopener">
+        <a href="http://instagram.com/shikitti_write" target="_blank" rel="noreferrer noopener">
           <span class="faa-parent animated-hover">
             <i class="fab fa-instagram fa-2x fa-flip-horizontal faa-spin"></i>
           </span>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a href="https://www.youtube.com/channel/UCyydUwy-0x2Tc-FcCWBQncw?view_as=subscriber" target="_blank"
           rel="noreferrer noopener">
           <span class="faa-parent animated-hover">
             <i class="fab fa-youtube fa-2x faa-ring"></i>
           </span>
         </a>
-      </li>
+      </li> -->
     </ul>
-    <p><a href="https://spapf-24842.web.app/">© shikitti-Portfolio.2020</a></p>
+    <div>
+      <p class="to_top">© shikitti_world 2021</p>
+    </div>
   </footer>
 
   <!-- 機能別: app, cloud_firestore, 匿名ログイン認証 -->
@@ -347,25 +349,30 @@
   <!-- Todoリスト タブ -->
   <script src="src/js/todos_tab.js"></script>
 
-  <!-- 監視API: ヘッダー, 特徴部_画像 -->
-  <script src="src/js/iob.js"></script>
+  <!-- ヘッダーに戻る -->
+  <script src="src/js/nav_up.js"></script>
   <!-- ナビ jQuery -->
-  <script src="src/js/nav_query.js"></script>
+  <script src="src/js/nav_down_fly.js"></script>
+  <!-- 交差監視: ヘッダーナビ, 特徴_画像 -->
+  <script src="src/js/nav_img_change.js"></script>
+
   <!-- スクロール Reveal -->
   <script src="src/js/scroll_reveal.js"></script>
-  <!-- 英訳⇄日本語訳 -->
+  <!-- 英訳, 日本語訳 -->
   <script src="src/js/translate.js"></script>
 
   <!-- 自己紹介 プロフィール -->
   <script src="src/js/about_profile.js"></script>
   <!-- 自己紹介 スキル: chart.js(CDN) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-  <script src="src/js/about_skill.js"></script>
+  <script src="src/js/about_skill_chart.js"></script>
+
   <!-- 特徴部 画像をセット -->
   <script src="src/js/work_file.js" defer></script>
-  <!-- 地域紹介 カルーセル -->
-  <script src="src/js/city_slide.js"></script>
-  <!-- React babel 読み込み -->
+  <!-- 地域 カルーセル -->
+  <script src="src/js/remain_city_slide.js"></script>
+
+  <!-- React お問い合わせ -->
   <script type="text/babel">
     (() => {
 

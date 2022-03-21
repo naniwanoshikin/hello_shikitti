@@ -40,8 +40,8 @@
     box-shadow: none;
   }
 }
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-// 共通
+
+// _______________________________________________
 body {
   font-family: vardana, "Ariel Black", メイリオ, sans-serif;
   color: #333;
@@ -58,7 +58,7 @@ body {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     letter-spacing: 0.25em;
     transition: 1s;
-    // translate.js ＝＝＝＝＝＝＝＝＝＝＝＝
+    // translate.js _________________________
     &.tgcolor {
       color: rgb(214, 19, 240);
       letter-spacing: 0.3em;
@@ -96,10 +96,11 @@ body {
     }
   }
 }
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+// _______________________________________________
 header {
-  $unscrollcolor: rgb(82, 79, 52); // 初期時
-  $onscrollcolor: rgba(34, 49, 52, 0.85); // スクロール時
+  $unscrollcolor: rgb(90, 87, 59); // 初期
+  $onscrollcolor: rgba(111, 124, 72, 0.95); // スクロール時
   background: $unscrollcolor;
   @include wh($w: 100%, $h: 60px) {
     line-height: 60px;
@@ -162,11 +163,12 @@ header {
     }
   }
 }
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+// _______________________________________________
 footer {
-  @include brp($b: #9b93b8, $p: 50px 0 50px, $r: 0);
-  color: #98969c;
+  @include brp($b: #626262, $p: 50px 0 50px, $r: 0);
   text-align: center;
+  // アイコン集
   ul {
     padding-left: 22px;
     margin: 0 auto 10px;
@@ -178,14 +180,25 @@ footer {
           color: black;
         }
         .fa-twitter {
-          color: rgb(106, 202, 240);
+          color: #1da1f2;
         }
         .fa-instagram {
-          color: rgb(177, 48, 177);
+          color: #acb6e5; // 非対応のブラウザでの色
+          background: -webkit-linear-gradient(
+            #204bff 0%,
+            #b039db 4%,
+            #f1224d 25%,
+            #ffa915 85%,
+            #ffe987 90%,
+            #ffffd4 97%,
+            #00fffc 100%
+          ); // グラデーション
+          -webkit-background-clip: text; // テキストでくり抜く
+          -webkit-text-fill-color: transparent; // くり抜いた部分は背景を表示
         }
-        .fa-youtube {
-          color: red;
-        }
+        // .fa-youtube {
+        //   color: red;
+        // }
         &:hover {
           transition: 2s;
           opacity: 0.5;
@@ -193,24 +206,28 @@ footer {
       }
     }
   }
+  // © shikitti
   p {
     margin: 0;
-    a {
-      display: inline-block;
-      font-size: 18px;
-      transition: 0.2s;
-      @include link_color($c: rgb(37, 37, 136), $hc: rgb(150, 223, 162));
+    font-size: 18px;
+    color: rgba(219, 211, 211, 0.9);
+    display: inline-block;
+    cursor: pointer;
+    &:hover {
+      color: rgba(170, 158, 158, 0.8);
+      transition: 0.5s;
     }
   }
 }
-// FirstView ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-.hello {
-  background: center/cover url(../img/aich0.JPG);
-  padding: 75px 10px 0;
-  color: white;
-  min-height: 70vh; // Todo開いた時に高さが変わるため設定
-  user-select: none;
-  // 英訳ボタン js
+
+
+// 翻訳ボタン
+.translate_btn {
+  position: fixed;
+  bottom: 200px;
+  right: 2px;
+  z-index: 10;
+  // js
   #english,
   #japanese {
     @include wh($w: 50px, $h: 26px);
@@ -225,6 +242,15 @@ footer {
     );
     margin: 0 18px 0 auto;
   }
+}
+
+// FirstView ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+.hello {
+  background: center/cover url(../img/aich0.JPG);
+  padding: 75px 10px 0;
+  color: white;
+  min-height: 70vh; // Todo開いた時に高さが変わるため設定
+  user-select: none;
   // hello world
   h1 {
     margin: 25px auto;
@@ -237,7 +263,7 @@ footer {
     display: none;
   }
 }
-// Todoリスト ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// Todoリスト _________________________________
 .mytodos {
   @include brp($b: linear-gradient(rgba(204, 238, 11, 0.4), rgba(92, 12, 196, 0.3)), $p: 25px, $r: 20px);
   // active表示
@@ -435,7 +461,7 @@ footer {
     }
   }
 }
-// 自己紹介 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// 自己紹介 _________________________________
 .about {
   border-radius: 40px;
   margin: 20px auto;
@@ -529,7 +555,7 @@ footer {
   }
 }
 
-// 特徴 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// 特徴 _________________________________
 .feature {
   border-radius: 50px;
   margin: 20px auto;
@@ -550,10 +576,10 @@ footer {
       }
       .pic {
         display: inline-block; // 中央揃え効かす
-        max-width: 550px; // レスポンシブ用
+        max-width: 550px; // レスポンシブ
         position: relative;
         img {
-          width: 90%; // 外すと巨大サイズになる
+          width: 90%; // 外すと巨大化
           border-radius: 10px;
           vertical-align: bottom;
           &:hover {
@@ -599,15 +625,16 @@ footer {
   }
 }
 
-// 地元紹介 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// 地元紹介 _________________________________
 .city {
-  @include brp($b: #f2f2f3, $p: 6px 18px, $r: 50px); // padding 20pxだとアウト
+  @include brp($b: #f2f2f3, $p: 6px 18px, $r: 20px);
+  // padding 20pxだとアウト
   width: 90%;
   margin: 16px auto;
   .city_box {
+    // 画像 + << >>
     .container {
       margin: 0 10px; // つけた
-      border-radius: 10px;
       // height: 240px;
       // outline: 8px solid red; // 確認用
       overflow: hidden;
@@ -625,14 +652,16 @@ footer {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 8px;
           }
         }
       }
+      // button
       #prev,
       #next {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+        top: 50%; // 中央へ
+        transform: translateY(-50%); // btn高さ分を戻す
         border: none;
         background: rgba(0, 0, 0, 0.8);
         color: #fff;
@@ -654,19 +683,24 @@ footer {
     .hidden {
       display: none; // 表示以外のもの
     }
-  }
-  ul.desc {
-    margin: 0 auto;
-    padding: 0;
-    width: 100%;
-    li {
-      text-align: justify;
-      margin: 10px 15px;
-      h2 {
-        margin: 0;
+    // 説明文
+    ul.desc {
+      margin: 0 auto;
+      padding: 0;
+      width: 100%;
+      li {
+        text-align: justify;
+        margin: 10px 15px;
+        h2 {
+          margin: 0;
+        }
+        p {
+          height: 160px;
+        }
       }
     }
   }
+  // 丸ボタン
   nav {
     margin-top: 16px;
     text-align: center;
@@ -678,7 +712,7 @@ footer {
       border-radius: 50%;
       cursor: pointer;
       & + button {
-        margin-left: 8px; // 余白をつける
+        margin-left: 15px; // 余白をつける
       }
     }
     .current {
@@ -686,7 +720,7 @@ footer {
     }
   }
 }
-// お問い合わせ ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// お問い合わせ _________________________________
 .contact {
   @include brp($b: rgb(240, 190, 99), $p: 10px 20px 30px, $r: 50px 50px 0 0);
   user-select: none;
@@ -778,7 +812,7 @@ footer {
     justify-content: center;
   }
 }
-// いいねボタン ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// いいねボタン _________________________________
 .like {
   @include wh($w: 30px, $h: 30px);
   border-radius: 50%;
@@ -840,7 +874,7 @@ footer {
   }
 }
 
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// _________________________________
 /* medium screen */
 @media (min-width: 550px) {
   // 自己紹介
@@ -873,7 +907,7 @@ footer {
     }
   }
 }
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// _________________________________
 @media (min-width: 640px) {
   header {
     background: none;
@@ -918,7 +952,7 @@ footer {
     }
   }
 }
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// _________________________________
 /* large screen */
 @media (min-width: 820px) {
   .about {

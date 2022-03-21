@@ -86,16 +86,16 @@
     ['shiki', 'SHIKITTI WORLD', 'しきっちワールド'], // 0 header
     ['nav1', 'ABOUT', '自己紹介'], // 1
     ['nav2', 'WORK', '特徴'], // 2
-    ['nav3', 'TOWN', '地域紹介'], // 3
+    ['nav3', 'TOWN', '第二の故郷'], // 3
     ['nav4', 'CONTACT', 'お問い合わせ'], // 4
     ['world', 'Welcome to my Portfolio!', 'Hello World'], // 見出し
     ['about', 'ABOUT', '自己紹介'], // 6
     ['work', 'WORK', '特徴'], // 7
-    ['town', 'THE TOWN', '地域紹介'], // 8
+    ['town', 'THE TOWN', '第二の故郷'], // 8
     ['contact', 'CONTACT', 'お問い合わせ'], // 9
     ['dsc1', 'Let me introduce myself.', '自己紹介します'], // 10
     ['dsc2', 'Click the photo to jump to the link.', 'ワーク'], //11
-    ['dsc3', 'Please click below.', 'ご覧ください'], // 12
+    ['dsc3', 'Remain in my memory world.', '私の記憶の中の田舎'], // 12
     ['dsc4', 'Contact me if anething!', 'ご連絡ください'], // 13
     ['profile', 'PROFILE', 'プロフィール'], // 14
     ['hobby', 'HOBBY', '趣味'], // 15
