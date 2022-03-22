@@ -24,7 +24,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <!-- navスクロール: jQuery 2つ -->
+    <!-- jQuery nav -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- Todolist ドラック&ドロップ -->
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
@@ -49,7 +49,7 @@
         <p><i class="far fa-caret-square-down"></i></p>
         <ul class="navlist">
           <li><a id="nav1" href="#about">自己紹介</a></li>
-          <li><a id="nav2" href="#work">特徴</a></li>
+          <li><a id="nav2" href="#work">作品</a></li>
           <li><a id="nav3" href="#town">地域紹介</a></li>
           <li><a id="nav4" href="#contact">お問い合わせ</a></li>
         </ul>
@@ -225,9 +225,9 @@
         </div>
       </section>
 
-      <!-- 特徴: 画像を監視 --------------------------- -->
+      <!-- 画像を監視.js --------------------------- -->
       <section class="feature">
-        <h1 id="work" data-h1="-">特徴</h1>
+        <h1 id="work" data-h1="-">作品</h1>
         <p id="dsc2">各コンテンツ先へ飛びます</p>
         <div class="works">
           <!-- 1枚目 -->
@@ -274,15 +274,12 @@
                   >私の総括ワールド</a
                 >
               </h2>
-              <p>別サイトに飛びます。<br />React.jsで作成。</p>
+              <p>別サイトに飛びます。</p>
             </div>
             <div class="pic from_left">
               <a href="https://spapf-24842.web.app/" target="_blank">
-                <img id="image-preview" src="src/img/feat3.jpg" alt="カフェ" />
+                <img src="src/img/feat3.jpg" alt="PF2" />
               </a>
-              <label class="input-button">
-                <input id="image" type="file" />
-              </label>
             </div>
           </div>
         </div>
@@ -419,7 +416,7 @@
     <script src="src/js/nav_up.js"></script>
     <!-- ナビ jQuery -->
     <script src="src/js/nav_down_fly.js"></script>
-    <!-- 交差監視: ヘッダーナビ, 特徴_画像 -->
+    <!-- 交差監視: ヘッダー色, 画像 -->
     <script src="src/js/nav_img_change.js"></script>
 
     <!-- スクロール Reveal -->
@@ -433,8 +430,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="src/js/about_skill_chart.js"></script>
 
-    <!-- 特徴部 画像をセット -->
-    <script src="src/js/work_file.js" defer></script>
     <!-- 地域 カルーセル -->
     <script src="src/js/remain_city_slide.js"></script>
 

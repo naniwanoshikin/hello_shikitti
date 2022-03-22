@@ -586,27 +586,6 @@ footer {
             opacity: 0.9;
           }
         }
-        // (+)部
-        input {
-          display: none;
-        }
-        .input-button::before {
-          position: absolute;
-          top: -8px;
-          right: 0px;
-          background: #616161;
-          border-radius: 50%;
-          color: #fff;
-          content: "＋";
-          cursor: pointer;
-          font-size: 1.5rem;
-          font-weight: 600;
-          opacity: 0.9;
-          @include wh($w: 3rem, $h: 3rem) {
-            line-height: 3rem;
-          }
-          text-align: center;
-        }
         // 画像の監視 js
         opacity: 0;
         transition: opacity 0.3s, transform 0.3s;

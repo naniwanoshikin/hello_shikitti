@@ -35,9 +35,8 @@
     }
     static blinking(instance) { // <h1> 点滅（インスタンス名）
       [
-        5, // 見出し
         6, // 自己紹介
-        7, // 特徴
+        7, // 作品
         8, // 地域紹介
         9, // お問い合わせ
       ].forEach(e => {
@@ -85,12 +84,12 @@
   const words = [
     ['shiki', 'SHIKITTI WORLD', 'しきっちワールド'], // 0 header
     ['nav1', 'ABOUT', '自己紹介'], // 1
-    ['nav2', 'WORK', '特徴'], // 2
+    ['nav2', 'WORK', '作品'], // 2
     ['nav3', 'TOWN', '第二の故郷'], // 3
     ['nav4', 'CONTACT', 'お問い合わせ'], // 4
     ['world', 'This is my world!', 'Hello World'], // 見出し
     ['about', 'ABOUT', '自己紹介'], // 6
-    ['work', 'WORK', '特徴'], // 7
+    ['work', 'WORK', '作品'], // 7
     ['town', 'THE TOWN', '第二の故郷'], // 8
     ['contact', 'CONTACT', 'お問い合わせ'], // 9
     ['dsc1', 'Let me introduce myself.', '自己紹介します'], // 10
