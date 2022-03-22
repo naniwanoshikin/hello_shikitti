@@ -202,12 +202,6 @@ footer ul li a .fa-instagram {
   background-clip: text;
 }
 
-footer ul li a:hover {
-  -webkit-transition: 2s;
-  transition: 2s;
-  opacity: 0.5;
-}
-
 footer p {
   margin: 0;
   font-size: 18px;
