@@ -1,4 +1,4 @@
-'use strict'; // 自己紹介_プロフィール
+'use strict'; // 自己紹介 プロフィール
 {
   // 顔 ---------------------------
   const face = document.getElementById('face');

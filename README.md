@@ -37,7 +37,7 @@
 + HTML/CSS/Sass
 + JavaScript
 + jQuery
-+ Chart.js
++ Chart.js CDN
 + React.js CDN
   <!-- お問い合わせ -->
   <!-- Slack通知 -->
@@ -48,5 +48,5 @@
 - fontawesome 5.6.1
   <!-- Hosting -->
 
-# 今後の課題
-- 固定ボタンの煩わさを解消
+## 今後の課題
+- 固定ボタンが煩わしい

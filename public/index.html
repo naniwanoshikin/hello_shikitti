@@ -14,8 +14,8 @@
     />
     <!-- font-awesome-animation -->
     <link
-      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css"
+      rel="stylesheet"
       type="text/css"
       media="all"
     />
@@ -24,22 +24,6 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <!-- jQuery nav -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <!-- Todolist ドラック&ドロップ -->
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-    <!-- scroll Reveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <!-- お問い合わせ: react CDN -->
-    <script
-      src="https://unpkg.com/react@16/umd/react.development.js"
-      crossorigin
-    ></script>
-    <script
-      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
-      crossorigin
-    ></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   </head>
 
   <body>
@@ -288,7 +272,7 @@
       <!-- 地域 --------------------------- -->
       <section class="city">
         <h1 id="town" data-h1="-">地域</h1>
-        <p id="dsc3">私の記憶の中の世界</p>
+        <p id="dsc3">私の記憶の中の地域</p>
         <div class="city_box">
           <!-- 画像 + << >> -->
           <div class="container">
@@ -368,12 +352,12 @@
             rel="noreferrer noopener"
           >
             <span
-              class="faa-parent fa-stack animated-hover faa-tada"
+              class="fa-stack faa-parent animated-hover faa-tada"
               style="color: #4cb10d"
             >
               <!-- ■ -->
               <i class="fa fa-square fa-stack-2x"></i>
-              <!-- ◯\ -->
+              <!-- ◯ -->
               <i class="fa fa-search fa-stack-1x fa-inverse fa-2x"></i>
             </span>
           </a>
@@ -416,12 +400,14 @@
       </div>
     </footer>
 
-    <!-- 機能別: app, cloud_firestore, 匿名ログイン認証 -->
+    <!-- 機能別: app, cloud_firestore, 匿名ログイン -->
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
     <script src="src/js/todos_fire0.js"></script>
 
+    <!-- Todoリスト ドラック&ドロップ -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <!-- Todoリスト firebaseあり -->
     <script src="src/js/todos_fire1.js"></script>
     <!-- Todoリスト stocks-->
@@ -433,26 +419,41 @@
 
     <!-- ヘッダーに戻る -->
     <script src="src/js/nav_up.js"></script>
+    <!-- jQuery nav -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- ナビ jQuery -->
     <script src="src/js/nav_down_fly.js"></script>
     <!-- 交差監視: ヘッダー色, 画像 -->
     <script src="src/js/nav_img_change.js"></script>
 
     <!-- スクロール Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="src/js/scroll_reveal.js"></script>
     <!-- 英訳, 日本語訳 -->
     <script src="src/js/trans_btn.js"></script>
 
     <!-- 自己紹介 プロフィール -->
     <script src="src/js/about_profile.js"></script>
-    <!-- 自己紹介 スキル: chart.js(CDN) -->
+    <!-- 自己紹介 chart.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="src/js/about_skill_chart.js"></script>
 
     <!-- 地域 カルーセル -->
     <script src="src/js/remain_city_slide.js"></script>
 
-    <!-- React お問い合わせ -->
+    <!-- React CDN -->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <!-- react表示 -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- お問い合わせ -->
     <script type="text/babel">
       (() => {
         // スペース削除
