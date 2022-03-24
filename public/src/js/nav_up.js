@@ -9,7 +9,7 @@
     })
   }
 
-  // header, footer
+  // header/footer
   const to_top = document.querySelectorAll('.to_top');
 
   for (let i = 0; i < to_top.length; i++) {

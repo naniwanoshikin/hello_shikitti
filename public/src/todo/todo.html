@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../nezcon.ico" />
+    <!-- hidden -->
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="css/todo.css" />
+    <title>Todoリスト</title>
+    <!-- アイコン -->
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <section>
+      <h2>Todoリスト</h2>
+      <div class="mytodos">
+        <!-- JS -->
+        <ul class="tab">
+          <li class="first" data-id="content_td1">
+            <h3>Todos</h3>
+            <p>
+              <!-- ( 2 / 3 ) -->
+            </p>
+          </li>
+          <li class="second" data-id="content_td2">
+            <h3>Stocks</h3>
+            <p>
+              <!-- ( 2 / 3 ) -->
+            </p>
+          </li>
+        </ul>
+
+        <!-- 内容 Todos -->
+        <div class="content_td" id="content_td1">
+          <!-- ボタン集 -->
+          <div class="btns">
+            <i class="fas fa-lg fa-filter"></i>
+            <i class="far fa-lg fa-save"></i>
+            <i class="fas fa-lg fa-trash-alt"></i>
+            <i class="fas fa-lg fa-pen-alt"></i>
+            <div id="login">開く</div>
+            <div id="logout">閉じる</div>
+          </div>
+          <!-- フィルター -->
+          <form id="searchform" autocomplete="off">
+            <input type="text" class="textline" placeholder="Filter" />
+          </form>
+          <!-- cloud firestore -->
+          <form id="messageform" autocomplete="off">
+            <input type="text" class="textline" placeholder="Add...↩︎" />
+            <!-- 曜日選択 -->
+            <select id="pcost"></select>
+          </form>
+          <!-- リスト1 -->
+          <ul id="todos1"></ul>
+        </div>
+        <!-- 内容 stocks -->
+        <div class="content_td" id="content_td2">
+          <!-- ボタン集 -->
+          <div class="btns">
+            <i class="fas fa-lg fa-user-plus"></i>
+            <i class="fas fa-lg fa-user-check"></i>
+            <i class="fas fa-lg fa-sort-alpha-down"></i>
+            <i class="fas fa-lg fa-undo-alt"></i>
+          </div>
+          <!-- 選択ボックス -->
+          <form id="checkform">
+            <input type="checkbox" value="公園へ" id="1" />
+            <label for="1">運動</label>
+            <input type="checkbox" value="本読み" id="2" />
+            <label for="2">読書</label>
+            <input type="checkbox" value="カメラ" id="3" />
+            <label for="3">写真</label>
+            <input type="submit" value="↩︎" />
+          </form>
+          <!-- 入力 -->
+          <form id="addform">
+            <input type="text" class="textline" placeholder="Add...↩︎" />
+          </form>
+          <!-- リスト2 -->
+          <ul id="todos2"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 機能別: app, cloud_firestore, 匿名ログイン -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <!-- ドラック&ドロップ -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
+    <!-- データ -->
+    <script src="js/env.js"></script>
+    <!-- firebase機能 -->
+    <script src="js/fire1.js"></script>
+    <!-- タブ -->
+    <script src="js/tab.js"></script>
+    <!-- stocks-->
+    <script src="js/stocks.js"></script>
+    <!-- Sort -->
+    <script src="js/sort.js"></script>
+  </body>
+</html>

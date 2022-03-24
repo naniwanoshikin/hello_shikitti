@@ -1,6 +1,6 @@
 $(function () { // (jQuery)
 
-  // 各ナビ先へ飛ぶ ＝＝＝＝＝＝＝＝＝＝＝＝＝
+  // 各ナビ先へ飛ぶ ---------------------------
   $('nav a').click(function () {
     let id = $(this).attr('href'); // 各id
     let position = $(id).offset().top; // 高さ
@@ -9,7 +9,7 @@ $(function () { // (jQuery)
     }, 'fast');
   });
 
-  // ナビ_ドロップダウン ＝＝＝＝＝＝＝＝＝＝＝
+  // ナビ_ドロップダウン ---------------------------
   $('nav > p').click(function () {
     let $answer = $('nav').children('ul');
     if ($answer.hasClass('open')) { // openしていたら、

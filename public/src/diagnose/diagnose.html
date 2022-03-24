@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>脳トレ</title>
+    <link rel="icon" href="../../nezcon.ico" />
+    <link rel="stylesheet" href="css/diagnose.css" />
+    <!-- 目次アイコンボタン（スマホ用） -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1>脳トレ診断</h1>
+      <!-- PCメニュー -->
+      <div class="pc_menu">
+        <nav>
+          <ul>
+            <li><a href="#hit">運試し</a></li>
+            <li><a href="#quiz">視力</a></li>
+            <li><a href="#num">数字</a></li>
+            <li><a href="#weakness">神経衰弱</a></li>
+            <li><a href="#slot">スロット</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- スマホ用アイコンボタン -->
+      <div class="sp_menu">
+        <span class="material-icons" id="open">widgets</span>
+      </div>
+      <!-- スマホ用メニュー画面 -->
+      <div class="overlay">
+        <span class="material-icons" id="close">wc</span>
+        <nav>
+          <ul>
+            <li><a href="#hit">運試し</a></li>
+            <li><a href="#quiz">視力</a></li>
+            <li><a href="#num">数字タッチ</a></li>
+            <li><a href="#weakness">神経衰弱</a></li>
+            <li><a href="#slot">スロット</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- タブ ------------------------ -->
+      <section class="tab">
+        <h2>チェック</h2>
+        <p>全ての診断が終わったら結果を見ましょう。</p>
+        <div class="tab-menu">
+          <ul class="menu">
+            <li><a href="#" class="active" data-id="about">測定内容</a></li>
+            <li><a href="#" data-id="contact">結果</a></li>
+          </ul>
+          <section class="content active" id="about">
+            <p>運試し: 運気</p>
+            <p>視力検査: 視力</p>
+            <p>数字タッチ: 時間</p>
+            <p>神経衰弱: 時間</p>
+            <p>スロット: ビンゴ率</p>
+          </section>
+          <section class="content" id="contact">
+            <p>運気: <span id="luck">0</span></p>
+            <p>視力検査: <span id="sight">0</span></p>
+            <p>タイム(秒): <span id="s_time">0</span></p>
+            <p>タイム(秒): <span id="w_time">0</span></p>
+            <p>ビンゴ率(%): <span id="bingo">0</span></p>
+          </section>
+        </div>
+      </section>
+
+      <!-- 運試し ------------------------ -->
+      <section id="hit">
+        <h2>運試し</h2>
+        <p>当たりは１つ</p>
+        <div id="round"></div>
+      </section>
+
+      <!-- クイズ ------------------------ -->
+      <h1 id="quiz"></h1>
+      <section>
+        <h2>視力</h2>
+        <p>1.0メートル離れて片目で見ましょう</p>
+        <div class="quiz">
+          <!-- C画像 -->
+          <p id="randolt"></p>
+          <!-- 選択肢 -->
+          <ul id="choices"></ul>
+          <!-- 次へ -->
+          <div id="btn" class="disabled">Next</div>
+          <!-- スコア画面 -->
+          <section id="result" class="hidden">
+            <p></p>
+            <a href="">Reply?</a>
+          </section>
+        </div>
+      </section>
+
+      <!-- 数字タッチ ------------------------ -->
+      <section id="num">
+        <h2>数字タッチ</h2>
+        <p>最後までタッチしましょう （筆者: 2.40）</p>
+        <div id="touch">
+          <div id="time">0.00</div>
+          <ul id="board"></ul>
+          <div id="start_btn">START</div>
+        </div>
+      </section>
+
+      <!-- 神経衰弱 ------------------------ -->
+      <section id="weakness">
+        <h2>神経衰弱</h2>
+        <p>めくったらスタート</p>
+        <div class="weak-container">
+          <div id="score">0.00</div>
+          <div id="stage">
+            <!-- JSで作成 -->
+            <!-- <div class="card-container">
+                <div class="card">
+                  <div class="card-front">1</div>
+                  <div class="card-back">?</div>
+                </div>
+              </div> -->
+          </div>
+          <a href="" id="restart" class="inactive">RESTART</a>
+        </div>
+      </section>
+    </main>
+
+    <footer><a href="../../index.html">コンテンツを抜ける</a>。</footer>
+
+    <!-- メニュー -->
+    <script src="js/menu.js"></script>
+    <!-- タブ -->
+    <script src="js/tab.js"></script>
+    <!-- 運試し -->
+    <script src="js/hit.js"></script>
+    <!-- クイズ -->
+    <script src="js/quiz.js"></script>
+    <!-- 数字タッチ -->
+    <script src="js/number.js"></script>
+    <!-- 神経衰弱 -->
+    <script src="js/weakness.js"></script>
+  </body>
+</html>

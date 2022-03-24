@@ -4,6 +4,6 @@
 # 追加
 .DS_Store
 *.css.map
-todos_fire0.js
+env.js
 package.json
 firebase.json

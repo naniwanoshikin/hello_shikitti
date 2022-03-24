@@ -64,7 +64,7 @@
     for (let i = 0; i < englishWords.length; i++) {
       englishWords[i].addTitle(); // 英訳 + titleつける
     }
-    englishWords[0].headerColorTo('yellowgreen'); // header
+    // englishWords[0].headerColorTo('yellowgreen'); // header
     Toenglish.blinking(englishWords);
     Toenglish.switch();
     // Toenglish.debug('英訳'); // 英訳
@@ -74,7 +74,7 @@
     for (let i = 0; i < japaneseWords.length; i++) {
       japaneseWords[i].addTitle();
     }
-    japaneseWords[0].headerColorTo('DarkOrange');
+    // japaneseWords[0].headerColorTo('DarkOrange');
     Tojapanese.blinking(japaneseWords);
     Tojapanese.switch();
   });
@@ -87,19 +87,20 @@
     ['nav2', 'WORK', '作品'], // 2
     ['nav3', 'TOWN', '第二の故郷'], // 3
     ['nav4', 'CONTACT', 'お問い合わせ'], // 4
-    ['world', 'This is my world!', 'Hello World'], // 見出し
+    ['world', 'This is my world', 'Hello World'], // 見出し
     ['about', 'ABOUT', '自己紹介'], // 6
-    ['work', 'WORK', '作品'], // 7
+    ['work', 'WORKs', '私の作品集'], // 7
     ['town', 'THE TOWN', '第二の故郷'], // 8
     ['contact', 'CONTACT', 'お問い合わせ'], // 9
     ['dsc1', 'Let me introduce myself.', '自己紹介します'], // 10
-    ['dsc2', 'Click the photo to jump to the link.', 'ワーク'], //11
+    ['dsc2', 'Click the photo to jump to the link.', 'ちょくちょく作りました'], //11
     ['dsc3', 'Remain in my memory world.', '私の記憶の中の田舎'], // 12
     ['dsc4', 'Contact me if anething!', 'ご連絡ください'], // 13
     ['profile', 'PROFILE', 'プロフィール'], // 14
     ['hobby', 'HOBBY', '趣味'], // 15
     ['skill', 'SKILL', 'スキル'], // 16
-    ['cafe', 'Cafe', 'カフェ'], // 17 <a>
+    ['back_world', 'Back World', '裏の世界'], // 17 <a>
+    ['todo', 'Todo', 'todoリスト'], // 18 <a>
     ['tet', 'Tetris', 'テトリス'], // 18 <a>
     ['logic', 'Diagnose', '診断チェック'], // 19 <a>
   ];

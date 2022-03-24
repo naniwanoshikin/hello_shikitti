@@ -27,6 +27,8 @@
   </head>
 
   <body>
+    <!-- header_scroll 監視 ------------------------ -->
+    <div id="target"></div>
     <header>
       <h1 id="shiki" class="to_top">しきっちワールド</h1>
       <nav>
@@ -36,89 +38,20 @@
           <li><a id="nav2" href="#work">作品</a></li>
           <li><a id="nav3" href="#town">地域紹介</a></li>
           <li><a id="nav4" href="#contact">お問い合わせ</a></li>
+          <!-- 翻訳.js -->
+          <li>
+            <a id="japanese" class="hidden">日本語</a>
+            <a id="english">英語</a>
+          </li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <!-- header_scroll 監視 ------------------------ -->
-      <div id="target"></div>
       <!-- FirstView --------------------------- -->
-      <section class="hello">
-        <div class="translate_btn">
-          <div id="japanese" class="hidden">日本語</div>
-          <div id="english">英語</div>
-        </div>
-        <h3 id="world">Hello World</h3>
-        <!-- ★ Todos ★ -->
-        <div class="mytodos">
-          <!-- JS -->
-          <ul class="tab">
-            <li class="first" data-id="content_td1">
-              <h3>Todos</h3>
-              <p>
-                <!-- ( 2 / 3 ) -->
-              </p>
-            </li>
-            <li class="second" data-id="content_td2">
-              <h3>Stocks</h3>
-              <p>
-                <!-- ( 2 / 3 ) -->
-              </p>
-            </li>
-          </ul>
-          <!-- 内容 Todos -->
-          <div class="content_td" id="content_td1">
-            <!-- ボタン集 -->
-            <div class="btns">
-              <i class="fas fa-lg fa-filter"></i>
-              <i class="far fa-lg fa-save"></i>
-              <i class="fas fa-lg fa-trash-alt"></i>
-              <i class="fas fa-lg fa-pen-alt"></i>
-              <div id="login">開く</div>
-              <div id="logout">閉じる</div>
-            </div>
-            <!-- フィルター -->
-            <form id="searchform" autocomplete="off">
-              <input type="text" class="textline" placeholder="Filter" />
-            </form>
-            <!-- cloud firestore -->
-            <form id="messageform" autocomplete="off">
-              <input type="text" class="textline" placeholder="Add...↩︎" />
-              <!-- 曜日選択 -->
-              <select id="pcost"></select>
-            </form>
-            <!-- リスト1 -->
-            <ul id="todos1"></ul>
-          </div>
-          <!-- 内容 stocks -->
-          <div class="content_td" id="content_td2">
-            <!-- ボタン集 -->
-            <div class="btns">
-              <i class="fas fa-lg fa-user-plus"></i>
-              <i class="fas fa-lg fa-user-check"></i>
-              <i class="fas fa-lg fa-sort-alpha-down"></i>
-              <i class="fas fa-lg fa-undo-alt"></i>
-            </div>
-            <!-- 選択ボックス -->
-            <form id="checkform">
-              <input type="checkbox" value="公園へ" id="1" />
-              <label for="1">運動</label>
-              <input type="checkbox" value="本読み" id="2" />
-              <label for="2">読書</label>
-              <input type="checkbox" value="カメラ" id="3" />
-              <label for="3">写真</label>
-              <input type="submit" value="↩︎" />
-            </form>
-            <!-- 入力 -->
-            <form id="addform">
-              <input type="text" class="textline" placeholder="Add...↩︎" />
-            </form>
-            <!-- リスト2 -->
-            <ul id="todos2"></ul>
-          </div>
-        </div>
-      </section>
+      <div class="hello">
+        <h1 id="world">Hello World</h1>
+      </div>
 
       <!-- 自己紹介 --------------------------- -->
       <section class="about">
@@ -127,7 +60,7 @@
         <div class="frontback">
           <div class="front">
             <div id="face">
-              <!-- 写真 -->
+              <!-- 顔 -->
             </div>
             <h2 id="profile">プロフィール</h2>
             <p>SHIKITTI / 1991年 / <span id="open">経歴</span></p>
@@ -151,13 +84,11 @@
                     <td>1991</td>
                     <td colspan="2">Osaka</td>
                   </tr>
-
                   <tr>
                     <td>2006</td>
                     <td>高校</td>
                     <td>将棋</td>
                   </tr>
-
                   <tr>
                     <td>2012</td>
                     <td>研究</td>
@@ -175,7 +106,11 @@
                     <td>哲学</td>
                     <td>パルクール</td>
                   </tr>
-
+                  <tr>
+                    <td>2018</td>
+                    <td>写真</td>
+                    <td>カメラ</td>
+                  </tr>
                   <tr>
                     <td>2020</td>
                     <td>勉強</td>
@@ -193,7 +128,7 @@
                 <div class="ripple"></div>
               </label>
             </h2>
-            <p>自転車 写真</p>
+            <p>自転車</p>
           </div>
           <!-- スキル一覧 -->
           <div class="back">
@@ -209,16 +144,17 @@
         </div>
       </section>
 
-      <!-- 画像を監視.js --------------------------- -->
+      <!-- コンテンツ --------------------------- -->
       <section class="feature">
-        <h1 id="work" data-h1="-">作品</h1>
+        <h1 id="work" data-h1="-">コンテンツ</h1>
+        <!-- 画像を監視.js --------------------------- -->
         <p id="dsc2">各コンテンツ先へ飛びます</p>
         <div class="works">
-          <!-- 1枚目 -->
+          <!-- 1 -->
           <div class="work">
             <div class="desc">
               <h2>
-                <a id="logic" href="src/page/diagnose.html" target="_blank"
+                <a id="logic" href="src/diagnose/diagnose.html" target="_blank"
                   >脳トレ診断</a
                 >
               </h2>
@@ -227,16 +163,34 @@
               </p>
             </div>
             <div class="pic from_left">
-              <a href="src/page/diagnose.html" target="_blank">
+              <a href="src/diagnose/diagnose.html" target="_blank">
                 <img src="src/img/feat1.jpg" alt="健康診断" />
               </a>
             </div>
           </div>
-          <!-- 2枚目 -->
+          <!-- 2 -->
           <div class="work">
             <div class="desc">
               <h2>
-                <a id="tet" href="src/page/tetris.html" target="_blank"
+                <a id="todo" href="src/todo/todo.html" target="_blank"
+                  >やることリスト</a
+                >
+              </h2>
+              <p>
+                お手軽に管理できるTodoリストを作りました。リストの追加・削除、ストックや保存が出来ます。
+              </p>
+            </div>
+            <div class="pic from_right">
+              <a href="src/todo/todo.html" target="_blank">
+                <img src="src/img/feat2.jpg" alt="テトリス" />
+              </a>
+            </div>
+          </div>
+          <!-- 3 -->
+          <div class="work">
+            <div class="desc">
+              <h2>
+                <a id="tet" href="src/tetris/tetris.html" target="_blank"
                   >テトリス PC専用</a
                 >
               </h2>
@@ -244,25 +198,28 @@
                 テトリスです。上からブロックが落ちてくるので埋もれないようにうまく捌いていきましょう。※矢印キーが効かないためPC専用になります。
               </p>
             </div>
-            <div class="pic from_right">
-              <a href="src/page/tetris.html" target="_blank">
-                <img src="src/img/feat2.jpg" alt="テトリス" />
+            <div class="pic from_left">
+              <a href="src/tetris/tetris.html" target="_blank">
+                <img src="src/img/feat3.jpg" alt="テトリス" />
               </a>
             </div>
           </div>
-          <!-- 3枚目 -->
+          <!-- 4 -->
           <div class="work">
             <div class="desc">
               <h2>
-                <a id="cafe" href="https://spapf-24842.web.app/" target="_blank"
-                  >私の総括ワールド</a
+                <a
+                  id="back_world"
+                  href="https://spapf-24842.web.app/"
+                  target="_blank"
+                  >裏ワールド</a
                 >
               </h2>
-              <p>別サイトに飛びます。</p>
+              <p>別ステージに飛びます。</p>
             </div>
-            <div class="pic from_left">
+            <div class="pic from_right">
               <a href="https://spapf-24842.web.app/" target="_blank">
-                <img src="src/img/feat3.jpg" alt="PF2" />
+                <img src="src/img/feat4.jpg" alt="PF2" />
               </a>
             </div>
           </div>
@@ -289,20 +246,18 @@
           <ul class="desc">
             <li>
               <h2>一宮市</h2>
-              <p>
-                一宮市丹陽町です。<br />この先を進むと、愛おしき田んぼがあります。一宮市は平成17年4月1日に誕生しました。
-              </p>
+              <p>一宮市丹陽町です。<br />この先を進むと、田んぼがあります。</p>
             </li>
             <li>
               <h2>岩倉市</h2>
               <p>
-                岩倉市五条川です。<br />春になると桜が綺麗です。春の桜名所にも選ばれています。犬山市まで川は遡ります。
+                岩倉市五条川です。<br />春になると桜が綺麗です。さくら名所100選にも選ばれています。川は犬山市まで遡ります。
               </p>
             </li>
             <li>
               <h2>江南市</h2>
               <p>
-                江南市です。<br />愛おしき田んぼの道を撮りました。夏の夕方6:00ごろになると空がとても綺麗です。
+                江南市です。<br />田んぼの道を撮りました。夏の夕方6:00ごろになると空がとても綺麗になります。
               </p>
             </li>
             <li>
@@ -347,14 +302,11 @@
         <!-- qiita -->
         <li>
           <a
-            href="https://qiita.com/power_of_shikin"
+            href="https://qiita.com/power_of_shikin/items/cbe1aed7ba4a9594f963"
             target="_blank"
             rel="noreferrer noopener"
           >
-            <span
-              class="fa-stack faa-parent animated-hover faa-tada"
-              style="color: #4cb10d"
-            >
+            <span class="faa-parent animated-hover faa-tada fa-stack search">
               <!-- ■ -->
               <i class="fa fa-square fa-stack-2x"></i>
               <!-- ◯ -->
@@ -364,7 +316,6 @@
         </li>
         <li>
           <a
-            class="share"
             href="https://twitter.com/power_of_shikin"
             target="_blank"
             rel="noreferrer noopener"
@@ -400,23 +351,6 @@
       </div>
     </footer>
 
-    <!-- 機能別: app, cloud_firestore, 匿名ログイン -->
-    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
-    <script src="src/js/todos_fire0.js"></script>
-
-    <!-- Todoリスト ドラック&ドロップ -->
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-    <!-- Todoリスト firebaseあり -->
-    <script src="src/js/todos_fire1.js"></script>
-    <!-- Todoリスト stocks-->
-    <script src="src/js/todos_stocks.js"></script>
-    <!-- Todoリスト Sort -->
-    <script src="src/js/todos_sort.js"></script>
-    <!-- Todoリスト タブ -->
-    <script src="src/js/todos_tab.js"></script>
-
     <!-- ヘッダーに戻る -->
     <script src="src/js/nav_up.js"></script>
     <!-- jQuery nav -->
@@ -424,7 +358,7 @@
     <!-- ナビ jQuery -->
     <script src="src/js/nav_down_fly.js"></script>
     <!-- 交差監視: ヘッダー色, 画像 -->
-    <script src="src/js/nav_img_change.js"></script>
+    <script src="src/js/iob.js"></script>
 
     <!-- スクロール Reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>

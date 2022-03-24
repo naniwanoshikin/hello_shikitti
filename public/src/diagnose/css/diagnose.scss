@@ -7,7 +7,7 @@
   @content;
 }
 
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// ----------------------------------------
 body {
   font-family: vardana, "Ariel Black", メイリオ, sans-serif;
   color: #333;
@@ -28,7 +28,7 @@ body {
     border-bottom: 1px solid #e7510c;
   }
 }
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// ----------------------------------------
 header {
   @include brp($b: rgb(231, 187, 187), $p: 0 16px, $r: 0);
   display: flex;
@@ -150,7 +150,7 @@ footer {
   }
 }
 
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// ----------------------------------------
 .tab {
   .tab-menu {
     margin: 30px auto;
@@ -191,7 +191,7 @@ footer {
   }
 }
 
-// 運試し ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// 運試し ----------------------------------------
 #hit {
   #round {
     display: grid;
@@ -224,7 +224,7 @@ footer {
   }
 }
 
-// クイズ ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// クイズ ----------------------------------------
 .quiz {
   // border: 2px solid #fff;
   // border-radius: 4px;
@@ -314,7 +314,7 @@ footer {
   }
 }
 
-// 数字タッチ ＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// 数字タッチ ----------------------------------------
 #touch {
   // div
   font-family: "Courier New", Courier, monospace;
@@ -368,53 +368,8 @@ footer {
   }
 }
 
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-#slot {
-  @mixin btn($w: 90px, $h: 32px, $b: #e9a98b, $c: #eee, $f: 14px, $s: 0 4px 0 #e7510c, $r: 16px) {
-    width: $w;
-    height: $h;
-    line-height: $h;
-    background: $b;
-    color: $c;
-    font-size: $f;
-    box-shadow: $s;
-    border-radius: $r;
-    text-align: center;
-    user-select: none;
-    cursor: pointer;
-    @content;
-  }
-  .mainslot {
-    @include brp($b: #eee, $r: 12px, $p: 20px);
-    width: 300px;
-    border: 2px solid #fff;
-    margin: 16px auto;
-    display: flex;
-    justify-content: space-between;
-    img {
-      width: 90px;
-      height: 100px;
-      margin-bottom: 4px;
-    }
-    // img
-    .unmatched {
-      opacity: 0.5;
-    }
-    .stop {
-      @include btn();
-    }
-  }
-  #spin {
-    @include btn($w: 280px, $h: 36px, $b: #8be9a3, $s: 0 4px 0 #0ce70c, $r: 18px, $f: 16px, $c: #eee) {
-      margin: 0 auto;
-    }
-  }
-  .inactive {
-    opacity: 0.5;
-  }
-}
 
-// 神経衰弱 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// 神経衰弱 ----------------------------------------
 #weakness {
   .weak-container {
     width: 240px;
@@ -498,7 +453,7 @@ footer {
   }
 }
 
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// ----------------------------------------
 @media (min-width: 600px) {
   header {
     .pc_menu {

@@ -65,7 +65,7 @@
     isAnswered = false;
 
     // C画像
-    randolt.innerHTML = `<img src="../img/diagnose/${quizSet[currentNum].q}" width="${c_width}px">`;
+    randolt.innerHTML = `<img src="img/${quizSet[currentNum].q}" width="${c_width}px">`;
 
     // 回答済の選択肢を消す
     while (choices.firstChild) {

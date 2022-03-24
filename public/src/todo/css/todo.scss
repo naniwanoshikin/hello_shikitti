@@ -1,0 +1,246 @@
+@mixin brp($b: #eee, $p: 0px, $r: 0px) {
+  background: $b;
+  padding: $p;
+  border-radius: $r;
+  @content;
+}
+
+// 押しボタン
+@mixin dent_btn($b: #eee, $p: 0, $r: 0, $c: #eee, $fs: 16px, $shadowc: #666666, $bordc: #eee) {
+  background: $b;
+  padding: $p;
+  border-radius: $r;
+  color: $c;
+  font-size: $fs;
+  border: 1px solid $bordc;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s;
+  box-shadow: 3px 3px 6px $shadowc;
+  &:hover {
+    opacity: 0.9;
+    box-shadow: none;
+  }
+}
+
+body {
+  section {
+    height: 100vh;
+    padding: 0;
+  }
+  h2 {
+    margin: 0;
+    padding: 20px 0;
+  }
+}
+
+
+.mytodos {
+  @include brp($b: linear-gradient(rgba(204, 238, 11, 0.4), rgba(92, 12, 196, 0.3)), $p: 25px, $r: 20px);
+  // active表示
+  $active-color: rgba(180, 166, 166, 0.3);
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  // タブメニュー ul
+  .tab {
+    padding: 0;
+    display: flex;
+    margin: 0 10px;
+    border-bottom: 1px dotted #ebeec2;
+    li {
+      padding-top: 5px;
+      display: inline-block;
+      text-align: center;
+      border-radius: 10px 10px 0 0;
+      cursor: pointer;
+      &.first {
+        width: 165px;
+      }
+      &.second {
+        width: 150px;
+      }
+      &.active {
+        background: $active-color;
+      }
+      &:not(.active):hover {
+        background: rgba(230, 137, 137, 0.2);
+        transition: 0.7s;
+      }
+      // Todos
+      h3 {
+        transition: 1s;
+        margin: 0 0;
+        color: black;
+      }
+      // (3/2)
+      p {
+        margin: 0;
+        color: rgb(243, 158, 172);
+        transition: 1s;
+        font-weight: bold;
+      }
+      // <i>
+      .i9 {
+        color: rgb(247, 247, 117);
+      }
+      .i10 {
+        color: rgb(52, 217, 247);
+      }
+    }
+  }
+  // コンテンツ全体
+  .content_td {
+    display: none;
+    &.active {
+      @include brp($b: $active-color, $p: 10px 0, $r: 10px);
+      display: block;
+    }
+    // テキスト枠
+    #addform,
+    #searchform,
+    #messageform {
+      margin: 0 auto 16px;
+      text-align: center;
+      .textline {
+        @include brp($b: #eee, $p: 10px, $r: 8px);
+        margin-right: 10px;
+        width: 50%;
+      }
+    }
+    // チェックボックス
+    #checkform {
+      margin-bottom: 5px;
+      text-align: center;
+      // ✔️の横
+      input[type="checkbox"] {
+        margin-right: 8px;
+        cursor: pointer;
+      }
+      input[type="submit"] {
+        border-radius: 5px;
+        border: thin solid #666666;
+        cursor: pointer;
+      }
+    }
+    // 端ボタン
+    #login,
+    #logout,
+    #pcost {
+      @include dent_btn($b: rgb(215, 230, 130), $p: 0, $r: 8px, $c: rgb(0, 0, 0), $fs: 14px, $bordc: #7eac82);
+    }
+    #login,
+    #logout {
+      margin-right: 20px;
+      width: 60px;
+      float: right;
+    }
+    // ボタン
+    .btns {
+      margin: 10px 0 15px;
+      line-height: 25px;
+      text-align: center;
+      i {
+        padding-right: 10px;
+        transition: 1s;
+        opacity: 0.2;
+        cursor: pointer;
+      }
+      // i color
+      .i1 {
+        color: rgb(78, 233, 143);
+        opacity: 1;
+      }
+      .i2 {
+        color: rgb(4, 23, 201);
+        opacity: 1;
+      }
+      .i3 {
+        color: rgb(14, 250, 250);
+        opacity: 1;
+      }
+      .i4 {
+        color: rgb(14, 250, 104);
+        opacity: 1;
+      }
+      .i5 {
+        color: rgb(245, 111, 88);
+        opacity: 1;
+      }
+      .i6 {
+        color: rgb(250, 246, 14);
+        opacity: 1;
+      }
+    }
+  }
+  // ul
+  #todos1,
+  #todos2 {
+    // width: calc(50px + 60%);
+    @include brp($b: radial-gradient(rgba(236, 182, 5, 0.5), rgba(196, 50, 13, 1)), $p: 10px 10px 10px 10px, $r: 10px);
+    margin: 0 auto;
+    & > :nth-child(odd) {
+      color: rgb(216, 238, 20);
+    }
+    li {
+      &:hover {
+        @include brp($b: rgba(231, 235, 46, 0.2), $p: 0px, $r: 5px);
+      }
+      // ドラッグ状態
+      &.light-green {
+        @include brp($b: lightgreen, $p: 0px, $r: 5px);
+      }
+      /* フィルター機能 */
+      &.filtered {
+        display: none;
+      }
+      // ✔️の横
+      input[type="checkbox"] {
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      label {
+        $pa: 10px; // padding-left
+        padding-left: $pa;
+        width: 185px;
+        box-sizing: border-box; // padding-leftを含めない
+        display: inline-block;
+        cursor: pointer;
+        &.done {
+          @include brp($b: #bbb, $p: 2px 0 2px $pa, $r: 10px);
+        }
+      }
+      // 期限
+      span {
+        padding-right: 20px;
+        float: right;
+      }
+      // #todos2のみ
+      .delete {
+        padding-right: 20px;
+        line-height: 2;
+        color: rgb(4, 23, 201);
+        float: right;
+      }
+    }
+    p {
+      margin: 0;
+      padding-right: 15px;
+      color: rgb(212, 228, 74);
+      letter-spacing: 0.4em;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}
+
+
+// ---------------------------
+// レスポンシブ
+/* medium screen */
+@media (min-width: 550px) {
+  .mytodos {
+    width: 50%;
+  }
+}

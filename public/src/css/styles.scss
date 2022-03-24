@@ -41,7 +41,7 @@
   }
 }
 
-// _______________________________________________
+// ---------------------------
 body {
   font-family: vardana, "Ariel Black", メイリオ, sans-serif;
   color: #333;
@@ -57,13 +57,6 @@ body {
     text-align: center;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     letter-spacing: 0.25em;
-    transition: 1s;
-    // 翻訳ボタン JS _________________________
-    &.tgcolor {
-      color: rgb(214, 19, 240);
-      letter-spacing: 0.3em;
-      transition: 1.5s;
-    }
   }
   h2 {
     font-size: 22px;
@@ -75,33 +68,55 @@ body {
   main {
     opacity: 0.9;
     line-height: 2;
-    section {
-      font-size: 16px;
-      background: hsla(80, 80%, 20%, 0.5);
-      padding-top: 5px;
-      padding-bottom: 50px;
-      & > h1 {
-        font-size: 28px;
-        margin-bottom: 0;
-        text-decoration: underline;
-        &::before,
-        &::after {
-          content: attr(data-h1);
-        }
+  }
+  section {
+    font-size: 16px;
+    background: hsla(80, 80%, 20%, 0.5);
+    padding-top: 5px;
+    padding-bottom: 50px;
+    & > h1 {
+      font-size: 28px;
+      margin-bottom: 0;
+      text-decoration: underline;
+      &::before,
+      &::after {
+        content: attr(data-h1);
       }
-      & > p {
-        margin: 5px auto 30px;
-        text-align: center;
-      }
+    }
+    & > p {
+      margin: 5px auto 30px;
+      text-align: center;
     }
   }
 }
 
-// _______________________________________________
+// ログインボタン
+// 翻訳ボタン
+// about_modal
+// 地域_写真
+.hidden {
+  display: none;
+}
+
+// js
+.tgcolor {
+  color: rgb(214, 19, 240);
+  letter-spacing: 0.3em;
+  transition: 1.5s;
+}
+
+// ---------------------------
 header {
-  $unscrollcolor: rgb(90, 87, 59); // 初期
-  $onscrollcolor: rgba(111, 124, 72, 0.95); // スクロール時
-  background: $unscrollcolor;
+  // スクロール前後.js
+  @mixin scroll {
+    background: rgb(72, 106, 112);
+    &.scrolled {
+      background: rgba(141, 134, 91, 0.95);
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    }
+  }
+  @include scroll();
+
   @include wh($w: 100%, $h: 60px) {
     line-height: 60px;
   }
@@ -114,11 +129,6 @@ header {
   justify-content: space-between;
   box-sizing: border-box;
   user-select: none;
-  // スクロール監視
-  &.scrolled {
-    background: $onscrollcolor;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-  }
   h1 {
     margin: 0;
     font-size: 18px; // 20px以上だとスマホ画面で詰まる
@@ -139,15 +149,11 @@ header {
       text-align: right;
       cursor: pointer;
     }
-    // メニュー枠（スマホ or PC）
+    // メニュー枠 スマホのみ
     ul {
-      background: $unscrollcolor;
+      // スクロール前後.js
+      @include scroll();
       transition: background 0.3s, box-shadow 0.3s;
-      // スクロール監視
-      &.scrolled {
-        background: $onscrollcolor;
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-      }
       border-radius: 0 0 15px 15px;
       display: none;
       margin: 0;
@@ -158,306 +164,51 @@ header {
         a {
           display: inline-block;
           @include link_color;
+          cursor: pointer;
         }
       }
     }
   }
 }
 
-// _______________________________________________
-footer {
-  @include brp($b: #626262, $p: 50px 0 50px, $r: 0);
-  text-align: center;
-  // アイコン集
-  ul {
-    padding-left: 22px;
-    margin: 0 auto 10px;
-    display: inline-flex;
-    li {
-      padding-right: 20px;
-      a {
-        .fa-github {
-          color: black;
-        }
-        .fa-twitter {
-          color: #1da1f2;
-        }
-        .fa-instagram {
-          color: #acb6e5; // 非対応のブラウザでの色
-          background: -webkit-linear-gradient(
-            #204bff 0%,
-            #b039db 4%,
-            #f1224d 25%,
-            #ffa915 85%,
-            #ffe987 90%,
-            #ffffd4 97%,
-            #00fffc 100%
-          ); // グラデーション
-          -webkit-background-clip: text; // テキストでくり抜く
-          -webkit-text-fill-color: transparent; // くり抜いた部分は背景を表示
-          // ないとエラー: https://developpaper.com/question/vscade-prompts-also-define-the-standard-property-for-compatibility/
-          background-clip: text;
-        }
-        // .fa-youtube {
-        //   color: red;
-        // }
-      }
-    }
-  }
-  // © shikitti
-  p {
-    margin: 0;
-    font-size: 18px;
-    color: rgba(219, 211, 211, 0.9);
-    display: inline-block;
-    cursor: pointer;
-    &:hover {
-      color: rgba(170, 158, 158, 0.8);
-      transition: 0.5s;
-    }
-  }
-}
-
-// ログインボタン
-// 翻訳ボタン
-// about_modal
-// 地域_写真
-.hidden {
-  display: none;
-}
-
-// 翻訳ボタン
-.translate_btn {
-  position: fixed;
-  top: 75px;
-  right: 2px;
-  z-index: 10;
-  // js
-  #english,
-  #japanese {
-    @include wh($w: 50px, $h: 26px);
-    @include dent_btn($b: #d4b766, $p: 2px 10px, $r: 10px, $c: rgb(0, 0, 0), $fs: 14px, $shadowc: #adcfa3);
-    margin: 0 18px 0 auto;
-  }
-}
-
-// FirstView ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// FirstView ---------------------------
 .hello {
   background: center/cover url(../img/aich0.JPG);
-  padding: 75px 10px 0;
   color: white;
-  min-height: 70vh; // Todo開いた時に高さが変わるため設定
+  min-height: 80vh; // Todo開いた時に高さが変わるため設定
   user-select: none;
-  // hello world
+  position: relative;
+  // Hello World
   #world {
-    font-weight: normal;
-    text-align: center;
-    font-size: 1.3em;
-    margin: 25px auto;
-    margin-top: 30px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    transition: 1s;
-  }
-}
-// Todoリスト _________________________________
-.mytodos {
-  @include brp($b: linear-gradient(rgba(204, 238, 11, 0.4), rgba(92, 12, 196, 0.3)), $p: 25px, $r: 20px);
-  // active表示
-  $active-color: rgba(180, 166, 166, 0.3);
-  margin: 10px auto;
-  max-width: 360px;
-  // タブメニュー
-  .tab {
-    padding: 0;
-    display: flex;
-    margin: 0 10px;
-    border-bottom: 1px dotted #ebeec2;
-    li {
-      padding-top: 5px;
-      display: inline-block;
-      text-align: center;
-      border-radius: 10px 10px 0 0;
-      cursor: pointer;
-      &.first {
-        width: 165px;
+    position: absolute; // テキスト中央用
+    top: 30%;
+    transform: translateY(-50%); // テキスト中央
+    font-weight: lighter;
+    font-size: 30px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    letter-spacing: 0.25em;
+    width: 100%; // h1のため、中央寄せになる
+
+    animation: fadeDown 3s forwards;
+
+    @keyframes fadeDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-100px);
       }
-      &.second {
-        width: 150px;
+      50% {
+        opacity: 0;
+        transform: translateY(-90px);
       }
-      &.active {
-        background: $active-color;
-      }
-      &:not(.active):hover {
-        background: rgba(230, 137, 137, 0.2);
-        transition: 0.7s;
-      }
-      // Todos
-      h3 {
-        transition: 1s;
-        margin: 0 0;
-        color: black;
-      }
-      // (3/2)
-      p {
-        margin: 0;
-        color: rgb(243, 158, 172);
-        transition: 1s;
-        font-weight: bold;
-      }
-      // <i>
-      .i9 {
-        color: rgb(247, 247, 117);
-      }
-      .i10 {
-        color: rgb(52, 217, 247);
-      }
-    }
-  }
-  // コンテンツ全体
-  .content_td {
-    display: none;
-    &.active {
-      @include brp($b: $active-color, $p: 10px 0, $r: 10px);
-      display: block;
-    }
-    // テキスト枠
-    #addform,
-    #searchform,
-    #messageform {
-      margin: 0 auto 16px;
-      text-align: center;
-      .textline {
-        @include brp($b: #eee, $p: 10px, $r: 8px);
-        margin-right: 10px;
-        width: 50%;
-      }
-    }
-    // チェックボックス
-    #checkform {
-      margin-bottom: 5px;
-      text-align: center;
-      // ✔️の横
-      input[type="checkbox"] {
-        margin-right: 8px;
-        cursor: pointer;
-      }
-      input[type="submit"] {
-        border-radius: 5px;
-        border: thin solid #666666;
-        cursor: pointer;
-      }
-    }
-    // 端ボタン
-    #login,
-    #logout,
-    #pcost {
-      @include dent_btn($b: rgb(215, 230, 130), $p: 0, $r: 8px, $c: rgb(0, 0, 0), $fs: 14px, $bordc: #7eac82);
-    }
-    #login,
-    #logout {
-      margin-right: 20px;
-      width: 60px;
-      float: right;
-    }
-    // ボタン
-    .btns {
-      margin: 10px 0 15px;
-      line-height: 25px;
-      text-align: center;
-      i {
-        padding-right: 10px;
-        transition: 1s;
-        opacity: 0.2;
-        cursor: pointer;
-      }
-      // i color
-      .i1 {
-        color: rgb(78, 233, 143);
+      100% {
         opacity: 1;
+        transform: translateY(0);
       }
-      .i2 {
-        color: rgb(4, 23, 201);
-        opacity: 1;
-      }
-      .i3 {
-        color: rgb(14, 250, 250);
-        opacity: 1;
-      }
-      .i4 {
-        color: rgb(14, 250, 104);
-        opacity: 1;
-      }
-      .i5 {
-        color: rgb(245, 111, 88);
-        opacity: 1;
-      }
-      .i6 {
-        color: rgb(250, 246, 14);
-        opacity: 1;
-      }
-    }
-  }
-  // ul
-  #todos1,
-  #todos2 {
-    // width: calc(50px + 60%);
-    @include brp($b: radial-gradient(rgba(236, 182, 5, 0.5), rgba(196, 50, 13, 1)), $p: 10px 10px 10px 10px, $r: 10px);
-    margin: 0 auto;
-    & > :nth-child(odd) {
-      color: rgb(216, 238, 20);
-    }
-    li {
-      &:hover {
-        @include brp($b: rgba(231, 235, 46, 0.2), $p: 0px, $r: 5px);
-      }
-      // ドラッグ状態
-      &.light-green {
-        @include brp($b: lightgreen, $p: 0px, $r: 5px);
-      }
-      /* フィルター機能 */
-      &.filtered {
-        display: none;
-      }
-      // ✔️の横
-      input[type="checkbox"] {
-        margin-left: 10px;
-        cursor: pointer;
-      }
-      label {
-        $pa: 10px; // padding-left
-        padding-left: $pa;
-        width: 185px;
-        box-sizing: border-box; // padding-leftを含めない
-        display: inline-block;
-        cursor: pointer;
-        &.done {
-          @include brp($b: #bbb, $p: 2px 0 2px $pa, $r: 10px);
-        }
-      }
-      // 期限
-      span {
-        padding-right: 20px;
-        float: right;
-      }
-      // #todos2のみ
-      .delete {
-        padding-right: 20px;
-        line-height: 2;
-        color: rgb(4, 23, 201);
-        float: right;
-      }
-    }
-    p {
-      margin: 0;
-      padding-right: 15px;
-      color: rgb(212, 228, 74);
-      letter-spacing: 0.4em;
-      font-weight: bold;
-      text-align: center;
     }
   }
 }
-// 自己紹介 _________________________________
+
+// 自己紹介 ---------------------------
 .about {
   border-radius: 40px;
   margin: 20px auto;
@@ -551,7 +302,7 @@ footer {
   }
 }
 
-// 特徴 _________________________________
+// 特徴 ---------------------------
 .feature {
   border-radius: 50px;
   margin: 20px auto;
@@ -600,7 +351,7 @@ footer {
   }
 }
 
-// 地元紹介 _________________________________
+// 地元紹介 ---------------------------
 .city {
   @include brp($b: #f2f2f3, $p: 6px 18px, $r: 20px);
   // padding 20pxだとアウト
@@ -622,7 +373,7 @@ footer {
         transition: transform 0.3s;
         li {
           height: 100%;
-          min-width: 100%; // ulの幅
+          min-width: 100%; // ulの幅に対して
           img {
             width: 100%;
             height: 100%;
@@ -692,7 +443,7 @@ footer {
     }
   }
 }
-// お問い合わせ _________________________________
+// お問い合わせ ---------------------------
 .contact {
   @include brp($b: rgb(240, 190, 99), $p: 10px 20px 30px, $r: 50px 50px 0 0);
   user-select: none;
@@ -784,7 +535,63 @@ footer {
     justify-content: center;
   }
 }
-// いいねボタン _________________________________
+
+// ---------------------------
+footer {
+  @include brp($b: #626262, $p: 50px 0 50px, $r: 0);
+  text-align: center;
+  // アイコン集
+  ul {
+    padding-left: 22px;
+    margin: 0 auto 10px;
+    display: inline-flex;
+    li {
+      padding-right: 20px;
+      .fa-github {
+        color: black;
+      }
+      .fa-stack {
+        overflow: hidden;
+      }
+      .search {
+        color: #4cb10d;
+      }
+      .fa-twitter {
+        color: #1da1f2;
+      }
+      .fa-instagram {
+        color: #acb6e5; // 非対応のブラウザでの色
+        background: -webkit-linear-gradient(
+          #204bff 0%,
+          #b039db 4%,
+          #f1224d 25%,
+          #ffa915 85%,
+          #ffe987 90%,
+          #ffffd4 97%,
+          #00fffc 100%
+        ); // グラデーション
+        -webkit-background-clip: text; // テキストでくり抜く
+        -webkit-text-fill-color: transparent; // くり抜いた部分は背景を表示
+        // ないとエラー: https://developpaper.com/question/vscade-prompts-also-define-the-standard-property-for-compatibility/
+        background-clip: text;
+      }
+    }
+  }
+  // © shikitti
+  p {
+    margin: 0;
+    font-size: 18px;
+    color: rgba(219, 211, 211, 0.9);
+    display: inline-block;
+    cursor: pointer;
+    &:hover {
+      color: rgba(170, 158, 158, 0.8);
+      transition: 0.5s;
+    }
+  }
+}
+
+// いいねボタン ---------------------------
 .like {
   @include wh($w: 30px, $h: 30px);
   display: inline-flex; /* inline状態 */
@@ -842,9 +649,14 @@ footer {
   }
 }
 
-// _________________________________
+// ---------------------------
+// レスポンシブ
 /* medium screen */
 @media (min-width: 550px) {
+  // FirstView
+  .hello {
+    height: 100vh;
+  }
   // 自己紹介
   .about {
     max-width: 900px;
@@ -875,7 +687,7 @@ footer {
     }
   }
 }
-// _________________________________
+// ---------------------------
 @media (min-width: 640px) {
   header {
     background: none;
@@ -904,9 +716,6 @@ footer {
       }
     }
   }
-  .hello {
-    height: 715px; // FirstView
-  }
   .city {
     .city_box {
       display: flex;
@@ -920,7 +729,7 @@ footer {
     }
   }
 }
-// _________________________________
+// ---------------------------
 /* large screen */
 @media (min-width: 820px) {
   .about {
