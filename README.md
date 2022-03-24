@@ -1,4 +1,4 @@
-## しきっちワールド
+## SHIKITTI World
     自分の世界を表現しました。
 
 [公開ページ](https://myfirstlp.web.app)です。
