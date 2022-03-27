@@ -1,7 +1,7 @@
 $(function () { // (jQuery)
 
   // 各ナビ先へ飛ぶ ---------------------------
-  $('nav li > a').click(function () {
+  $('nav li > .nav_query').click(function () {
     let id = $(this).attr('href'); // 各id
     let position = $(id).offset().top; // 高さ
     $('html,body').animate({

@@ -161,9 +161,7 @@ header {
       transition: background 0.3s, box-shadow 0.3s;
       li {
         margin: 0 15px;
-        // span: 翻訳ボタン
-        a,
-        span {
+        a {
           display: inline-block; // 枠を大きく
           @include link_color;
         }
@@ -696,18 +694,17 @@ footer {
       p.only_phone {
         display: none; // ▼アイコン
       }
+      // メニュー枠
       ul {
         display: flex; // 表示
         background: none;
         &.scrolled {
           background: none; // header色の重なりを削除
-          box-shadow: none; // 同じく
+          box-shadow: none; // 同上
         }
         li {
           margin: 0;
-          // span: 翻訳ボタン
-          a,
-          span {
+          a {
             border-radius: 8px;
             padding: 0 10px;
             transition: background 0.5s, color 0.5s;

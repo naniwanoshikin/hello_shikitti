@@ -34,14 +34,14 @@
       <nav>
         <p class="only_phone"><i class="far fa-caret-square-down"></i></p>
         <ul>
-          <li><a id="nav1" href="#about">自己紹介</a></li>
-          <li><a id="nav2" href="#work">作品</a></li>
-          <li><a id="nav3" href="#town">地域紹介</a></li>
-          <li><a id="nav4" href="#contact">お問い合わせ</a></li>
-          <!-- 翻訳.js ナビでjQueryで使われるaタグ以外のspanタグにした-->
+          <li><a class="nav_query" id="nav1" href="#about">自己紹介</a></li>
+          <li><a class="nav_query" id="nav2" href="#work">作品</a></li>
+          <li><a class="nav_query" id="nav3" href="#town">地域紹介</a></li>
+          <li><a class="nav_query" id="nav4" href="#contact">お問い合わせ</a></li>
+          <!-- 翻訳.js -->
           <li>
-            <span id="japanese" class="hidden">日本語</span>
-            <span id="english">英語</span>
+            <a id="japanese" class="hidden">日本語</a>
+            <a id="english">英語</a>
           </li>
         </ul>
       </nav>
@@ -356,7 +356,7 @@
     <!-- jQuery nav -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- ナビ jQuery -->
-    <script src="src/js/nav_down_fly.js"></script>
+    <script src="src/js/nav_scroll_down.js"></script>
     <!-- 交差監視: ヘッダー色, 画像 -->
     <script src="src/js/iob.js"></script>
 

@@ -154,21 +154,18 @@ header nav ul li {
   margin: 0 15px;
 }
 
-header nav ul li a,
-header nav ul li span {
+header nav ul li a {
   display: inline-block;
   color: #fff;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-header nav ul li a:hover,
-header nav ul li span:hover {
+header nav ul li a:hover {
   color: #77e6ae;
 }
 
-header nav ul li a:active,
-header nav ul li span:active {
+header nav ul li a:active {
   color: pink;
 }
 
@@ -911,16 +908,14 @@ footer p:hover {
   header nav ul li {
     margin: 0;
   }
-  header nav ul li a,
-  header nav ul li span {
+  header nav ul li a {
     border-radius: 8px;
     padding: 0 10px;
     -webkit-transition: background 0.5s, color 0.5s;
     transition: background 0.5s, color 0.5s;
     cursor: pointer;
   }
-  header nav ul li a:hover,
-  header nav ul li span:hover {
+  header nav ul li a:hover {
     background: #97a878c9;
   }
   .city .city_box {
