@@ -164,8 +164,10 @@ header {
       li {
         margin: 0 15px;
         a {
-          display: inline-block; // 枠を大きく
           @include link_color;
+          display: block; // 枠を均等に
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // ■枠削除
+          cursor: pointer;
         }
       }
     }
@@ -551,12 +553,13 @@ footer {
       .fa-github {
         color: black;
       }
-      .fa-stack {
-        overflow: hidden;
-      }
       .search {
         color: #4cb10d;
+        overflow: hidden;
       }
+      // .fa-search {
+      //   overflow: hidden;
+      // }
       .fa-twitter {
         color: #1da1f2;
       }

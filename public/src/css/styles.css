@@ -155,10 +155,12 @@ header nav ul li {
 }
 
 header nav ul li a {
-  display: inline-block;
   color: #fff;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+  display: block;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
 }
 
 header nav ul li a:hover {
@@ -706,12 +708,9 @@ footer ul li .fa-github {
   color: black;
 }
 
-footer ul li .fa-stack {
-  overflow: hidden;
-}
-
 footer ul li .search {
   color: #4cb10d;
+  overflow: hidden;
 }
 
 footer ul li .fa-twitter {

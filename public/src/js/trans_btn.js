@@ -82,7 +82,7 @@
 
   // (id, 英語, 日本語)
   const words = [
-    ['shiki', 'SHIKITTI WORLD', 'しきっちワールド'], // 0 header
+    ['shiki', 'SHIKITANI WORLD', 'しきっちワールド'], // 0 header
     ['nav1', 'ABOUT', '自己紹介'], // 1
     ['nav2', 'WORK', '作品'], // 2
     ['nav3', 'TOWN', '第二の故郷'], // 3
