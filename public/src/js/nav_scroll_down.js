@@ -1,4 +1,4 @@
-$(function () { // (jQuery)
+$(function () { // ナビ (jQuery)
 
   // 各ナビ先へ飛ぶ ---------------------------
   $('nav li > .nav_query').click(function () {
@@ -9,7 +9,7 @@ $(function () { // (jQuery)
     }, 'fast');
   });
 
-  // ナビ_ドロップダウン ---------------------------
+  // ドロップダウン ---------------------------
   $('nav > p').click(function () {
     let $answer = $('nav').children('ul');
     if ($answer.hasClass('open')) { // openしていたら、

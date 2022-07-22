@@ -17,7 +17,7 @@ body h1 {
   font-weight: normal;
   text-align: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.3em;
 }
 
 body h2 {
@@ -28,42 +28,31 @@ body h2 {
   border-bottom: 2px solid #b2df0f;
 }
 
-body main {
-  opacity: 0.9;
-  line-height: 2;
-}
-
-body section {
-  font-size: 16px;
-  background: rgba(65, 92, 10, 0.5);
-  padding-top: 5px;
-  padding-bottom: 50px;
-}
-
-body section > h1 {
-  font-size: 28px;
-  margin-bottom: 0;
-  text-decoration: underline;
-}
-
-body section > h1::before, body section > h1::after {
-  content: attr(data-h1);
-}
-
-body section > p {
-  margin: 5px auto 30px;
-  text-align: center;
-}
-
-.hidden {
+body .hidden {
   display: none;
 }
 
-.tgcolor {
-  color: #d613f0;
-  letter-spacing: 0.3em;
-  -webkit-transition: 1.5s;
-  transition: 1.5s;
+body .fade_in {
+  -webkit-animation: fadeIn 0.5s;
+          animation: fadeIn 0.5s;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 header {
@@ -93,7 +82,7 @@ header {
           user-select: none;
 }
 
-header.scrolled {
+header.scrolled_iob {
   background: rgba(141, 134, 91, 0.95);
   -webkit-box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.3);
           box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.3);
@@ -101,25 +90,23 @@ header.scrolled {
 
 header h1 {
   margin: 0;
-  font-size: 18px;
-  cursor: pointer;
+  font-size: 20px;
   color: #fff;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-  -webkit-transition: all 300ms 0s ease;
-  transition: all 300ms 0s ease;
+  cursor: pointer;
+  -webkit-transition: color 0.5s 0s ease, font-size 0.3s;
+  transition: color 0.5s 0s ease, font-size 0.3s;
 }
 
 header h1:hover {
-  color: #77e6ae;
+  color: #a8e2c6;
 }
 
 header h1:active {
   color: pink;
 }
 
-header h1:hover {
-  font-size: 20px;
+header h1.world_iob {
+  font-size: 18px;
 }
 
 header nav .only_phone {
@@ -144,35 +131,45 @@ header nav ul {
   transition: background 0.3s, box-shadow 0.3s, -webkit-box-shadow 0.3s;
 }
 
-header nav ul.scrolled {
+header nav ul.scrolled_iob {
   background: rgba(141, 134, 91, 0.95);
   -webkit-box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.3);
           box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.3);
 }
 
 header nav ul li {
-  margin: 0 15px;
+  margin: 0 6px;
 }
 
 header nav ul li a {
-  color: #fff;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
   display: block;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  padding: 0 6px;
   cursor: pointer;
+  border-radius: 8px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-transition: background 0.8s, color 1.2s;
+  transition: background 0.8s, color 1.2s;
 }
 
 header nav ul li a:hover {
-  color: #77e6ae;
+  background: #c4baacc9;
 }
 
-header nav ul li a:active {
-  color: pink;
+header nav ul li a.iob_active {
+  background: #c9d7be7d;
+  color: #ffe987;
 }
 
-.hello {
+main {
+  opacity: 0.9;
+  line-height: 2;
+}
+
+main .first_view {
   background: center/cover url(../img/aich0.JPG);
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
   color: white;
   min-height: 80vh;
   -webkit-user-select: none;
@@ -182,18 +179,15 @@ header nav ul li a:active {
   position: relative;
 }
 
-.hello #world {
+main .first_view #hello_world {
   position: absolute;
   top: 30%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  width: 100%;
   font-weight: lighter;
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  letter-spacing: 0.25em;
-  width: 100%;
-  -webkit-animation: fadeDown 3s forwards;
-          animation: fadeDown 3s forwards;
+  -webkit-animation: fadeDown 2.5s forwards;
+          animation: fadeDown 2.5s forwards;
 }
 
 @-webkit-keyframes fadeDown {
@@ -204,8 +198,8 @@ header nav ul li a:active {
   }
   50% {
     opacity: 0;
-    -webkit-transform: translateY(-90px);
-            transform: translateY(-90px);
+    -webkit-transform: translateY(-70px);
+            transform: translateY(-70px);
   }
   100% {
     opacity: 1;
@@ -222,14 +216,47 @@ header nav ul li a:active {
   }
   50% {
     opacity: 0;
-    -webkit-transform: translateY(-90px);
-            transform: translateY(-90px);
+    -webkit-transform: translateY(-70px);
+            transform: translateY(-70px);
   }
   100% {
     opacity: 1;
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
+}
+
+main section {
+  font-size: 16px;
+  background: rgba(65, 92, 10, 0.5);
+  padding-top: 5px;
+  padding-bottom: 50px;
+}
+
+main section > h1 {
+  font-size: 28px;
+  margin-bottom: 0;
+  text-decoration: underline;
+}
+
+main section > h1::before, main section > h1::after {
+  content: attr(data-h1);
+}
+
+main section > p {
+  margin: 5px auto 30px;
+  text-align: center;
+}
+
+main .first_view > h1,
+main section > h1 {
+  -webkit-transition: letter-spacing 0.8s;
+  transition: letter-spacing 0.8s;
+}
+
+main .first_view > h1.blinking,
+main section > h1.blinking {
+  letter-spacing: 0.4em;
 }
 
 .about {
@@ -335,10 +362,10 @@ header nav ul li a:active {
   margin: 0 auto;
   position: fixed;
   z-index: 2;
-  -webkit-transition: -webkit-transform 0.4s;
-  transition: -webkit-transform 0.4s;
-  transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
   /* 上に隠れる */
 }
 
@@ -409,11 +436,6 @@ header nav ul li a:active {
   display: inline-block;
   max-width: 550px;
   position: relative;
-  opacity: 0;
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
 }
 
 .feature .works .work .pic img {
@@ -426,23 +448,31 @@ header nav ul li a:active {
   opacity: 0.9;
 }
 
-.feature .works .work .pic.from_left {
+.feature .works .work .img_iob {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
+}
+
+.feature .works .work .img_iob.from_left {
   -webkit-transform: translateX(-30px);
           transform: translateX(-30px);
 }
 
-.feature .works .work .pic.from_right {
+.feature .works .work .img_iob.from_right {
   -webkit-transform: translateX(30px);
           transform: translateX(30px);
 }
 
-.feature .works .work .pic.appear {
+.feature .works .work .img_iob.appear_iob {
   opacity: 1;
   -webkit-transform: none;
           transform: none;
 }
 
-.city {
+.town {
   background: #f2f2f3;
   padding: 6px 18px;
   border-radius: 20px;
@@ -450,13 +480,13 @@ header nav ul li a:active {
   margin: 16px auto;
 }
 
-.city .city_box .container {
+.town .town_box .container {
   margin: 0 10px;
   overflow: hidden;
   position: relative;
 }
 
-.city .city_box .container ul.pic {
+.town .town_box .container ul.pic {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -469,12 +499,12 @@ header nav ul li a:active {
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
 
-.city .city_box .container ul.pic li {
+.town .town_box .container ul.pic li {
   height: 100%;
   min-width: 100%;
 }
 
-.city .city_box .container ul.pic li img {
+.town .town_box .container ul.pic li img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -482,8 +512,8 @@ header nav ul li a:active {
   border-radius: 8px;
 }
 
-.city .city_box .container #prev,
-.city .city_box .container #next {
+.town .town_box .container #prev,
+.town .town_box .container #next {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -497,44 +527,44 @@ header nav ul li a:active {
   cursor: pointer;
 }
 
-.city .city_box .container #prev:hover,
-.city .city_box .container #next:hover {
+.town .town_box .container #prev:hover,
+.town .town_box .container #next:hover {
   opacity: 0.8;
 }
 
-.city .city_box .container #prev {
+.town .town_box .container #prev {
   left: 0;
 }
 
-.city .city_box .container #next {
+.town .town_box .container #next {
   right: 0;
 }
 
-.city .city_box ul.desc {
+.town .town_box ul.desc {
   margin: 0 auto;
   padding: 0;
   width: 100%;
 }
 
-.city .city_box ul.desc li {
+.town .town_box ul.desc li {
   text-align: justify;
   margin: 10px 15px;
 }
 
-.city .city_box ul.desc li h2 {
+.town .town_box ul.desc li h2 {
   margin: 0;
 }
 
-.city .city_box ul.desc li p {
+.town .town_box ul.desc li p {
   height: 160px;
 }
 
-.city nav {
+.town nav {
   margin-top: 16px;
   text-align: center;
 }
 
-.city nav button {
+.town nav button {
   border: none;
   width: 16px;
   height: 16px;
@@ -543,11 +573,11 @@ header nav ul li a:active {
   cursor: pointer;
 }
 
-.city nav button + button {
+.town nav button + button {
   margin-left: 15px;
 }
 
-.city nav .current {
+.town nav .current {
   background: #999;
 }
 
@@ -735,8 +765,8 @@ footer p {
 
 footer p:hover {
   color: rgba(170, 158, 158, 0.8);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
 }
 
 .like {
@@ -858,8 +888,11 @@ footer p:hover {
 
 /* medium screen */
 @media (min-width: 550px) {
-  .hello {
+  .first_view {
     height: 100vh;
+  }
+  .first_view #hello_world {
+    font-size: 40px;
   }
   .about {
     max-width: 900px;
@@ -870,7 +903,7 @@ footer p:hover {
   .about .back .chart {
     max-width: 450px;
   }
-  .city {
+  .town {
     max-width: 700px;
   }
   .contact {
@@ -899,34 +932,21 @@ footer p:hover {
     display: flex;
     background: none;
   }
-  header nav ul.scrolled {
+  header nav ul.scrolled_iob {
     background: none;
     -webkit-box-shadow: none;
             box-shadow: none;
   }
-  header nav ul li {
-    margin: 0;
-  }
-  header nav ul li a {
-    border-radius: 8px;
-    padding: 0 10px;
-    -webkit-transition: background 0.5s, color 0.5s;
-    transition: background 0.5s, color 0.5s;
-    cursor: pointer;
-  }
-  header nav ul li a:hover {
-    background: #97a878c9;
-  }
-  .city .city_box {
+  .town .town_box {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  .city .city_box .container {
+  .town .town_box .container {
     width: 70%;
     height: 280px;
   }
-  .city .city_box ul.desc {
+  .town .town_box ul.desc {
     width: 40%;
   }
 }

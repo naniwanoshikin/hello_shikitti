@@ -12,17 +12,7 @@
   height: $h;
   @content;
 }
-// リンク色
-@mixin link_color($c: #fff, $hc: rgb(119, 230, 174), $ac: pink) {
-  color: $c;
-  transition: 0.2s;
-  &:hover {
-    color: $hc;
-  }
-  &:active {
-    color: $ac;
-  }
-}
+
 // 押しボタン
 @mixin dent_btn($b: #eee, $p: 0, $r: 0, $c: #eee, $fs: 16px, $shadowc: #666666, $bordc: #eee) {
   background: $b;
@@ -56,7 +46,7 @@ body {
     font-weight: normal;
     text-align: center;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.3em;
   }
   h2 {
     font-size: 22px;
@@ -65,54 +55,35 @@ body {
     margin: 20px 10% 20px;
     border-bottom: 2px solid rgb(178, 223, 15);
   }
-  main {
-    opacity: 0.9;
-    line-height: 2;
+  // ボタン: 翻訳
+  // about_モーダル年表
+  // town_写真
+  .hidden {
+    display: none;
   }
-  section {
-    font-size: 16px;
-    background: hsla(80, 80%, 20%, 0.5);
-    padding-top: 5px;
-    padding-bottom: 50px;
-    & > h1 {
-      font-size: 28px;
-      margin-bottom: 0;
-      text-decoration: underline;
-      &::before,
-      &::after {
-        content: attr(data-h1);
+  // 翻訳ボタン押した時 h1_id部が変化
+  .fade_in {
+    animation: fadeIn 0.5s;
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
       }
     }
-    & > p {
-      margin: 5px auto 30px;
-      text-align: center;
-    }
   }
-}
-
-// ログインボタン
-// 翻訳ボタン
-// about_modal
-// 地域_写真
-.hidden {
-  display: none;
-}
-
-// js
-.tgcolor {
-  color: rgb(214, 19, 240);
-  letter-spacing: 0.3em;
-  transition: 1.5s;
 }
 
 // ---------------------------
 header {
-  // .js
+  // 監視
   @mixin scroll_iob {
     // スクロール前
     background: rgb(72, 106, 112);
     // スクロール後
-    &.scrolled {
+    &.scrolled_iob {
       background: rgba(141, 134, 91, 0.95);
       box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.3);
     }
@@ -134,12 +105,19 @@ header {
   user-select: none;
   h1 {
     margin: 0;
-    font-size: 18px; // 20px以上だとスマホ画面で詰まる
+    font-size: 20px; // 20px以上だとスマホ画面で詰まる
+    color: #fff;
     cursor: pointer;
-    @include link_color;
-    transition: all 300ms 0s ease; // ホバー
+    transition: color 0.5s 0s ease, font-size 0.3s;
     &:hover {
-      font-size: 20px;
+      color: rgb(168, 226, 198);
+    }
+    &:active {
+      color: pink;
+    }
+    // 監視
+    &.world_iob {
+      font-size: 18px;
     }
   }
   nav {
@@ -162,51 +140,95 @@ header {
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
       transition: background 0.3s, box-shadow 0.3s;
       li {
-        margin: 0 15px;
+        margin: 0 6px;
         a {
-          @include link_color;
           display: block; // 枠を均等に
-          -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // ■枠削除
+          color: #fff;
+          padding: 0 6px;
           cursor: pointer;
+          border-radius: 8px;
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // ■枠削除
+          transition: background 0.8s, color 1.2s;
+          &:hover {
+            background: #c4baacc9;
+          }
+          // ナビ色
+          &.iob_active {
+            background: #c9d7be7d;
+            color: #ffe987;
+          }
         }
       }
     }
   }
 }
 
-// FirstView ---------------------------
-.hello {
-  background: center/cover url(../img/aich0.JPG);
-  color: white;
-  min-height: 80vh; // Todo開いた時に高さが変わるため設定
-  user-select: none;
-  position: relative;
-  // Hello World
-  #world {
-    position: absolute; // テキスト中央用
-    top: 30%;
-    transform: translateY(-50%); // テキスト中央
-    font-weight: lighter;
-    font-size: 30px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    letter-spacing: 0.25em;
-    width: 100%; // h1のため、中央寄せになる
+// ---------------------------
+main {
+  opacity: 0.9;
+  line-height: 2;
+  .first_view {
+    background: center/cover url(../img/aich0.JPG);
+    transition: background 0.3s; // url画像変わった時
+    color: white;
+    min-height: 80vh; // Todo開いた時に高さが変わるため設定
+    user-select: none;
+    position: relative;
+    #hello_world {
+      position: absolute; // テキスト中央
+      top: 30%;
+      // transform: translateY(-50%); // テキスト中央
+      width: 100%; // テキスト中央
 
-    animation: fadeDown 3s forwards;
+      font-weight: lighter;
+      font-size: 30px;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 
-    @keyframes fadeDown {
-      0% {
-        opacity: 0;
-        transform: translateY(-100px);
+      animation: fadeDown 2.5s forwards;
+      @keyframes fadeDown {
+        0% {
+          opacity: 0;
+          // width: 0%; // 中央寄せになる
+          transform: translateY(-100px);
+        }
+        50% {
+          opacity: 0;
+          transform: translateY(-70px);
+        }
+        100% {
+          opacity: 1;
+          // width: 100%;
+          transform: translateY(0);
+        }
       }
-      50% {
-        opacity: 0;
-        transform: translateY(-90px);
+    }
+  }
+  section {
+    font-size: 16px;
+    background: hsla(80, 80%, 20%, 0.5);
+    padding-top: 5px;
+    padding-bottom: 50px;
+    & > h1 {
+      font-size: 28px;
+      margin-bottom: 0;
+      text-decoration: underline;
+      &::before,
+      &::after {
+        content: attr(data-h1);
       }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    }
+    & > p {
+      margin: 5px auto 30px;
+      text-align: center;
+    }
+  }
+  // 文字幅
+  .first_view > h1,
+  section > h1 {
+    transition: letter-spacing 0.8s;
+    // 翻訳ボタン押した時
+    &.blinking {
+      letter-spacing: 0.4em;
     }
   }
 }
@@ -280,7 +302,7 @@ header {
       margin: 0 auto;
       position: fixed;
       z-index: 2;
-      transition: transform 0.4s;
+      transition: transform 0.2s;
       & > p {
         margin: 0 0 20px;
       }
@@ -318,7 +340,14 @@ header {
       .desc {
         padding: 0 30px;
         a {
-          @include link_color($c: rgb(165, 97, 42), $hc: rgb(189, 101, 29));
+          color: rgb(165, 97, 42);
+          transition: 0.2s;
+          &:hover {
+            color: rgb(189, 101, 29);
+          }
+          &:active {
+            color: pink;
+          }
         }
         p {
           text-align: justify;
@@ -336,7 +365,9 @@ header {
             opacity: 0.9;
           }
         }
-        // 画像の監視 js
+      }
+      // 画像_監視
+      .img_iob {
         opacity: 0;
         transition: opacity 0.3s, transform 0.3s;
         &.from_left {
@@ -345,7 +376,7 @@ header {
         &.from_right {
           transform: translateX(30px);
         }
-        &.appear {
+        &.appear_iob {
           opacity: 1;
           transform: none;
         }
@@ -355,12 +386,12 @@ header {
 }
 
 // 地元紹介 ---------------------------
-.city {
+.town {
   @include brp($b: #f2f2f3, $p: 6px 18px, $r: 20px);
   // padding 20pxだとアウト
   width: 90%;
   margin: 16px auto;
-  .city_box {
+  .town_box {
     // 画像 + << >>
     .container {
       margin: 0 10px; // つけた
@@ -590,7 +621,7 @@ footer {
     cursor: pointer;
     &:hover {
       color: rgba(170, 158, 158, 0.8);
-      transition: 0.5s;
+      transition: color 0.5s;
     }
   }
 }
@@ -658,8 +689,12 @@ footer {
 /* medium screen */
 @media (min-width: 550px) {
   // FirstView
-  .hello {
+  .first_view {
     height: 100vh;
+    // Hello World
+    #hello_world {
+      font-size: 40px;
+    }
   }
   // 自己紹介
   .about {
@@ -674,7 +709,7 @@ footer {
     }
   }
   // 地域紹介
-  .city {
+  .town {
     max-width: 700px;
   }
   // お問い合わせ
@@ -704,27 +739,15 @@ footer {
       ul {
         display: flex; // 表示
         background: none;
-        &.scrolled {
+        &.scrolled_iob {
           background: none; // 色の重複を削除
           box-shadow: none; // 同上
-        }
-        li {
-          margin: 0;
-          a {
-            border-radius: 8px;
-            padding: 0 10px;
-            transition: background 0.5s, color 0.5s;
-            cursor: pointer;
-            &:hover {
-              background: #97a878c9;
-            }
-          }
         }
       }
     }
   }
-  .city {
-    .city_box {
+  .town {
+    .town_box {
       display: flex;
       .container {
         width: 70%;

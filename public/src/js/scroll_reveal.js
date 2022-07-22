@@ -1,15 +1,15 @@
-'use strict'; // 画像 アニメーション表示 UI
+'use strict'; // アニメーション
 // React.jsには対応していない？
 {
   // option
   // 1
   let prof_about = {
-    duration: 900, // アニメーションの長さ
-    distance: '20%', // 移動距離
+    duration: 700, // アニメーションの長さ
+    distance: '10%', // 移動距離
     origin: 'right', // From
     opacity: 0.7, // 薄さ
     scale: 1.2, // 初期サイズ
-    viewFactor: 0.7, // どれくらい見えたら実行するか 0-1
+    viewFactor: 0.6, // どれくらい見えたら実行するか 0-1
     interval: 800, // 出だしの遅さ
     easing: 'ease-in-out',
     rotate: {
@@ -48,11 +48,11 @@
     },
   };
 
-  // プロフ写真
-  let prof_img = document.querySelector('#face');
+  // 顔写真
+  let prof_img = document.getElementById('face');
   let nodeArray1 = [
-    // document.querySelector('.mytodos'), // Todoリスト
-    document.querySelector('#root0'), // お問い合わせ
+    // お問い合わせ
+    document.getElementById('root0'),
   ];
 
   // 実行（Node, Option）

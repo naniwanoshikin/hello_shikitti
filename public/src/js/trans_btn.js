@@ -1,99 +1,120 @@
-'use strict'; // 英語 ⇄ 日本語 切り替え
+'use strict'; // 英語 ⇄ 日本語
 
 {
-  // ボタン
-  const e_btn = document.getElementById('english');
-  const j_btn = document.getElementById('japanese');
+  // 切替ボタン
+  const e_btn = document.getElementById('e_btn');
+  const j_btn = document.getElementById('j_btn');
 
-  // 英訳
+  // 切替
   class Toenglish {
     constructor(id, word) {
       this.id = id;
       this.word = word; // 用語
       this.i = 0; // 色の変化回数
     }
-    translate() { // 英訳
-      document.getElementById(this.id).textContent = this.word;
+    // 英訳
+    setTranslate() {
+      // 文字
+      let target_letter = document.getElementById(this.id);
+      // 書き換え
+      target_letter.textContent = this.word;
+      // titleつける
+      target_letter.title = `id="${this.id}"`;
+      // ふわっと表示
+      target_letter.classList.add('fade_in');
+      function fadeIn() {
+        target_letter.classList.remove('fade_in');
+      }
+      setTimeout(fadeIn, 500); // 1s後にクラスを除去
     }
-    addTitle() { // titleもつける
-      document.getElementById(this.id).title = `id="${this.id}"`;
-      this.translate() // カプセル化
-    }
-    headerColorTo(color) { // 引数: 色
-      document.getElementById(this.id).style.color = color;
-    }
-    toggleTag(className) { // 挙動
+
+    /**
+     * 挙動
+     * @param className // クラス名
+     */
+    toggleTag(className) {
       document.getElementById(this.id).classList.toggle(className);
       const Id = setTimeout(() => {
         this.toggleTag(className);
-      }, 500);
+      }, 500); // 秒数
       this.i++;
+      // 繰り返し回数
       if (this.i === 6) {
         clearTimeout(Id); // カウント終了
         this.i = 0;
       }
     }
-    static blinking(instance) { // <h1> 点滅（インスタンス名）
+    /**
+     * <h1> 点滅
+     * @param instance // インスタンス名
+     */
+    static blinking(instance) {
       [
+        5,
         6, // 自己紹介
-        7, // 作品
+        7, // コンテンツ
         8, // 地域紹介
         9, // お問い合わせ
       ].forEach(e => {
         setTimeout(() => {
-          instance[e].toggleTag('tgcolor');
+          instance[e].toggleTag('blinking');
         }, 300);
       });
     }
-    static switch() { // ボタン表記切替
+    // ボタン表記切替
+    static switch() {
       e_btn.classList.toggle('hidden');
       j_btn.classList.toggle('hidden');
     }
-    static debug(txt) { // その他
-      console.log(txt);
-    }
+    // デバッグ用
+    // static debug(txt) {
+    //   console.log(txt);
+    // }
   }
 
   // 日本語訳
   class Tojapanese extends Toenglish {
   }
 
+  // 背景画像
+  const mainVisual = document.querySelector('.first_view');
 
   // 実行
   e_btn.addEventListener('click', () => {
-    for (let i = 0; i < englishWords.length; i++) {
-      englishWords[i].addTitle(); // 英訳 + titleつける
+    for (let i = 0; i < e_words.length; i++) {
+      e_words[i].setTranslate();
     }
-    // englishWords[0].headerColorTo('yellowgreen'); // header
-    Toenglish.blinking(englishWords);
     Toenglish.switch();
+    Toenglish.blinking(e_words);
     // Toenglish.debug('英訳'); // 英訳
+
+    mainVisual.style.backgroundImage = 'url(src/img/aich1.JPG)';
   });
 
   j_btn.addEventListener('click', () => {
-    for (let i = 0; i < japaneseWords.length; i++) {
-      japaneseWords[i].addTitle();
+    for (let i = 0; i < j_words.length; i++) {
+      j_words[i].setTranslate();
     }
-    // japaneseWords[0].headerColorTo('DarkOrange');
-    Tojapanese.blinking(japaneseWords);
     Tojapanese.switch();
+    Tojapanese.blinking(j_words);
+    mainVisual.style.backgroundImage = 'url(src/img/aich0.JPG)';
   });
 
 
   // (id, 英語, 日本語)
   const words = [
-    ['shiki', 'SHIKITANI WORLD', 'しきっちワールド'], // 0 header
+    ['shiki', 'SHIKITANI WORLD', 'しきっちワールド'], // 0
     ['nav1', 'ABOUT', '自己紹介'], // 1
     ['nav2', 'WORK', '作品'], // 2
     ['nav3', 'TOWN', '第二の故郷'], // 3
     ['nav4', 'CONTACT', 'お問い合わせ'], // 4
-    ['world', 'This is my world', 'Hello World'], // 見出し
-    ['about', 'ABOUT', '自己紹介'], // 6
-    ['work', 'WORKs', '私の作品集'], // 7
-    ['town', 'THE TOWN', '第二の故郷'], // 8
-    ['contact', 'CONTACT', 'お問い合わせ'], // 9
+    ['hello_world', 'This is my world', 'Hello World'], // FV
+    ['h1_about', 'ABOUT', '自己紹介'], // 6
+    ['h1_work', 'WORKs', '私の作品集'], // 7
+    ['h1_town', 'THE TOWN', '第二の故郷'], // 8
+    ['h1_contact', 'CONTACT', 'お問い合わせ'], // 9
     ['dsc1', 'Let me introduce myself.', '自己紹介します'], // 10
-    ['dsc2', 'Click the photo to jump to the link.', 'ちょくちょく作りました'], //11
+    ['dsc2', 'Click the photo to jump to the link.', 'ちょくちょく更新します'], // 11
     ['dsc3', 'Remain in my memory world.', '私の記憶の中の田舎'], // 12
     ['dsc4', 'Contact me if anething!', 'ご連絡ください'], // 13
     ['profile', 'PROFILE', 'プロフィール'], // 14
@@ -105,8 +126,8 @@
     ['logic', 'Diagnose', '診断チェック'], // 19 <a>
   ];
 
-  const englishWords = [];
-  const japaneseWords = [];
+  const e_words = [];
+  const j_words = [];
   for (let i = 0; i < words.length; i++) {
     // インスタンス生成
     const eng = new Toenglish();
@@ -114,11 +135,11 @@
     // 英訳用
     eng.id = words[i][0];
     eng.word = words[i][1];
-    englishWords[i] = eng;
+    e_words[i] = eng;
     // 日本語訳用
     jpn.id = words[i][0];
     jpn.word = words[i][2];
-    japaneseWords[i] = jpn;
+    j_words[i] = jpn;
     // console.log(eng); // 各オブジェクト
   }
 

@@ -3,8 +3,8 @@
 {
   const next = document.getElementById('next');
   const prev = document.getElementById('prev');
-  const ul_pic = document.querySelector('.city ul.pic'); // 写真
-  const ul_des = document.querySelector('.city ul.desc'); // 説明
+  const ul_pic = document.querySelector('.town ul.pic'); // 写真
+  const ul_des = document.querySelector('.town ul.desc'); // 説明
   const slides = ul_pic.children; // li
   const descs = ul_des.children;; // li
   const dots = []; // 丸ボタン
@@ -48,7 +48,7 @@
         setDesc();
       });
       dots.push(button);
-      document.querySelector('.city > nav').appendChild(button);
+      document.querySelector('.town > nav').appendChild(button);
     }
     dots[0].classList.add('current');
   }

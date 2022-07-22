@@ -19,6 +19,7 @@
       type="text/css"
       media="all"
     />
+    <link href='https://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
     <!-- ハートマーク -->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -28,20 +29,20 @@
 
   <body>
     <!-- header_scroll 監視 ------------------------ -->
-    <div id="target"></div>
+    <div id="target_iob"></div>
     <header>
       <h1 id="shiki" class="to_top">しきたにワールド</h1>
       <nav>
         <p class="only_phone"><i class="far fa-caret-square-down"></i></p>
-        <ul>
+        <ul class="index_iob">
           <li><a class="nav_query" id="nav1" href="#about">自己紹介</a></li>
           <li><a class="nav_query" id="nav2" href="#work">作品</a></li>
-          <li><a class="nav_query" id="nav3" href="#town">地域紹介</a></li>
+          <li><a class="nav_query" id="nav3" href="#town">地域</a></li>
           <li><a class="nav_query" id="nav4" href="#contact">お問い合わせ</a></li>
           <!-- 翻訳.js -->
           <li>
-            <a id="japanese" class="hidden">日本語</a>
-            <a id="english">英語</a>
+            <a id="j_btn" class="hidden">日本語</a>
+            <a id="e_btn">英語</a>
           </li>
         </ul>
       </nav>
@@ -49,13 +50,13 @@
 
     <main>
       <!-- FirstView --------------------------- -->
-      <div class="hello">
-        <h1 id="world">Hello World</h1>
+      <div class="first_view">
+        <h1 id="hello_world">Hello World</h1>
       </div>
 
       <!-- 自己紹介 --------------------------- -->
-      <section class="about">
-        <h1 id="about" data-h1="-">自己紹介</h1>
+      <section class="about" id="about">
+        <h1 id="h1_about" data-h1="-">自己紹介</h1>
         <p id="dsc1">自己紹介します。</p>
         <div class="frontback">
           <div class="front">
@@ -63,7 +64,7 @@
               <!-- 顔 -->
             </div>
             <h2 id="profile">プロフィール</h2>
-            <p>しきたに / 1991年 / <span id="open">経歴</span></p>
+            <p>しきたに / 1991年 / <span id="open">年表</span></p>
             <div id="mask" class="hidden"></div>
             <div id="modal" class="top_hidden">
               <p>経歴</p>
@@ -94,13 +95,6 @@
                     <td>研究</td>
                     <td>橋脚</td>
                   </tr>
-
-                  <tr>
-                    <td>2016</td>
-                    <td>設計</td>
-                    <td>自動車部品</td>
-                  </tr>
-
                   <tr>
                     <td>2017</td>
                     <td>哲学</td>
@@ -145,10 +139,10 @@
       </section>
 
       <!-- コンテンツ --------------------------- -->
-      <section class="feature">
-        <h1 id="work" data-h1="-">コンテンツ</h1>
+      <section class="feature" id="work">
+        <h1 id="h1_work" data-h1="-">コンテンツ</h1>
         <!-- 画像を監視.js --------------------------- -->
-        <p id="dsc2">各コンテンツ先へ飛びます</p>
+        <p id="dsc2">コンテンツをクリックして下さい</p>
         <div class="works">
           <!-- 1 -->
           <div class="work">
@@ -162,7 +156,7 @@
                 脳トレゲームページを作成しました。<br />運試しや視力検査、数字タッチ、神経衰弱などのタイムアタックがあります。<br />ぜひ遊んでください！
               </p>
             </div>
-            <div class="pic from_left">
+            <div class="pic img_iob from_left">
               <a href="src/diagnose/diagnose.html" target="_blank">
                 <img src="src/img/feat1.jpg" alt="健康診断" />
               </a>
@@ -180,7 +174,7 @@
                 お手軽に管理できるTodoリストを作りました。リストの追加・削除、ストックや保存が出来ます。
               </p>
             </div>
-            <div class="pic from_right">
+            <div class="pic img_iob from_right">
               <a href="src/todo/todo.html" target="_blank">
                 <img src="src/img/feat2.jpg" alt="テトリス" />
               </a>
@@ -198,7 +192,7 @@
                 テトリスです。上からブロックが落ちてくるので埋もれないようにうまく捌いていきましょう。※矢印キーが効かないためPC専用になります。
               </p>
             </div>
-            <div class="pic from_left">
+            <div class="pic img_iob from_left">
               <a href="src/tetris/tetris.html" target="_blank">
                 <img src="src/img/feat3.jpg" alt="テトリス" />
               </a>
@@ -217,7 +211,7 @@
               </h2>
               <p>別ページです。</p>
             </div>
-            <div class="pic from_right">
+            <div class="pic img_iob from_right">
               <a href="https://spapf-24842.web.app/" target="_blank">
                 <img src="src/img/feat4.jpg" alt="PF2" />
               </a>
@@ -227,10 +221,10 @@
       </section>
 
       <!-- 地域 --------------------------- -->
-      <section class="city">
-        <h1 id="town" data-h1="-">地域</h1>
+      <section class="town" id="town">
+        <h1 id="h1_town" data-h1="-">地域</h1>
         <p id="dsc3">私の記憶の中の地域</p>
-        <div class="city_box">
+        <div class="town_box">
           <!-- 画像 + << >> -->
           <div class="container">
             <ul class="pic">
@@ -251,19 +245,19 @@
             <li>
               <h2>岩倉市</h2>
               <p>
-                岩倉市五条川です。<br />春になると桜が綺麗です。さくら名所100選にも選ばれています。犬山市に上流があります。
+                岩倉市五条川です。<br />春のさくら名所100選に選ばれています。犬山市に上流があります。
               </p>
             </li>
             <li>
               <h2>江南市</h2>
               <p>
-                江南市です。<br />田んぼの道を撮りました。夏の夕方6:00ごろになると空がとても綺麗になります。
+                江南市の田んぼの風景です。<br />夏の夕方6:00ごろの空がとても美しいです。
               </p>
             </li>
             <li>
               <h2>小牧市</h2>
               <p>
-                小牧市中央です。<br />駅近くから撮りました。奥に見えるのは小牧山城です。少し進んだ先にあるたこ焼き屋さんがおすすめです。
+                小牧市中央です。<br />小牧山城が見えます。この先にあるたこ焼き屋さんがおすすめです。
               </p>
             </li>
           </ul>
@@ -273,8 +267,8 @@
       </section>
 
       <!-- お問い合わせ --------------------------- -->
-      <section class="contact">
-        <h1 id="contact" data-h1="-">お問い合わせ</h1>
+      <section class="contact" id="contact">
+        <h1 id="h1_contact" data-h1="-">お問い合わせ</h1>
         <p class="free" id="dsc4">
           <span class="faa-parent animated-hover">
             <i class="fas fa-envelope fa-lg faa-ring"></i>
@@ -347,7 +341,7 @@
       </li> -->
       </ul>
       <div>
-        <p class="to_top">© shikitani_world 2021</p>
+        <p class="to_top">© shikitani_world 2022</p>
       </div>
     </footer>
 
@@ -357,8 +351,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- ナビ jQuery -->
     <script src="src/js/nav_scroll_down.js"></script>
-    <!-- 交差監視: ヘッダー色, 画像 -->
-    <script src="src/js/iob.js"></script>
+    <!-- 交差監視: ヘッダー, ナビ色 -->
+    <script src="src/js/iob_nav.js"></script>
+    <!-- 交差監視: 画像 -->
+    <script src="src/js/iob_img.js"></script>
 
     <!-- スクロール Reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -373,7 +369,7 @@
     <script src="src/js/about_skill_chart.js"></script>
 
     <!-- 地域 カルーセル -->
-    <script src="src/js/remain_city_slide.js"></script>
+    <script src="src/js/remain_town_slide.js"></script>
 
     <!-- React CDN -->
     <script

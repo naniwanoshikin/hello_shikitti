@@ -1,4 +1,4 @@
-(function () { // 自己紹介 chart.js
+(function () { // 自己紹介
   'use strict';
 
   // ラベル名

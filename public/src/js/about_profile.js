@@ -1,4 +1,4 @@
-'use strict'; // 自己紹介 プロフィール
+'use strict'; // 自己紹介
 {
   // 顔 ---------------------------
   const face = document.getElementById('face');
@@ -21,12 +21,12 @@
   const modal = document.getElementById('modal');
   // const close = document.getElementById('close');
 
-  // マスク + 表 表示
+  // マスク + 年表 を表示
   open.addEventListener('click', () => {
     mask.classList.remove('hidden');
     modal.classList.remove('top_hidden');
   });
-  // マスク + 表 非表示
+  // マスク + 年表 を非表示
   mask.addEventListener('click', () => {
     mask.classList.add('hidden');
     modal.classList.add('top_hidden');
