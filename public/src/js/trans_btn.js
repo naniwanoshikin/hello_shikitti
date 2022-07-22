@@ -29,7 +29,7 @@
     }
 
     /**
-     * 挙動
+     * 繰り返し挙動
      * @param className // クラス名
      */
     toggleTag(className) {
@@ -66,17 +66,13 @@
       e_btn.classList.toggle('hidden');
       j_btn.classList.toggle('hidden');
     }
-    // デバッグ用
-    // static debug(txt) {
-    //   console.log(txt);
-    // }
   }
 
   // 日本語訳
   class Tojapanese extends Toenglish {
   }
 
-  // 背景画像
+  // FV_背景画像
   const mainVisual = document.querySelector('.first_view');
 
   // 実行
@@ -86,8 +82,11 @@
     }
     Toenglish.switch();
     Toenglish.blinking(e_words);
-    // Toenglish.debug('英訳'); // 英訳
 
+    // スマホメニュー開くと詰まる為下げた
+    document.getElementById('shiki').style.fontSize = '16px';
+
+    // 画像切替
     mainVisual.style.backgroundImage = 'url(src/img/aich1.JPG)';
   });
 
@@ -97,6 +96,7 @@
     }
     Tojapanese.switch();
     Tojapanese.blinking(j_words);
+    document.getElementById('shiki').style.fontSize = '18px';
     mainVisual.style.backgroundImage = 'url(src/img/aich0.JPG)';
   });
 

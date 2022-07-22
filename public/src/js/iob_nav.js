@@ -7,11 +7,11 @@
       if (!entry.isIntersecting) { // 空要素が画面から消えたとき
         header.classList.add('scrolled_iob');
         nav_ul.classList.add('scrolled_iob');
-        header_h1.classList.add('world_iob');
+        header_h1.classList.add('header_h1_iob');
       } else {
         header.classList.remove('scrolled_iob');
         nav_ul.classList.remove('scrolled_iob');
-        header_h1.classList.remove('world_iob');
+        header_h1.classList.remove('header_h1_iob');
       }
     });
   }

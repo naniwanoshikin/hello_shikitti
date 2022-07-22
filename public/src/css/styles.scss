@@ -61,7 +61,7 @@ body {
   .hidden {
     display: none;
   }
-  // 翻訳ボタン押した時 h1_id部が変化
+  // 翻訳ボタン押した時 h1_id部 ふわっと表示
   .fade_in {
     animation: fadeIn 0.5s;
 
@@ -105,7 +105,7 @@ header {
   user-select: none;
   h1 {
     margin: 0;
-    font-size: 20px; // 20px以上だとスマホ画面で詰まる
+    font-size: 20px; // 20px以上はスマホメニュー開くと詰まる
     color: #fff;
     cursor: pointer;
     transition: color 0.5s 0s ease, font-size 0.3s;
@@ -116,7 +116,7 @@ header {
       color: pink;
     }
     // 監視
-    &.world_iob {
+    &.header_h1_iob {
       font-size: 18px;
     }
   }
