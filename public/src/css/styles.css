@@ -256,7 +256,7 @@ main section > h1 {
 
 main .first_view > h1.blinking,
 main section > h1.blinking {
-  letter-spacing: 0.4em;
+  letter-spacing: 0.2em;
 }
 
 .about {

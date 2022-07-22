@@ -228,7 +228,7 @@ main {
     transition: letter-spacing 0.8s;
     // 翻訳ボタン押した時
     &.blinking {
-      letter-spacing: 0.4em;
+      letter-spacing: 0.2em;
     }
   }
 }
