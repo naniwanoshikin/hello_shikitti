@@ -2,13 +2,17 @@
 
 {
   const randolt = document.getElementById('randolt');
+  // 質問
   const question = document.getElementById('question');
+  // 回答一覧 ul
   const choices = document.getElementById('choices');
+  // 次へボタン
   const btn = document.getElementById('btn');
+  // 結果
   const result = document.getElementById('result');
   const scoreLabel = document.querySelector('#result > p'); // 結果
 
-  // (0番目を正解とする)
+  // c: 0番目を正解とする
   const patern = [
     { q: '1.png', c: ['↑', '→', '↓', '←'] },
     { q: '2.png', c: ['→', '↓', '←', '↑'] },
@@ -42,7 +46,8 @@
   }
 
   // 正誤判定（1問につき1度きり）
-  function checkAnswer(li) {
+  function checkAnswer(li, shuflChoices) {
+    // trueならば
     if (isAnswered) {
       return;
     }
@@ -54,13 +59,18 @@
     } else {
       li.classList.add('wrong');
       c_width++; // 簡単になる
+      // console.log(quizSet[currentNum].c[0]); // → 正解
+      // console.log(shuflChoices); // 新しい配列
+      // console.log(shuflChoices.indexOf(quizSet[currentNum].c[0])); // 正解のindex
+      // 正解に色をつける
+      choices.children[shuflChoices.indexOf(quizSet[currentNum].c[0])].classList.add('correct');
     }
 
     btn.classList.remove('disabled');
   }
 
 
-  // 初期状態の画面をセット
+  // 画面をセット
   function setQuiz() {
     isAnswered = false;
 
@@ -72,23 +82,24 @@
       choices.firstChild.remove(choices.firstChild);
     }
 
-    // 選択肢（シャッフル済）
+    // シャッフル済の選択肢 配列
     const shuflChoices = shuffle([...quizSet[currentNum].c]);
     shuflChoices.forEach(choice => {
       const li = document.createElement('li');
       li.textContent = choice;
       li.addEventListener('click', () => {
-        checkAnswer(li);
-        li.textContent = "";
+        checkAnswer(li, shuflChoices);
       });
       choices.appendChild(li); // 選択肢を詰め替え
     });
 
-    if (currentNum === quizSet.length - 1) { // 最終問題
+    // 最終問題ならば
+    if (currentNum === quizSet.length - 1) {
       btn.textContent = 'Show Result';
     }
   }
 
+  // 初期設定
   setQuiz();
 
 
@@ -127,7 +138,7 @@
         return;
       }
       currentNum++;
-      setQuiz();
+      setQuiz(); // 次の設定
     }
   });
 }

@@ -197,7 +197,6 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 5px;
-    justify-content: center;
     // 箱の初期状態
     .box {
       width: 100px;
@@ -252,7 +251,7 @@ footer {
       &:hover {
         background: #f8f8f8;
       }
-      @mixin quiz($b: #d4edda, $c: #155724, $bc: #c3e6cb, $after: "◯") {
+      @mixin quiz($b: #d4edda, $c: #155724, $bc: #c3e6cb, $after: "") {
         background: $b;
         color: $c;
         border-color: $bc;
@@ -266,7 +265,7 @@ footer {
         @include quiz();
       }
       &.wrong {
-        @include quiz($b: #f8d8da, $c: #721c24, $bc: #f5c6cb, $after: "✖️");
+        @include quiz($b: #f8d8da, $c: #721c24, $bc: #f5c6cb, $after: "");
       }
     }
   }

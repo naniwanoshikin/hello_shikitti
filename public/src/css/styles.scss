@@ -596,7 +596,8 @@ footer {
       }
       .fa-instagram {
         color: #acb6e5; // 非対応のブラウザでの色
-        background: -webkit-linear-gradient(
+        background: linear-gradient(
+          165deg,
           #204bff 0%,
           #b039db 4%,
           #f1224d 25%,
@@ -606,9 +607,8 @@ footer {
           #00fffc 100%
         ); // グラデーション
         -webkit-background-clip: text; // テキストでくり抜く
+        background-clip: text; // ないとエラー: https://developpaper.com/question/vscade-prompts-also-define-the-standard-property-for-compatibility/
         -webkit-text-fill-color: transparent; // くり抜いた部分は背景を表示
-        // ないとエラー: https://developpaper.com/question/vscade-prompts-also-define-the-standard-property-for-compatibility/
-        background-clip: text;
       }
     }
   }

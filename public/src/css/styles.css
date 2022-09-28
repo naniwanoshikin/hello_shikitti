@@ -749,10 +749,10 @@ footer ul li .fa-twitter {
 
 footer ul li .fa-instagram {
   color: #acb6e5;
-  background: -webkit-linear-gradient(#204bff 0%, #b039db 4%, #f1224d 25%, #ffa915 85%, #ffe987 90%, #ffffd4 97%, #00fffc 100%);
+  background: linear-gradient(165deg, #204bff 0%, #b039db 4%, #f1224d 25%, #ffa915 85%, #ffe987 90%, #ffffd4 97%, #00fffc 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 footer p {

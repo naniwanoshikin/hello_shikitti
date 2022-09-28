@@ -233,9 +233,6 @@ footer a:hover {
   -ms-grid-columns: (minmax(100px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 5px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 #hit #round .box {
@@ -314,7 +311,7 @@ footer a:hover {
 }
 
 .quiz #choices > li.correct::after {
-  content: "◯";
+  content: "";
 }
 
 .quiz #choices > li.wrong {
@@ -326,7 +323,7 @@ footer a:hover {
 }
 
 .quiz #choices > li.wrong::after {
-  content: "✖️";
+  content: "";
 }
 
 .quiz #btn,
