@@ -3,7 +3,7 @@
 {
   const randolt = document.getElementById('randolt');
   // 質問
-  const question = document.getElementById('question');
+  // const question = document.getElementById('question');
   // 回答一覧 ul
   const choices = document.getElementById('choices');
   // 次へボタン
@@ -46,7 +46,7 @@
   }
 
   // 正誤判定（1問につき1度きり）
-  function checkAnswer(li, shuflChoices) {
+  function checkAnswer(li, shuffledChoices) {
     // trueならば
     if (isAnswered) {
       return;
@@ -60,10 +60,10 @@
       li.classList.add('wrong');
       c_width++; // 簡単になる
       // console.log(quizSet[currentNum].c[0]); // → 正解
-      // console.log(shuflChoices); // 新しい配列
-      // console.log(shuflChoices.indexOf(quizSet[currentNum].c[0])); // 正解のindex
+      // console.log(shuffledChoices); // 新しい配列
+      // console.log(shuffledChoices.indexOf(quizSet[currentNum].c[0])); // 正解のindex
       // 正解に色をつける
-      choices.children[shuflChoices.indexOf(quizSet[currentNum].c[0])].classList.add('correct');
+      choices.children[shuffledChoices.indexOf(quizSet[currentNum].c[0])].classList.add('correct');
     }
 
     btn.classList.remove('disabled');
@@ -83,12 +83,12 @@
     }
 
     // シャッフル済の選択肢 配列
-    const shuflChoices = shuffle([...quizSet[currentNum].c]);
-    shuflChoices.forEach(choice => {
+    const shuffledChoices = shuffle([...quizSet[currentNum].c]);
+    shuffledChoices.forEach(choice => {
       const li = document.createElement('li');
       li.textContent = choice;
       li.addEventListener('click', () => {
-        checkAnswer(li, shuflChoices);
+        checkAnswer(li, shuffledChoices);
       });
       choices.appendChild(li); // 選択肢を詰め替え
     });

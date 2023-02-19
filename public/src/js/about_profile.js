@@ -9,6 +9,7 @@
     img.src = `src/img/face${num}.jpeg`;
   }
   img.src = `src/img/face2.jpeg`;
+  img.alt = `JR岐阜駅前の手すりに座っているしきたに`;
   img.addEventListener('click', () => {
     newface();
   });
