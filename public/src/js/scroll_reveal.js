@@ -51,12 +51,12 @@
   // 顔写真
   let prof_img = document.getElementById('face');
   let nodeArray1 = [
-    // お問い合わせ
+    // お問い合わせフォーム
     document.getElementById('root0'),
   ];
 
   // 実行（Node, Option）
   ScrollReveal().reveal(prof_img, prof_about);
-  ScrollReveal().reveal(nodeArray1, slideUp);
+  // ScrollReveal().reveal(nodeArray1, slideUp); // 出現しない可能性がある為コメントアウトしている
 
 }

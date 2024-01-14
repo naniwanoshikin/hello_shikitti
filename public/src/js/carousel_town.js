@@ -1,4 +1,4 @@
-'use strict'; // 地域部 スライド
+'use strict'; // 地域 カルーセル
 
 {
   const next = document.getElementById('next');
@@ -17,6 +17,7 @@
     }
     descs[currentIndex].classList.remove('hidden'); // 表示
   }
+
 
   // スライドボタンの表示状態
   function updateButtons() {

@@ -148,11 +148,11 @@ header {
           cursor: pointer;
           border-radius: 8px;
           -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // ■枠削除
-          transition: background 0.8s, color 1.2s;
+          transition: background 0.6s, color 0.8s;
           &:hover {
             background: #c4baacc9;
           }
-          // ナビ色
+          // ナビリンク
           &.iob_active {
             background: #c9d7be7d;
             color: #ffe987;
@@ -327,7 +327,7 @@ main {
   }
 }
 
-// 特徴 ---------------------------
+// コンテンツ ---------------------------
 .feature {
   border-radius: 50px;
   margin: 20px auto;

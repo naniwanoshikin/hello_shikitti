@@ -1,4 +1,4 @@
-'use strict'; // 監視_コンテンツ画像
+'use strict'; // 監視_コンテンツページの画像
 
 {
   function inViewCallback(entries, obs) {
